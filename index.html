@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Naser Guri – Mësimdhënës i biologjisë dhe këshilltar për karrierë</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Literata:opsz,wght@7..72,400;7..72,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#EEF2EC; --surface:#FFFFFF; --ink:#16231C; --muted:#4E5F55;
+  --spruce:#1F3A2E; --gentian:#3550A0; --sun:#E3B23C; --line:#CBD6CC;
+  --ridge1:#2E5240; --ridge2:#3F6B53; --ridge3:#7FA08A; --sky:#DCE6EF;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#121A16; --surface:#1A251F; --ink:#E6EEE8; --muted:#A3B4A9;
+    --spruce:#A9D3B9; --gentian:#9DB2F2; --sun:#E9C063; --line:#2C3B33;
+    --ridge1:#1C2E25; --ridge2:#25392F; --ridge3:#34503F; --sky:#18232B;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#121A16; --surface:#1A251F; --ink:#E6EEE8; --muted:#A3B4A9;
+  --spruce:#A9D3B9; --gentian:#9DB2F2; --sun:#E9C063; --line:#2C3B33;
+  --ridge1:#1C2E25; --ridge2:#25392F; --ridge3:#34503F; --sky:#18232B;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 72px);scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:"Literata",Georgia,"Times New Roman",serif;font-size:1.0625rem;line-height:1.7}
+h1,h2,h3{font-family:"Bricolage Grotesque",system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.1;margin:0}
+a{color:var(--gentian)}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--sun);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 1.25rem}
+
+/* header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:64px}
+.brand{display:flex;align-items:center;gap:.65rem;text-decoration:none;color:var(--ink);
+  font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:600}
+.mono{width:38px;height:38px;border-radius:50%;background:var(--spruce);color:var(--bg);display:grid;place-items:center;
+  font-weight:800;font-size:.95rem;letter-spacing:.02em}
+.nav{display:flex;gap:1.4rem}
+.nav a{color:var(--ink);text-decoration:none;font-family:"Bricolage Grotesque",system-ui,sans-serif;font-size:.98rem}
+.nav a:hover{color:var(--gentian)}
+.menu-btn{display:none;background:none;border:1px solid var(--line);color:var(--ink);border-radius:8px;padding:.4rem .7rem;
+  font:600 .95rem "Bricolage Grotesque",system-ui,sans-serif;cursor:pointer}
+@media (max-width:760px){
+  .menu-btn{display:block}
+  .nav{display:none;position:absolute;left:0;right:0;top:64px;flex-direction:column;gap:0;background:var(--surface);border-bottom:1px solid var(--line)}
+  .nav.open{display:flex}
+  .nav a{padding:.9rem 1.25rem;border-top:1px solid var(--line)}
+}
+
+/* hero */
+.hero{position:relative;background:var(--sky);overflow:hidden}
+.hero .wrap{position:relative;z-index:2;padding-top:clamp(3rem,8vw,6rem);padding-bottom:clamp(9rem,20vw,15rem)}
+.hero h1{font-size:clamp(2.6rem,7.5vw,5.6rem);font-weight:800;letter-spacing:-.025em;max-width:13ch;color:var(--spruce)}
+.hero p{max-width:46ch;font-size:1.15rem;color:var(--ink);margin:1.4rem 0 2rem}
+.cta{display:flex;flex-wrap:wrap;gap:.8rem}
+.btn{display:inline-block;padding:.85rem 1.4rem;border-radius:999px;text-decoration:none;
+  font:600 1rem "Bricolage Grotesque",system-ui,sans-serif}
+.btn.primary{background:var(--spruce);color:var(--bg)}
+.btn.ghost{border:1.5px solid var(--spruce);color:var(--spruce)}
+.btn:hover{filter:brightness(1.08)}
+.ridges{position:absolute;left:0;right:0;bottom:-2px;width:100%;height:auto;z-index:1;display:block}
+.ridges .r1{fill:var(--ridge3)} .ridges .r2{fill:var(--ridge2)} .ridges .r3{fill:var(--ridge1)}
+.sun{fill:var(--sun)}
+.hero-note{position:absolute;right:1.25rem;bottom:1rem;z-index:2;color:#E6EEE8;font-size:.85rem;opacity:.85;
+  font-family:"Bricolage Grotesque",system-ui,sans-serif}
+@media (prefers-reduced-motion:no-preference){
+  .ridges .r1{animation:rise 1.1s ease-out both}
+  .ridges .r2{animation:rise 1.1s .15s ease-out both}
+  .ridges .r3{animation:rise 1.1s .3s ease-out both}
+  @keyframes rise{from{transform:translateY(40px);opacity:0}to{transform:none;opacity:1}}
+}
+
+section{padding:clamp(3.5rem,8vw,6rem) 0}
+.sec-head{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:1rem;margin-bottom:2rem}
+.sec-head h2{font-size:clamp(2rem,4.5vw,3rem);font-weight:800;letter-spacing:-.02em;color:var(--spruce)}
+.sec-head p{max-width:48ch;margin:.6rem 0 0;color:var(--muted)}
+
+/* library */
+.tools{display:flex;flex-wrap:wrap;gap:.8rem;align-items:center;margin-bottom:1.2rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem}
+.chip{border:1.5px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:.45rem 1rem;cursor:pointer;
+  font:600 .92rem "Bricolage Grotesque",system-ui,sans-serif}
+.chip[aria-pressed="true"]{background:var(--spruce);border-color:var(--spruce);color:var(--bg)}
+.search{flex:1 1 220px;min-width:0;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;
+  padding:.55rem 1.1rem;font:1rem "Literata",Georgia,serif}
+.list{list-style:none;margin:0;padding:0;border-top:2px solid var(--spruce)}
+.item{display:grid;grid-template-columns:5.5rem 1fr auto;gap:1rem;align-items:center;padding:1rem .25rem;border-bottom:1px solid var(--line)}
+.item .cls{font:600 .9rem "Bricolage Grotesque",system-ui,sans-serif;color:var(--muted)}
+.item h3{font-size:1.12rem;font-weight:600}
+.item .meta{font-size:.9rem;color:var(--muted)}
+.dl{display:inline-flex;align-items:center;gap:.4rem;text-decoration:none;font:600 .92rem "Bricolage Grotesque",system-ui,sans-serif;
+  color:var(--gentian);border:1.5px solid currentColor;border-radius:999px;padding:.4rem .9rem;white-space:nowrap}
+.dl:hover{background:var(--gentian);color:var(--surface)}
+.empty{padding:2rem .25rem;color:var(--muted)}
+@media (max-width:560px){.item{grid-template-columns:1fr auto}.item .cls{grid-column:1/-1}}
+
+/* sections of the site */
+.areas{display:grid;grid-template-columns:repeat(12,1fr);gap:1.25rem}
+.area{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:1.6rem;text-decoration:none;color:var(--ink);
+  display:flex;flex-direction:column;gap:.6rem}
+.area h3{font-size:1.35rem;color:var(--spruce)}
+.area p{margin:0;color:var(--muted);font-size:.98rem}
+.area .go{margin-top:auto;color:var(--gentian);font:600 .95rem "Bricolage Grotesque",system-ui,sans-serif}
+.area:hover{border-color:var(--gentian)}
+.a-big{grid-column:span 7;background:var(--spruce);border-color:var(--spruce)}
+.a-big h3,.a-big p,.a-big .go{color:var(--bg)}
+.a-big h3{font-size:clamp(1.6rem,3vw,2.2rem)}
+.a-side{grid-column:span 5}
+.a-third{grid-column:span 4}
+@media (max-width:860px){.a-big,.a-side,.a-third{grid-column:span 12}}
+
+/* about */
+.about{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.about-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:clamp(2rem,6vw,5rem);align-items:start}
+.about h2{font-size:clamp(2rem,4.5vw,3rem);font-weight:800;color:var(--spruce);letter-spacing:-.02em}
+.about .lead{font-size:1.2rem;margin-top:1rem}
+.facts{list-style:none;padding:0;margin:0;display:grid;gap:1.1rem}
+.facts li{padding-left:1.1rem;border-left:3px solid var(--sun)}
+.facts strong{display:block;font:600 1.05rem "Bricolage Grotesque",system-ui,sans-serif}
+@media (max-width:760px){.about-grid{grid-template-columns:1fr}}
+
+/* career */
+.career{display:grid;grid-template-columns:1.2fr 1fr;gap:2rem;align-items:center}
+.career h2{font-size:clamp(2rem,4.5vw,3rem);font-weight:800;color:var(--spruce);letter-spacing:-.02em}
+.career p{max-width:52ch}
+.panel{background:var(--gentian);color:#fff;border-radius:22px;padding:2rem}
+.panel h3{font-size:1.5rem;margin-bottom:.6rem}
+.panel p{margin:0 0 1.2rem;opacity:.92}
+.panel .btn{background:#fff;color:#22397A}
+@media (max-width:760px){.career{grid-template-columns:1fr}}
+
+footer{background:var(--ridge1);color:#DDE7E0;padding:3rem 0 2rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:2rem}
+footer a{color:#fff}
+footer h3{font-size:1.3rem;color:#fff;margin-bottom:.5rem}
+footer small{display:block;margin-top:2rem;opacity:.7;width:100%}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#fillimi"><span class="mono" aria-hidden="true">NG</span>Naser Guri</a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="nav">Menyja</button>
+    <nav class="nav" id="nav">
+      <a href="#materialet">Materialet</a>
+      <a href="#seksionet">Seksionet</a>
+      <a href="#rreth">Rreth meje</a>
+      <a href="#karriera">Karriera</a>
+      <a href="#kontakti">Kontakti</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="fillimi" style="padding:0">
+  <div class="wrap">
+    <h1>Biologjia, e mësuar me kurreshtje.</h1>
+    <p>Kuize, teste, plane mësimore dhe materiale për këshillim karriere — të përgatitura në klasë, te SHFMU "Emin Duraku" në Kaçanik, dhe të ndara falas me nxënës e kolegë.</p>
+    <div class="cta">
+      <a class="btn primary" href="#materialet">Shfleto materialet</a>
+      <a class="btn ghost" href="#karriera">Këshillim për karrierë</a>
+    </div>
+  </div>
+  <svg class="ridges" viewBox="0 0 1440 320" preserveAspectRatio="none" aria-hidden="true">
+    <circle class="sun" cx="1140" cy="120" r="46"/>
+    <path class="r1" d="M0 230 L140 150 L240 200 L380 90 L520 190 L640 130 L760 175 L900 70 L1040 165 L1180 110 L1300 170 L1440 120 L1440 320 L0 320Z"/>
+    <path class="r2" d="M0 260 L120 210 L260 245 L420 170 L560 235 L700 190 L860 240 L1000 180 L1150 235 L1300 195 L1440 230 L1440 320 L0 320Z"/>
+    <path class="r3" d="M0 290 L180 255 L340 285 L520 245 L700 280 L880 250 L1060 285 L1240 255 L1440 280 L1440 320 L0 320Z"/>
+  </svg>
+  <span class="hero-note">Malet e Sharrit</span>
+</section>
+
+<section id="materialet">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <h2>Kuize për orën e biologjisë</h2>
+        <p>Lojëra dhe kuize në PowerPoint, gati për t'u përdorur në klasë. Disa skedarë .pptm kanë makro — hapini me “Enable content”.</p>
+      </div>
+    </div>
+
+    <div class="tools">
+      <div class="chips" role="group" aria-label="Filtro sipas klasës">
+        <button class="chip" data-f="all" aria-pressed="true">Të gjitha</button>
+        <button class="chip" data-f="6" aria-pressed="false">Klasa 6</button>
+        <button class="chip" data-f="7" aria-pressed="false">Klasa 7</button>
+        <button class="chip" data-f="x" aria-pressed="false">Lojëra të përgjithshme</button>
+      </div>
+      <input class="search" type="search" placeholder="Kërko, p.sh. sjelljet e shtazëve" aria-label="Kërko në materiale">
+    </div>
+
+    <ul class="list" id="list"></ul>
+    <p class="empty" id="empty" hidden>Asnjë material nuk përputhet me kërkimin. Provo një fjalë tjetër ose zgjidh “Të gjitha”.</p>
+  </div>
+</section>
+
+<section id="seksionet" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head"><h2>Më shumë nga puna ime</h2></div>
+    <div class="areas">
+      <a class="area a-big" href="https://naserguri1.wordpress.com/home/planet-dhe-punimet-biologji/">
+        <h3>Planet dhe punimet në biologji</h3>
+        <p>Plane vjetore, mujore dhe ditore, si dhe punime profesionale për lëndën e biologjisë.</p>
+        <span class="go">Hap planet</span>
+      </a>
+      <a class="area a-side" href="https://naserguri1.wordpress.com/teste-te-ndryshme-ne-word-dhe-pdf/">
+        <h3>Teste në Word dhe PDF</h3>
+        <p>Teste të gatshme për vlerësim, që mund t'i printoni ose t'i përshtatni.</p>
+        <span class="go">Shiko testet</span>
+      </a>
+      <a class="area a-third" href="https://naserguri1.wordpress.com/qasje-bashkekohore-per-nje-mesidhenie-dhe-mesimnxenie-efektive/">
+        <h3>Qasje bashkëkohore</h3>
+        <p>Ide dhe metoda për mësimdhënie e mësimnxënie efektive.</p>
+        <span class="go">Lexo</span>
+      </a>
+      <a class="area a-third" href="https://naserguri1.wordpress.com/ditaret-personal/">
+        <h3>Ditarët personal</h3>
+        <p>Shënime dhe reflektime nga puna e përditshme në klasë.</p>
+        <span class="go">Lexo ditarët</span>
+      </a>
+      <a class="area a-third" href="https://naserguri1.wordpress.com/fotot/">
+        <h3>Fotot</h3>
+        <p>Momente nga aktivitetet, punëtoritë dhe orët mësimore.</p>
+        <span class="go">Shiko fotot</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="rreth">
+  <div class="wrap about-grid">
+    <div>
+      <h2>Rreth meje</h2>
+      <p class="lead">Jam Naser Guri, mësimdhënës i biologjisë dhe këshilltar për karrierë. Kjo faqe mbledh punën time në arsim, që të jetë e dobishme për këdo që e kërkon.</p>
+    </div>
+    <ul class="facts">
+      <li><strong>Mësimdhënës i biologjisë</strong>SHFMU "Emin Duraku", Kaçanik</li>
+      <li><strong>Fakulteti i Edukimit</strong>Universiteti i Prishtinës</li>
+      <li><strong>Punimi i diplomës: “Flora dhe Fauna e Kosovës”</strong>Me fokus te Parku Kombëtar “Sharri”</li>
+      <li><strong>Këshilltar për karrierë</strong>Orientim i nxënësve të klasës së 9-të drejt shkollës së mesme</li>
+    </ul>
+  </div>
+</section>
+
+<section id="karriera">
+  <div class="wrap career">
+    <div>
+      <h2>Këshillim për karrierë</h2>
+      <p>Zgjedhja e shkollës së mesme është vendimi i parë i madh i nxënësit. Këtu gjeni punimet dhe materialet që përdor për t'i ndihmuar nxënësit të njohin interesat dhe aftësitë e tyre.</p>
+      <a class="btn ghost" href="https://naserguri1.wordpress.com/punimet-per-keshilltar-karriere/">Punimet për këshilltar karriere</a>
+    </div>
+    <div class="panel">
+      <h3>Testi i paraorientimit</h3>
+      <p>Platforma ime online ndihmon nxënësit e klasës së 9-të të zgjedhin shkollën e mesme që u përshtatet.</p>
+      <a class="btn" href="https://naserguri000-ai.github.io/">Fillo testin</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer id="kontakti">
+  <div class="wrap">
+    <div>
+      <h3>Naser Guri</h3>
+      <p>Mësimdhënës i biologjisë dhe këshilltar për karrierë<br>Kaçanik, Kosovë</p>
+    </div>
+    <div>
+      <h3>Kontakti</h3>
+      <p>Email: <a href="mailto:naserguri@outlook.com">naserguri@outlook.com</a></p>
+    </div>
+    <small>Materialet janë falas për përdorim arsimor. © <span id="yr"></span> Naser Guri</small>
+  </div>
+</footer>
+
+<script>
+const U="https://naserguri1.wordpress.com/wp-content/uploads/2022/10/";
+const items=[
+  {t:"Kuiz 1A – Biologji",c:"6",f:"kuiz-1a-biologji-kl.-6-.pptm",d:"Kuiz me pyetje për pjesën e parë"},
+  {t:"Kuiz 1B – Biologji",c:"6",f:"kuiz-1b-biologji-kl.-6.pptm",d:"Varianti B i kuizit të parë"},
+  {t:"Kuiz 2B – Biologji",c:"6",f:"kuiz-2b-biologji-kl.-6.pptm",d:"Kuizi i dytë, varianti B"},
+  {t:"Sjelljet e shtazëve",c:"6",f:"kuiz-6-sjelljet-e-shtazeve-.pptm",d:"Kuiz tematik për sjelljet e shtazëve"},
+  {t:"Kuiz periudha 3 – 15 pyetje",c:"6",f:"kuiz-kl.6-p3-15-biol.-.pptm",d:"Përsëritje për periudhën e tretë"},
+  {t:"Asociacioni – periudha 1",c:"7",f:"asociacioni-b7p1-kod-1.pptx",d:"Lojë asociacioni me fjalë kyçe"},
+  {t:"Biologji 7, periudha 1 – kuizi 1",c:"7",f:"biologj-7-p1-k1.pptx",d:"Kuiz për periudhën e parë"},
+  {t:"Biologji 7, periudha 1 – kuizi 2",c:"7",f:"biologj-7-p1-k2.pptx",d:"Kuizi i dytë për periudhën e parë"},
+  {t:"Kuiz periudha 1 – 15 pyetje",c:"7",f:"kuiz-kl.7-p1-15-k1-biol.-.pptm",d:"Përsëritje me 15 pyetje"},
+  {t:"3 grupe × 5 pyetje",c:"7",f:"3-grupe-x-5-pyetje-kl.7-gj.1-1-2.pptx",d:"Garë mes tre grupeve në klasë"},
+  {t:"Kuizi me 100 pyetje",c:"7",f:"kuizi-me-100-pyetje1-kl.7-copy-1.pptx",d:"Përsëritje e madhe e vitit"},
+  {t:"Kush do të bëhet milioner",c:"x",f:"kush-do-te-behet-milioner-me-kod-1.ppt",d:"Lojë në formatin e njohur televiziv"},
+  {t:"Loja memori – biologji",c:"x",f:"loja-memori-biologji.pptx",d:"Lojë kujtese me koncepte biologjike"},
+  {t:"Kuiz me 7 lëndë",c:"x",f:"kuiz-me-7-lende.pptx",d:"Kuiz ndërlëndor për gara shkollore"}
+];
+const list=document.getElementById("list"),empty=document.getElementById("empty"),q=document.querySelector(".search");
+let filt="all";
+const norm=s=>s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
+function render(){
+  const term=norm(q.value.trim());
+  const rows=items.filter(i=>(filt==="all"||i.c===filt)&&(!term||norm(i.t+" "+i.d).includes(term)));
+  list.innerHTML=rows.map(i=>{
+    const ext=i.f.split(".").pop().toUpperCase();
+    const cls=i.c==="x"?"Lojë":"Klasa "+i.c;
+    return `<li class="item"><span class="cls">${cls}</span><div><h3>${i.t}</h3><div class="meta">${i.d} · ${ext}</div></div><a class="dl" href="${U}${i.f}" download>Shkarko</a></li>`;
+  }).join("");
+  empty.hidden=rows.length>0;
+}
+document.querySelectorAll(".chip").forEach(b=>b.addEventListener("click",()=>{
+  document.querySelectorAll(".chip").forEach(x=>x.setAttribute("aria-pressed","false"));
+  b.setAttribute("aria-pressed","true");filt=b.dataset.f;render();
+}));
+q.addEventListener("input",render);
+render();
+const mb=document.querySelector(".menu-btn"),nav=document.getElementById("nav");
+mb.addEventListener("click",()=>{const o=nav.classList.toggle("open");mb.setAttribute("aria-expanded",o)});
+nav.addEventListener("click",e=>{if(e.target.tagName==="A"){nav.classList.remove("open");mb.setAttribute("aria-expanded","false")}});
+document.getElementById("yr").textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
