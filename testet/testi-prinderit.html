@@ -1,0 +1,1562 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testi i Prindërve për Orientimin e Fëmijës në Karrierë</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset dhe Stilet Bazë */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        /* Header */
+        .header {
+            background: linear-gradient(to right, #4a6fa5, #2c3e50);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Seksioni i Informatave Personale */
+        .parent-info-section {
+            padding: 30px;
+            background-color: #f8f9fa;
+        }
+        
+        .section-title {
+            color: #2c3e50;
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #eaeaea;
+            text-align: center;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .input-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .input-group label {
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2c3e50;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .input-group label i {
+            color: #4a6fa5;
+        }
+        
+        .input-group input,
+        .input-group select,
+        .input-group textarea {
+            padding: 12px 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        
+        .input-group input:focus,
+        .input-group select:focus,
+        .input-group textarea:focus {
+            outline: none;
+            border-color: #4a6fa5;
+            box-shadow: 0 0 0 3px rgba(74, 111, 165, 0.2);
+        }
+        
+        .input-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        
+        /* Seksioni i Hyrijës */
+        .intro-section {
+            padding: 30px;
+            background-color: white;
+            border-bottom: 1px solid #eaeaea;
+        }
+        
+        .intro-content {
+            background-color: #f0f7ff;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid #4a6fa5;
+        }
+        
+        .intro-content h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .intro-content p {
+            margin-bottom: 15px;
+        }
+        
+        .intro-content ul {
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .intro-content li {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .intro-content li i {
+            color: #4a6fa5;
+            margin-right: 10px;
+            margin-top: 5px;
+        }
+        
+        /* Progresi */
+        .progress-container {
+            padding: 20px 30px;
+            background-color: white;
+            border-bottom: 1px solid #eaeaea;
+        }
+        
+        .progress-text {
+            text-align: center;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .progress-bar {
+            height: 12px;
+            background-color: #ecf0f1;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        
+        .progress {
+            height: 100%;
+            background: linear-gradient(to right, #4a6fa5, #2c3e50);
+            width: 0%;
+            transition: width 0.5s ease;
+            border-radius: 6px;
+        }
+        
+        /* Pyetjet */
+        .questions-container {
+            padding: 30px;
+        }
+        
+        .question-box {
+            background-color: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            border-left: 5px solid #4a6fa5;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            display: none;
+        }
+        
+        .question-box.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .question-number {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #4a6fa5;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .question-text {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            color: #2c3e50;
+            line-height: 1.7;
+        }
+        
+        /* Opsionet e Përgjigjeve */
+        .options-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 15px;
+        }
+        
+        .option {
+            padding: 18px;
+            background-color: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .option:hover {
+            background-color: #f0f7ff;
+            border-color: #4a6fa5;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .option.selected {
+            background-color: #e8f0fe;
+            border-color: #4a6fa5;
+        }
+        
+        .option-radio {
+            margin-right: 15px;
+            margin-top: 3px;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #7f8c8d;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .option.selected .option-radio {
+            border-color: #4a6fa5;
+            background-color: #4a6fa5;
+        }
+        
+        .option.selected .option-radio::after {
+            content: "";
+            width: 10px;
+            height: 10px;
+            background-color: white;
+            border-radius: 50%;
+        }
+        
+        .option-text {
+            flex-grow: 1;
+        }
+        
+        /* Kontrolli i Navigimit */
+        .navigation-controls {
+            padding: 20px 30px;
+            background-color: white;
+            border-top: 1px solid #eaeaea;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .nav-button {
+            padding: 14px 30px;
+            background: linear-gradient(to right, #4a6fa5, #2c3e50);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            min-width: 180px;
+        }
+        
+        .nav-button:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 7px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-button:disabled {
+            background: #bdc3c7;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        #prevBtn {
+            background: linear-gradient(to right, #7f8c8d, #6c7b7d);
+        }
+        
+        /* Seksioni i Rezultateve */
+        .results-section {
+            padding: 30px;
+            display: none;
+            background-color: white;
+        }
+        
+        .results-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #eaeaea;
+        }
+        
+        .results-title {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        
+        .results-subtitle {
+            color: #7f8c8d;
+            font-size: 1.1rem;
+        }
+        
+        .student-info-box {
+            background-color: #f0f7ff;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            border-left: 5px solid #4a6fa5;
+        }
+        
+        .student-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .info-item {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .info-label {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        
+        .info-value {
+            color: #4a6fa5;
+            font-size: 1.1rem;
+        }
+        
+        /* Profilet e Rezultateve */
+        .profiles-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .profile-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .profile-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .profile-header {
+            padding: 20px;
+            color: white;
+            text-align: center;
+        }
+        
+        .profile-card:nth-child(1) .profile-header {
+            background: linear-gradient(to right, #3498db, #2980b9);
+        }
+        
+        .profile-card:nth-child(2) .profile-header {
+            background: linear-gradient(to right, #2ecc71, #27ae60);
+        }
+        
+        .profile-card:nth-child(3) .profile-header {
+            background: linear-gradient(to right, #9b59b6, #8e44ad);
+        }
+        
+        .profile-card:nth-child(4) .profile-header {
+            background: linear-gradient(to right, #e74c3c, #c0392b);
+        }
+        
+        .profile-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+        
+        .profile-score {
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+        
+        .profile-body {
+            padding: 20px;
+        }
+        
+        .profile-description {
+            margin-bottom: 20px;
+            color: #555;
+            line-height: 1.6;
+        }
+        
+        .profile-traits {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .profile-traits li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+        
+        .profile-traits li:last-child {
+            border-bottom: none;
+        }
+        
+        .profile-traits li i {
+            margin-right: 10px;
+            color: #4a6fa5;
+        }
+        
+        /* Rekomandimet */
+        .recommendations-section {
+            background-color: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+        
+        .recommendations-title {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .recommendations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .recommendation-card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-top: 4px solid #4a6fa5;
+        }
+        
+        .recommendation-card h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .recommendation-card ul {
+            padding-left: 20px;
+        }
+        
+        .recommendation-card li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+        
+        /* Veprimet */
+        .actions-section {
+            text-align: center;
+            padding: 30px;
+            background-color: white;
+            border-top: 1px solid #eaeaea;
+        }
+        
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .action-button {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            min-width: 200px;
+        }
+        
+        #printBtn {
+            background: linear-gradient(to right, #3498db, #2980b9);
+            color: white;
+        }
+        
+        #restartBtn {
+            background: linear-gradient(to right, #2ecc71, #27ae60);
+            color: white;
+        }
+        
+        #saveBtn {
+            background: linear-gradient(to right, #9b59b6, #8e44ad);
+            color: white;
+        }
+        
+        .action-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Footer */
+        .footer {
+            padding: 30px;
+            text-align: center;
+            background-color: #2c3e50;
+            color: white;
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .footer p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        /* Përshtatje për Ekranë të Vegjël */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .header {
+                padding: 30px 20px;
+            }
+            
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .options-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .navigation-controls {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-button {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .profiles-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .recommendations-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+            }
+            
+            .action-button {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+        
+        /* Animatime */
+        .fade-in {
+            animation: fadeIn 0.8s ease;
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        /* Stile të Printimit */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .container {
+                box-shadow: none;
+                max-width: 100%;
+            }
+            
+            .header {
+                background: white !important;
+                color: black !important;
+                border-bottom: 2px solid #000;
+            }
+            
+            .nav-button, 
+            .action-button,
+            .footer {
+                display: none !important;
+            }
+            
+            .question-box:not(.active),
+            .progress-container,
+            .navigation-controls {
+                display: none !important;
+            }
+            
+            .results-section {
+                display: block !important;
+                page-break-inside: avoid;
+            }
+            
+            .profiles-container {
+                grid-template-columns: repeat(2, 1fr);
+                page-break-inside: avoid;
+            }
+            
+            .profile-card {
+                page-break-inside: avoid;
+                box-shadow: none;
+                border: 1px solid #ddd;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1><i class="fas fa-hands-helping"></i> Testi i Prindërve për Orientimin e Fëmijës në Karrierë</h1>
+            <p class="subtitle">Një mjet për të ndihmuar prindërit të kuptojnë më mirë aftësitë, interesat dhe potencialin e fëmijëve të tyre për të ndihmuar në zgjedhjen e drejtimit të duhur në shkollën e mesme të lartë</p>
+        </header>
+        
+        <!-- Seksioni i Informatave Personale -->
+        <section class="parent-info-section">
+            <h2 class="section-title"><i class="fas fa-user-circle"></i> Informacioni i Prindit dhe i Fëmijës</h2>
+            
+            <div class="info-grid">
+                <div class="input-group">
+                    <label for="parentName"><i class="fas fa-user"></i> Emri i Prindit:</label>
+                    <input type="text" id="parentName" placeholder="Shkruani emrin tuaj" required>
+                </div>
+                
+                <div class="input-group">
+                    <label for="parentEmail"><i class="fas fa-envelope"></i> Email:</label>
+                    <input type="email" id="parentEmail" placeholder="shkruani@emailin.tuaj" required>
+                </div>
+                
+                <div class="input-group">
+                    <label for="childName"><i class="fas fa-child"></i> Emri i Fëmijës:</label>
+                    <input type="text" id="childName" placeholder="Emri i fëmijës tuaj" required>
+                </div>
+                
+                <div class="input-group">
+                    <label for="childClass"><i class="fas fa-school"></i> Klasa:</label>
+                    <select id="childClass" required>
+                        <option value="">Zgjidhni klasën</option>
+                        <option value="9/1">Klasa 9/1</option>
+                        <option value="9/2">Klasa 9/2</option>
+                        <option value="9/3">Klasa 9/3</option>
+                        <option value="9/4">Klasa 9/4</option>
+                        <option value="9/5">Klasa 9/5</option>
+                        <option value="9/6">Klasa 9/6</option>
+                    </select>
+                </div>
+                
+                <div class="input-group">
+                    <label for="childSchool"><i class="fas fa-graduation-cap"></i> Shkolla:</label>
+                    <input type="text" id="childSchool" placeholder="Emri i shkollës" value='SHFMU "Emin Duraku"'>
+                </div>
+                
+                <div class="input-group">
+                    <label for="parentPhone"><i class="fas fa-phone"></i> Telefoni:</label>
+                    <input type="tel" id="parentPhone" placeholder="Numri i telefonit">
+                </div>
+            </div>
+            
+            <div class="input-group">
+                <label for="observations"><i class="fas fa-sticky-note"></i> Vëzhgime të tjera për fëmijën tuaj:</label>
+                <textarea id="observations" placeholder="Shkruani vëzhgime, aftësi të veçanta, interesat ose ndonjë informacion tjetër i rëndësishëm për fëmijën tuaj..."></textarea>
+            </div>
+        </section>
+        
+        <!-- Seksioni i Hyrijës -->
+        <section class="intro-section">
+            <div class="intro-content">
+                <h3><i class="fas fa-info-circle"></i> Rreth këtij testi</h3>
+                <p>Ky test është krijuar për të ndihmuar prindërit të vlerësojnë objektivisht aftësitë, interesat dhe potencialin e fëmijëve të tyre, në mënyrë që të mund të ndihmojnë në zgjedhjen e drejtimit më të përshtatshëm në shkollën e mesme të lartë.</p>
+                
+                <h4><i class="fas fa-bullseye"></i> Qëllimi i testit:</h4>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> Të identifikojë profilet e aftësive të fëmijës</li>
+                    <li><i class="fas fa-check-circle"></i> Të vlerësojë interesat dhe preferencat e fëmijës</li>
+                    <li><i class="fas fa-check-circle"></i> Të ofrojë rekomandime për drejtimet e mundshme</li>
+                    <li><i class="fas fa-check-circle"></i> Të krijojë bazë për diskutime me këshilltarët shkollorë</li>
+                </ul>
+                
+                <p><strong><i class="fas fa-exclamation-triangle"></i> Udhëzim:</strong> Përgjigjuni sinqerisht secilës pyetje bazuar në vëzhgimet tuaja si prind. Nuk ka përgjigje të sakta apo të gabuara - çdo përgjigje ndihmon në krijimin e një portreti më të plotë të fëmijës suaj.</p>
+            </div>
+        </section>
+        
+        <!-- Shiriti i Progresit -->
+        <section class="progress-container">
+            <div class="progress-text">Progresi: <span id="currentQuestionNum">1</span>/20</div>
+            <div class="progress-bar">
+                <div class="progress" id="progressBar"></div>
+            </div>
+        </section>
+        
+        <!-- Seksioni i Pyetjeve -->
+        <section class="questions-container" id="questionsContainer">
+            <!-- Pyetjet do të shtohen automatikisht me JavaScript -->
+        </section>
+        
+        <!-- Kontrolli i Navigimit -->
+        <section class="navigation-controls">
+            <button class="nav-button" id="prevBtn" disabled>
+                <i class="fas fa-arrow-left"></i> Pyetja e Mëparshme
+            </button>
+            <button class="nav-button" id="nextBtn">
+                Pyetja tjetër <i class="fas fa-arrow-right"></i>
+            </button>
+        </section>
+        
+        <!-- Seksioni i Rezultateve -->
+        <section class="results-section" id="resultsSection">
+            <div class="results-header">
+                <h2 class="results-title"><i class="fas fa-chart-bar"></i> Raporti i Vlerësimit të Prindit</h2>
+                <p class="results-subtitle">Bazuar në përgjigjet tuaja për fëmijën tuaj</p>
+            </div>
+            
+            <!-- Informacioni i Studentit -->
+            <div class="student-info-box">
+                <h3><i class="fas fa-user-graduate"></i> Informacioni i Fëmijës</h3>
+                <div class="student-info-grid" id="studentInfoGrid">
+                    <!-- Do të plotësohet me JavaScript -->
+                </div>
+            </div>
+            
+            <!-- Profilet e Rezultateve -->
+            <h3 class="section-title"><i class="fas fa-chart-pie"></i> Profilet e Identifikuara</h3>
+            <div class="profiles-container" id="profilesContainer">
+                <!-- Do të plotësohet me JavaScript -->
+            </div>
+            
+            <!-- Rekomandimet -->
+            <div class="recommendations-section">
+                <h3 class="recommendations-title"><i class="fas fa-lightbulb"></i> Rekomandime dhe Hapa të Nëdhësishëm</h3>
+                <div class="recommendations-grid">
+                    <div class="recommendation-card">
+                        <h4><i class="fas fa-handshake"></i> Hapat për Diskutim me Fëmijën</h4>
+                        <ul id="discussionStepsList">
+                            <!-- Do të plotësohet me JavaScript -->
+                        </ul>
+                    </div>
+                    
+                    <div class="recommendation-card">
+                        <h4><i class="fas fa-school"></i> Drejtimet e Rekomanduara</h4>
+                        <ul id="recommendedPathsList">
+                            <!-- Do të plotësohet me JavaScript -->
+                        </ul>
+                    </div>
+                    
+                    <div class="recommendation-card">
+                        <h4><i class="fas fa-calendar-check"></i> Veprimet e Nëdhësishme</h4>
+                        <ul id="actionStepsList">
+                            <!-- Do të plotësohet me JavaScript -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Hapësirë për Vëzhgimet -->
+            <div class="student-info-box">
+                <h3><i class="fas fa-eye"></i> Vëzhgimet e Prindit</h3>
+                <p id="parentObservationsText">Vëzhgimet do të shfaqen këtu...</p>
+            </div>
+            
+            <!-- Veprimet -->
+            <div class="actions-section">
+                <h3 class="section-title"><i class="fas fa-download"></i> Ruani dhe Printoni Rezultatet</h3>
+                <div class="action-buttons">
+                    <button class="action-button" id="printBtn">
+                        <i class="fas fa-print"></i> Printo Raportin
+                    </button>
+                    <button class="action-button" id="restartBtn">
+                        <i class="fas fa-redo"></i> Fillo Testin Përsëri
+                    </button>
+                    <button class="action-button" id="saveBtn">
+                        <i class="fas fa-save"></i> Ruaj si PDF
+                    </button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <p><i class="fas fa-exclamation-circle"></i> <strong>Kujdes:</strong> Ky test është një mjet orientues dhe nuk duhet të konsiderohet si këshillë profesionale definitive. Rezultatet duhet të diskutohen me këshilltarët shkollorë dhe me fëmijën tuaj.</p>
+                <p><i class="fas fa-heart"></i> Krijuar me dashuri për prindërit që duan të ndihmojnë fëmijët e tyre të zgjedhin rrugën më të mirë për të ardhmen e tyre.</p>
+                <p>© 2023 Testi i Prindërve për Orientimin në Karrierë</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Pyetjet e testit për prindërit
+            const parentQuestions = [
+                {
+                    id: 1,
+                    text: "Si do të përshkruanit mënyrën se si fëmija juaj zgjidh problemet?",
+                    options: [
+                        { text: "Analizon ato në mënyrë logjike, hap pas hapi", value: "logjike" },
+                        { text: "Kërkon ndihmë nga të tjerët dhe diskuton opsionet", value: "sociale" },
+                        { text: "Përshkruan problemin me fjalë dhe gjen zgjidhje të shkruara", value: "gjuhësore" },
+                        { text: "Përdor vizatime, diagrame ose modele", value: "vizuale" }
+                    ]
+                },
+                {
+                    id: 2,
+                    text: "Çfarë lloj aktivitetesh i pëlqen më shumë fëmijës suaj?",
+                    options: [
+                        { text: "Zgjidhja e enigmave, eksperimentet, lojërat strategjike", value: "logjike" },
+                        { text: "Takimet me shokë, aktivitetet në grup, ndihma për të tjerët", value: "sociale" },
+                        { text: "Lektura, shkrimi, mësimi i gjuhëve të reja", value: "gjuhësore" },
+                        { text: "Vizatimi, muzika, fotografimi, punimet me duar", value: "vizuale" }
+                    ]
+                },
+                {
+                    id: 3,
+                    text: "Si reagon fëmija juaj kur përballon një detyrë të re?",
+                    options: [
+                        { text: "Kërkon udhëzime të qarta dhe skema për ta ndjekur", value: "logjike" },
+                        { text: "Pyet për këshilla dhe preferon të punojë me të tjerë", value: "sociale" },
+                        { text: "Lexon materiale përkatëse dhe shkruan shënime", value: "gjuhësore" },
+                        { text: "Përpiqet ta imagjinojë dhe ta përfaqësojë vizualisht", value: "vizuale" }
+                    ]
+                },
+                {
+                    id: 4,
+                    text: "Çfarë lloj librash ose programesh televizive preferon fëmija juaj?",
+                    options: [
+                        { text: "Libra shkencorë, dokumentarë teknologjikë, mistere", value: "logjike" },
+                        { text: "Histori rreth njerëzve, drama shoqërore, reality show", value: "sociale" },
+                        { text: "Romanë, poezi, programe gjuhësore", value: "gjuhësore" },
+                        { text: "Libra me ilustrime, programe artistike, filmat vizualë", value: "vizuale" }
+                    ]
+                },
+                {
+                    id: 5,
+                    text: "Si është aftësia e fëmijës tuaj për të shprehur mendimet?",
+                    options: [
+                        { text: "E qartë dhe e strukturuar logjikisht", value: "logjike" },
+                        { text: "Të frytshme në komunikim, i pëlqen të diskutojë", value: "sociale" },
+                        { text: "Të pasura me fjalë, me shprehje të shkruara të mira", value: "gjuhësore" },
+                        { text: "Më shumë përmes imazheve, gjesteve apo artit", value: "vizuale" }
+                    ]
+                },
+                {
+                    id: 6,
+                    text: "Çfarë lloj dhuratash ose gjërash i pëlqen të blejë fëmija juaj?",
+                    options: [
+                        { text: "Puzzle, kit shkencorë, robotikë, librat e matematikës", value: "logjike" },
+                        { text: "Lojëra ekipi, bileta për evente, gjëra për t'u dhënë të tjerëve", value: "sociale" },
+                        { text: "Libra, revista, fletore për shkrim, materiale gjuhësore", value: "gjuhësore" },
+                        { text: "Materiale artistike, kamerë, vegla muzikore, lojëra krijuese", value: "vizuale" }
+                    ]
+                },
+                {
+                    id: 7,
+                    text: "Si e përballon fëmija juaj stresin ose sfidat?",
+                    options: [
+                        { text: "Krijon plane dhe strategji për t'u marrë me to", value: "logjike" },
+                        { text: "Kërkon mbështetje emocionale dhe diskuton me të tjerë", value: "sociale" },
+                        { text: "Shkruan për të ose lexon për të gjetur zgjidhje", value: "gjuhësore" },
+                        { text: "Përdor kreativitetin për të shprehur emocionet", value: "vizuale" }
+                    ]
+                },
+                {
+                    id: 8,
+                    text: "Çfarë lloj talentesh keni vënë re tek fëmija juaj?",
+                    options: [
+                        { text: "Aftësi analitike, zgjidhje e problemeve matematikore", value: "logjike" },
+                        { text: "Komunikim efektiv, aftësi për të udhëhequr, empati", value: "sociale" },
+                        { text: "Aftësi të shkrimit, lexim të shpejtë, mësim të gjuhëve", value: "gjuhësore" },
+                        { text: "Talente artistike, ndjenjë estetike, koordinim i mirë fizik", value: "vizuale" }
+                    ]
+                },
+                {
+                    id: 9,
+                    text: "Si është performanca e fëmijës tuaj në lëndë të ndryshme shkollore?",
+                    options: [
+                        { text: "E shkëlqyer në matematikë dhe shkenca", value: "logjike" },
+                        { text: "E mirë në lëndët shoqërore dhe puna në grup", value: "sociale" },
+                        { text: "E shkëlqyer në gjuhë dhe letërsi", value: "gjuhësore" },
+                        { text: "E shkëlqyer në art, muzikë dhe lëndë praktike", value: "vizuale" }
+                    ]
+                },
+                {
+                    id: 10,
+                    text: "Si e shpenzon kohën e lirë fëmija juaj?",
+                    options: [
+                        { text: "Programim, video lojëra strategjike, shkenca", value: "logjike" },
+                        { text: "Dalje me shokë, vullnetariat, aktivitete sociale", value: "sociale" },
+                        { text: "Lektura, shkrim ditarësh, kërkime në internet", value: "gjuhësore" },
+                        { text: "Vizatim, muzikë, fotografí, montime video", value: "vizuale" }
+                    ]
+                },
+                {
+                    id: 11,
+                    text: "Si përshkruan fëmijën tuaj mësuesit në shkollë?",
+                    options: [
+                        { text: "I saktë, analitik, i fokusuar në detaje", value: "logjike" },
+                        { text: "Shoqëror, ndihmues, i mirë në punë në grup", value: "sociale" },
+                        { text: "I mirë në shprehje, kreativ në shkrim, lexues i mirë", value: "gjuhësore" },
+                        { text: "Krijues, me imagjinatë, i talentuar në art", value: "vizuale" }
+                    ]
+                },
+                {
+                    id: 12,
+                    text: "Çfarë lloj karrieresh i pëlqen të diskutojë fëmija juaj?",
+                    options: [
+                        { text: "Inxhinieri, mjekësi, shkencë, teknologji", value: "logjike" },
+                        { text: "Mësimdhënie, psikologji, punë sociale, marketing", value: "sociale" },
+                        { text: "Gazetari, shkrim, përkthim, gjuhetari", value: "gjuhësore" },
+                        { text: "Dizajn, arkitekturë, art, muzikë", value: "vizuale" }
+                    ]
+                },
+                {
+                    id: 13,
+                    text: "Si përgatitet fëmija juaj për teste dhe provime?",
+                    options: [
+                        { text: "Krijon plane studimi dhe diagrame logjike", value: "logjike" },
+                        { text: "Studion në grup dhe diskuton me shokë", value: "sociale" },
+                        { text: "Shkruan shënime të hollësishme dhe përmbledhje", value: "gjuhësore" },
+                        { text: "Përdor skema vizuale dhe memoria vizuale", value: "vizuale" }
+                    ]
+                },
+                {
+                    id: 14,
+                    text: "Çfarë lloj mjedisi pune i përshtatet më mirë fëmijës tuaj?",
+                    options: [
+                        { text: "I organizuar, me rregulla të qarta, i qetë", value: "logjike" },
+                        { text: "Interaktiv, me shumë komunikim, në grup", value: "sociale" },
+                        { text: "Ku mund të shkruajë dhe të komunikojë me fjalë", value: "gjuhësore" },
+                        { text: "Kreativ, fleksibël, me mundësi për shprehje vizuale", value: "vizuale" }
+                    ]
+                },
+                {
+                    id: 15,
+                    text: "Si merr vendime fëmija juaj?",
+                    options: [
+                        { text: "Bazuar në logjikë dhe analizë të të dhënave", value: "logjike" },
+                        { text: "Konsultohet me të tjerë dhe merr parasysh ndikimin social", value: "sociale" },
+                        { text: "Shkruan pro dhe kundra, analizon me fjalë", value: "gjuhësore" },
+                        { text: "Imagjinon skenarë të ndryshëm dhe rezultatet vizuale", value: "vizuale" }
+                    ]
+                },
+                {
+                    id: 16,
+                    text: "Çfarë lloj hobish ose aktivitetesh jashtëshkollore i pëlqen?",
+                    options: [
+                        { text: "Roborikë, klub shkencor, shah", value: "logjike" },
+                        { text: "Klub debate, sporte ekipore, vullnetariat", value: "sociale" },
+                        { text: "Klub leximi, gazeta shkollore, gjuhë të huaja", value: "gjuhësore" },
+                        { text: "Art, teatër, muzikë, klub fotografike", value: "vizuale" }
+                    ]
+                },
+                {
+                    id: 17,
+                    text: "Si përdor teknologjinë fëmija juaj?",
+                    options: [
+                        { text: "Për të mësuar programim, analizë të dhënash, simulime", value: "logjike" },
+                        { text: "Për komunikim social, organizim eventesh, networking", value: "sociale" },
+                        { text: "Për kërkime, shkrim blogu, mësim gjuhësh", value: "gjuhësore" },
+                        { text: "Për editim foto/video, dizajn grafik, art digital", value: "vizuale" }
+                    ]
+                },
+                {
+                    id: 18,
+                    text: "Si është aftësia e fëmijës tuaj për të menaxhuar kohën?",
+                    options: [
+                        { text: "Shumë e organizuar, me orare dhe plane", value: "logjike" },
+                        { text: "E mirë kur ka pikë referimi sociale (takime me shokë)", value: "sociale" },
+                        { text: "E mirë kur ka lista dhe udhëzime të shkruara", value: "gjuhësore" },
+                        { text: "Më e mirë kur ka stimuj vizualë dhe kohë fleksibël", value: "vizuale" }
+                    ]
+                },
+                {
+                    id: 19,
+                    text: "Çfarë lloj përforcimi pozitiv funksionon më mirë për fëmijën tuaj?",
+                    options: [
+                        { text: "Pikët e larta, certifikatat, rezultatet e matshme", value: "logjike" },
+                        { text: "Përkëdhelje verbale, mirënjohje publike, shoqërim", value: "sociale" },
+                        { text: "Shkrime pozitive, letra vlerësuese, komente të shkruara", value: "gjuhësore" },
+                        { text: "Trofea, punime ekspozite, shfaqje publike", value: "vizuale" }
+                    ]
+                },
+                {
+                    id: 20,
+                    text: "Si shikon të ardhmen fëmija juaj?",
+                    options: [
+                        { text: "Si një seri qëllimesh dhe objektivash për të arritur", value: "logjike" },
+                        { text: "Si një rrugë për të ndërtuar marrëdhënie dhe të ndihmuar të tjerët", value: "sociale" },
+                        { text: "Si një histori që duhet të shkruhet dhe të tregohet", value: "gjuhësore" },
+                        { text: "Si një pikturë ose projekt që duhet të krijohet", value: "vizuale" }
+                    ]
+                }
+            ];
+
+            // Profilet dhe përshkrimet
+            const parentProfiles = {
+                logjike: {
+                    name: "Profili Logjik-Analitik",
+                    description: "Fëmija juaj ka aftësi të zhvilluara të mendimit logjik, analitik dhe zgjidhjes së problemeve. Ata janë të saktë, të fokusuar dhe të orientuar drejt detajeve.",
+                    traits: [
+                        "Mendim logjik dhe analitik",
+                        "Aftësi të shkëlqyera në zgjidhjen e problemeve",
+                        "Interes për shkencën dhe teknologjinë",
+                        "Preferencë për strukturë dhe rregulla të qarta"
+                    ],
+                    score: 0
+                },
+                sociale: {
+                    name: "Profili Social-Interpersonal",
+                    description: "Fëmija juaj është shumë i mirë në komunikim dhe ka aftësi të zhvilluara sociale. Ata janë empatikë, ndihmues dhe punojnë mirë në grup.",
+                    traits: [
+                        "Komunikim efektiv dhe aftësi sociale",
+                        "Empati dhe ndjeshmëri ndaj të tjerëve",
+                        "Aftësi për të punuar në grup",
+                        "Interes për çështjet sociale dhe njerëzore"
+                    ],
+                    score: 0
+                },
+                gjuhësore: {
+                    name: "Profili Gjuhësor-Verbal",
+                    description: "Fëmija juaj ka aftësi të shkëlqyera gjuhësore, me interes për lexim, shkrim dhe komunikim verbal. Ata janë krijues me fjalë dhe kanë talent për shprehje.",
+                    traits: [
+                        "Aftësi të shkëlqyera të shkrimit dhe leximit",
+                        "Talente për shprehjen verbale",
+                        "Interes për letërsinë dhe gjuhët",
+                        "Kreativitet në shprehjen me fjalë"
+                    ],
+                    score: 0
+                },
+                vizuale: {
+                    name: "Profili Vizual-Krijues",
+                    description: "Fëmija juaj është shumë krijues dhe ka ndjenjë të zhvilluar vizuale. Ata mësojnë dhe shprehen më mirë përmes imazheve, artit dhe kreativitetit.",
+                    traits: [
+                        "Kreativitet dhe imagjinatë e gjerë",
+                        "Talente artistike dhe vizuale",
+                        "Memorie vizuale e mirë",
+                        "Interes për artin, dizajnin dhe shprehjen vizuale"
+                    ],
+                    score: 0
+                }
+            };
+
+            // Variablat globale
+            let currentQuestionIndex = 0;
+            let userAnswers = new Array(parentQuestions.length).fill(null);
+            
+            // Elementet e DOM-it
+            const questionsContainer = document.getElementById('questionsContainer');
+            const prevButton = document.getElementById('prevBtn');
+            const nextButton = document.getElementById('nextBtn');
+            const resultsSection = document.getElementById('resultsSection');
+            const profilesContainer = document.getElementById('profilesContainer');
+            const restartButton = document.getElementById('restartBtn');
+            const printButton = document.getElementById('printBtn');
+            const saveButton = document.getElementById('saveBtn');
+            const progressBar = document.getElementById('progressBar');
+            const currentQuestionNum = document.getElementById('currentQuestionNum');
+            const studentInfoGrid = document.getElementById('studentInfoGrid');
+            const discussionStepsList = document.getElementById('discussionStepsList');
+            const recommendedPathsList = document.getElementById('recommendedPathsList');
+            const actionStepsList = document.getElementById('actionStepsList');
+            const parentObservationsText = document.getElementById('parentObservationsText');
+
+            // Funksioni për inicializimin e pyetjeve
+            function initializeQuestions() {
+                parentQuestions.forEach((question, index) => {
+                    const questionElement = document.createElement('div');
+                    questionElement.className = `question-box ${index === 0 ? 'active' : ''}`;
+                    questionElement.id = `question${index}`;
+                    
+                    let optionsHTML = '';
+                    question.options.forEach((option) => {
+                        optionsHTML += `
+                            <div class="option" data-question-index="${index}" data-option-value="${option.value}">
+                                <div class="option-radio"></div>
+                                <div class="option-text">${option.text}</div>
+                            </div>
+                        `;
+                    });
+                    
+                    questionElement.innerHTML = `
+                        <div class="question-number">
+                            <i class="fas fa-question-circle"></i>
+                            Pyetja ${question.id} nga ${parentQuestions.length}
+                        </div>
+                        <div class="question-text">${question.text}</div>
+                        <div class="options-container">${optionsHTML}</div>
+                    `;
+                    
+                    questionsContainer.appendChild(questionElement);
+                });
+                
+                // Shto event listeners për opsionet
+                document.querySelectorAll('.option').forEach(option => {
+                    option.addEventListener('click', function() {
+                        const questionIndex = parseInt(this.getAttribute('data-question-index'));
+                        const optionValue = this.getAttribute('data-option-value');
+                        
+                        // Heq seleksionin nga opsionet e tjera
+                        const allOptions = document.querySelectorAll(`.option[data-question-index="${questionIndex}"]`);
+                        allOptions.forEach(opt => opt.classList.remove('selected'));
+                        
+                        // Shto seleksionin tek ky opsion
+                        this.classList.add('selected');
+                        
+                        // Ruaj përgjigjen
+                        userAnswers[questionIndex] = optionValue;
+                        
+                        // Aktivizo butonin Next
+                        if (questionIndex === currentQuestionIndex) {
+                            nextButton.disabled = false;
+                        }
+                    });
+                });
+                
+                updateProgress();
+            }
+
+            // Funksioni për ndryshimin e pyetjeve
+            function changeQuestion(direction) {
+                if (direction === 1 && userAnswers[currentQuestionIndex] === null) {
+                    alert("Ju lutem zgjidhni një përgjigje përpara se të vazhdoni!");
+                    return;
+                }
+                
+                // Fsheh pyetjen aktuale
+                document.getElementById(`question${currentQuestionIndex}`).classList.remove('active');
+                
+                // Ndrysho indeksin
+                currentQuestionIndex += direction;
+                
+                // Shfaq pyetjen e re
+                document.getElementById(`question${currentQuestionIndex}`).classList.add('active');
+                
+                // Kontrollo butonat
+                prevButton.disabled = currentQuestionIndex === 0;
+                
+                // Ndrysho tekstin e butonit nëse jemi në pyetjen e fundit
+                if (currentQuestionIndex === parentQuestions.length - 1) {
+                    nextButton.innerHTML = 'Shiko Rezultatet <i class="fas fa-chart-bar"></i>';
+                } else {
+                    nextButton.innerHTML = 'Pyetja tjetër <i class="fas fa-arrow-right"></i>';
+                }
+                
+                // Kontrollo nëse pyetja aktuale ka përgjigje të ruajtur
+                if (userAnswers[currentQuestionIndex] !== null) {
+                    const selectedOption = document.querySelector(
+                        `.option[data-question-index="${currentQuestionIndex}"][data-option-value="${userAnswers[currentQuestionIndex]}"]`
+                    );
+                    if (selectedOption) {
+                        const allOptions = document.querySelectorAll(`.option[data-question-index="${currentQuestionIndex}"]`);
+                        allOptions.forEach(opt => opt.classList.remove('selected'));
+                        selectedOption.classList.add('selected');
+                    }
+                    nextButton.disabled = false;
+                } else {
+                    nextButton.disabled = true;
+                }
+                
+                updateProgress();
+            }
+
+            // Funksioni për përditësimin e progresit
+            function updateProgress() {
+                const progressPercentage = ((currentQuestionIndex + 1) / parentQuestions.length) * 100;
+                progressBar.style.width = `${progressPercentage}%`;
+                currentQuestionNum.textContent = currentQuestionIndex + 1;
+            }
+
+            // Funksioni për shfaqjen e rezultateve
+            function showResults() {
+                // Kontrollo nëse janë përgjigjur të gjitha pyetjet
+                const unanswered = userAnswers.filter(answer => answer === null).length;
+                if (unanswered > 0) {
+                    alert(`Ju keni ${unanswered} pyetje të papergjigjura! Ju lutem përgjigjuni të gjitha pyetjet.`);
+                    return;
+                }
+                
+                // Kontrollo informacionin personal
+                const parentName = document.getElementById('parentName').value.trim();
+                const childName = document.getElementById('childName').value.trim();
+                const childClass = document.getElementById('childClass').value;
+                
+                if (!parentName || !childName || !childClass) {
+                    alert("Ju lutem plotësoni të gjitha fushat e informacionit personal!");
+                    return;
+                }
+                
+                // Rivendos rezultatet
+                Object.keys(parentProfiles).forEach(key => {
+                    parentProfiles[key].score = 0;
+                });
+                
+                // Llogarit rezultatet
+                userAnswers.forEach(answer => {
+                    if (answer && parentProfiles[answer]) {
+                        parentProfiles[answer].score += 1;
+                    }
+                });
+                
+                // Shfaq informacionin e fëmijës
+                const parentEmail = document.getElementById('parentEmail').value.trim();
+                const childSchool = document.getElementById('childSchool').value.trim();
+                const parentPhone = document.getElementById('parentPhone').value.trim();
+                const observations = document.getElementById('observations').value.trim();
+                
+                studentInfoGrid.innerHTML = `
+                    <div class="info-item">
+                        <div class="info-label">Prindi:</div>
+                        <div class="info-value">${parentName}</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Fëmija:</div>
+                        <div class="info-value">${childName}</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Klasa:</div>
+                        <div class="info-value">${childClass}</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Shkolla:</div>
+                        <div class="info-value">${childSchool}</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Email i Prindit:</div>
+                        <div class="info-value">${parentEmail || 'Nuk është specifikuar'}</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Telefoni:</div>
+                        <div class="info-value">${parentPhone || 'Nuk është specifikuar'}</div>
+                    </div>
+                `;
+                
+                // Shfaq vëzhgimet e prindit
+                parentObservationsText.textContent = observations || 'Nuk janë shkruar vëzhgime të veçanta.';
+                
+                // Gjej profilet më të larta
+                const sortedProfiles = Object.keys(parentProfiles).sort((a, b) => {
+                    return parentProfiles[b].score - parentProfiles[a].score;
+                });
+                
+                const topProfile = sortedProfiles[0];
+                const secondProfile = sortedProfiles[1];
+                const thirdProfile = sortedProfiles[2];
+                const fourthProfile = sortedProfiles[3];
+                
+                // Krijo HTML për profilet
+                let profilesHTML = '';
+                
+                // Kartela e profilit kryesor
+                const topProfileData = parentProfiles[topProfile];
+                const topPercentage = Math.round((topProfileData.score / parentQuestions.length) * 100);
+                
+                profilesHTML += `
+                    <div class="profile-card pulse">
+                        <div class="profile-header">
+                            <h3 class="profile-title">${topProfileData.name}</h3>
+                            <div class="profile-score">${topPercentage}%</div>
+                            <p>Profil Dominues</p>
+                        </div>
+                        <div class="profile-body">
+                            <p class="profile-description">${topProfileData.description}</p>
+                            <ul class="profile-traits">
+                                ${topProfileData.traits.map(trait => `<li><i class="fas fa-check"></i> ${trait}</li>`).join('')}
+                            </ul>
+                        </div>
+                    </div>
+                `;
+                
+                // Kartela e profilit dytësor
+                const secondProfileData = parentProfiles[secondProfile];
+                const secondPercentage = Math.round((secondProfileData.score / parentQuestions.length) * 100);
+                
+                profilesHTML += `
+                    <div class="profile-card">
+                        <div class="profile-header">
+                            <h3 class="profile-title">${secondProfileData.name}</h3>
+                            <div class="profile-score">${secondPercentage}%</div>
+                            <p>Profil Dytësor</p>
+                        </div>
+                        <div class="profile-body">
+                            <p class="profile-description">${secondProfileData.description}</p>
+                            <ul class="profile-traits">
+                                ${secondProfileData.traits.map(trait => `<li><i class="fas fa-check"></i> ${trait}</li>`).join('')}
+                            </ul>
+                        </div>
+                    </div>
+                `;
+                
+                // Kartela e profileve të tjerë
+                [thirdProfile, fourthProfile].forEach((profileKey, index) => {
+                    const profileData = parentProfiles[profileKey];
+                    const percentage = Math.round((profileData.score / parentQuestions.length) * 100);
+                    const title = index === 0 ? "Profil i Tretë" : "Profil i Katërt";
+                    
+                    profilesHTML += `
+                        <div class="profile-card">
+                            <div class="profile-header">
+                                <h3 class="profile-title">${profileData.name}</h3>
+                                <div class="profile-score">${percentage}%</div>
+                                <p>${title}</p>
+                            </div>
+                            <div class="profile-body">
+                                <p class="profile-description">${profileData.description}</p>
+                                <ul class="profile-traits">
+                                    ${profileData.traits.slice(0, 2).map(trait => `<li><i class="fas fa-check"></i> ${trait}</li>`).join('')}
+                                </ul>
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                profilesContainer.innerHTML = profilesHTML;
+                
+                // Krijo rekomandimet
+                createRecommendations(topProfile, secondProfile);
+                
+                // Shfaq seksionin e rezultateve dhe fshi pjesët e tjera
+                document.querySelector('.progress-container').style.display = 'none';
+                document.querySelector('.navigation-controls').style.display = 'none';
+                document.querySelector('.parent-info-section').style.display = 'none';
+                document.querySelector('.intro-section').style.display = 'none';
+                questionsContainer.style.display = 'none';
+                resultsSection.style.display = 'block';
+                
+                // Scroll në fillim
+                window.scrollTo(0, 0);
+            }
+
+            // Funksioni për krijimin e rekomandimeve
+            function createRecommendations(primaryProfile, secondaryProfile) {
+                // Hapat për diskutim me fëmijën
+                const discussionSteps = [
+                    "Diskutoni rezultatet me fëmijën tuaj në një mjedis të qetë dhe të rehatshëm",
+                    "Pyesni fëmijën për mendimet dhe ndjenjat e tyre për rezultatet",
+                    "Krahasoni rezultatet me interesat dhe preferencat e fëmijës",
+                    "Diskutoni rreth drejtimeve të mundshme në shkollën e mesme",
+                    "Bëni një listë të pyetjeve për këshilltarin shkollor"
+                ];
+                
+                discussionStepsList.innerHTML = discussionSteps.map(step => 
+                    `<li>${step}</li>`
+                ).join('');
+                
+                // Drejtimet e rekomanduara
+                const profilePaths = {
+                    logjike: [
+                        "Shkencat e Natyrës dhe Matematika",
+                        "Teknologji dhe Inxhinieri",
+                        "Shkenca Kompjuterike",
+                        "Shkenca Mjekësore"
+                    ],
+                    sociale: [
+                        "Shkencat Shoqërore",
+                        "Psikologji dhe Edukim",
+                        "Shkenca Politike",
+                        "Punë Sociale dhe Komunitare"
+                    ],
+                    gjuhësore: [
+                        "Gjuhë dhe Letërsi",
+                        "Gjuhë të Huaja",
+                        "Komunikim dhe Media",
+                        "Gazetari dhe Shkrim"
+                    ],
+                    vizuale: [
+                        "Art dhe Dizajn",
+                        "Arkitekturë",
+                        "Muzikë dhe Arte Performative",
+                        "Dizajn Grafik dhe Multimedia"
+                    ]
+                };
+                
+                const primaryPaths = profilePaths[primaryProfile] || [];
+                const secondaryPaths = profilePaths[secondaryProfile] || [];
+                
+                let pathsHTML = '';
+                pathsHTML += `<li><strong>Drejtimet kryesore:</strong></li>`;
+                primaryPaths.forEach(path => {
+                    pathsHTML += `<li>${path}</li>`;
+                });
+                
+                if (secondaryPaths.length > 0) {
+                    pathsHTML += `<li><strong>Drejtimet dytësore:</strong></li>`;
+                    secondaryPaths.slice(0, 2).forEach(path => {
+                        pathsHTML += `<li>${path}</li>`;
+                    });
+                }
+                
+                recommendedPathsList.innerHTML = pathsHTML;
+                
+                // Veprimet e nevojshme
+                const actionSteps = [
+                    `Takohuni me këshilltarin shkollor për të diskutuar rezultatet`,
+                    `Vizitoni ditët e hapura të shkollave të mesme`,
+                    `Kërkoni informacione për programet e drejtimeve të sugjeruara`,
+                    `Diskutoni me prindërit e tjerë që kanë fëmijë në drejtime të ngjashme`,
+                    `Ndiqni një ditë praktike në një shkollë të mesme për të parë mjedisin real`
+                ];
+                
+                actionStepsList.innerHTML = actionSteps.map(step => 
+                    `<li>${step}</li>`
+                ).join('');
+            }
+
+            // Funksioni për të rifilluar testin
+            function restartTest() {
+                currentQuestionIndex = 0;
+                userAnswers = new Array(parentQuestions.length).fill(null);
+                
+                // Rivendos pyetjet
+                document.querySelectorAll('.option').forEach(option => {
+                    option.classList.remove('selected');
+                });
+                
+                document.querySelectorAll('.question-box').forEach((box, index) => {
+                    box.classList.remove('active');
+                    if (index === 0) box.classList.add('active');
+                });
+                
+                // Rivendos butonat
+                prevButton.disabled = true;
+                nextButton.disabled = true;
+                nextButton.innerHTML = 'Pyetja tjetër <i class="fas fa-arrow-right"></i>';
+                
+                // Rivendos shfaqjen
+                document.querySelector('.progress-container').style.display = 'block';
+                document.querySelector('.navigation-controls').style.display = 'flex';
+                document.querySelector('.parent-info-section').style.display = 'block';
+                document.querySelector('.intro-section').style.display = 'block';
+                questionsContainer.style.display = 'block';
+                resultsSection.style.display = 'none';
+                
+                updateProgress();
+                
+                // Scroll në fillim
+                window.scrollTo(0, 0);
+            }
+
+            // Event Listeners
+            prevButton.addEventListener('click', () => {
+                if (currentQuestionIndex > 0) {
+                    changeQuestion(-1);
+                }
+            });
+
+            nextButton.addEventListener('click', () => {
+                if (currentQuestionIndex < parentQuestions.length - 1) {
+                    changeQuestion(1);
+                } else {
+                    showResults();
+                }
+            });
+
+            restartButton.addEventListener('click', restartTest);
+            
+            printButton.addEventListener('click', () => {
+                if (resultsSection.style.display === 'block') {
+                    window.print();
+                } else {
+                    alert("Ju duhet të përfundoni testin për të printuar raportin!");
+                }
+            });
+            
+            saveButton.addEventListener('click', () => {
+                if (resultsSection.style.display === 'block') {
+                    alert("Funksioni i ruajtjes si PDF do të implementohet në versionin e ardhshëm!");
+                    // Në versionin real, mund të përdoret biblioteka jsPDF
+                } else {
+                    alert("Ju duhet të përfundoni testin për të ruajtur raportin!");
+                }
+            });
+
+            // Inicializo testin
+            initializeQuestions();
+        });
+    </script>
+</body>
+</html>

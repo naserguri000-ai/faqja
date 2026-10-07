@@ -1,0 +1,1669 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testi i Paraorjentimit në Karrierë - Klasa e 9-të</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Resetimi i stileve për kompatibilitet të plotë të shfletuesve */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f7ff;
+            color: #333;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            position: relative;
+        }
+        
+        /* Header stili */
+        .header {
+            text-align: center;
+            padding-bottom: 20px;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #eaeaea;
+        }
+        
+        .header h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.8rem;
+        }
+        
+        .header .subtitle {
+            color: #7f8c8d;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+        
+        /* Butoni i printimit */
+        .print-button {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: background-color 0.3s;
+        }
+        
+        .print-button:hover {
+            background-color: #2980b9;
+        }
+        
+        /* Seksioni i informatave personale */
+        .personal-info-section {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            border: 1px solid #ddd;
+        }
+        
+        .personal-info-title {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+            text-align: center;
+        }
+        
+        .personal-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .input-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .input-group label {
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .input-group input,
+        .input-group select {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .input-group input:focus,
+        .input-group select:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+        }
+        
+        .author-info {
+            text-align: center;
+            font-style: italic;
+            color: #7f8c8d;
+            padding-top: 15px;
+            border-top: 1px solid #eaeaea;
+            margin-top: 15px;
+        }
+        
+        /* Seksioni i hyrjes */
+        .intro-section {
+            background-color: #e8f4fc;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .intro-section p {
+            margin-bottom: 15px;
+        }
+        
+        .intro-section p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Kontrolli i progresit */
+        .progress-container {
+            margin-bottom: 25px;
+        }
+        
+        .progress-text {
+            text-align: center;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .progress-bar {
+            height: 12px;
+            background-color: #ecf0f1;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        
+        .progress {
+            height: 100%;
+            background-color: #3498db;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+        
+        /* Seksioni i pyetjeve */
+        .questions-container {
+            margin-bottom: 30px;
+        }
+        
+        .question-box {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #3498db;
+            display: none;
+        }
+        
+        .question-box.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .question-number {
+            font-weight: bold;
+            color: #3498db;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+        
+        .question-text {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+        
+        /* Opsionet e përgjigjeve */
+        .options-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .option {
+            padding: 15px;
+            background-color: white;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+        }
+        
+        .option:hover {
+            background-color: #f0f7ff;
+            border-color: #3498db;
+        }
+        
+        .option.selected {
+            background-color: #e1f0fa;
+            border-color: #2980b9;
+        }
+        
+        .option-circle {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            border: 2px solid #7f8c8d;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .option.selected .option-circle {
+            border-color: #2980b9;
+            background-color: #2980b9;
+        }
+        
+        .option.selected .option-circle::after {
+            content: "";
+            width: 10px;
+            height: 10px;
+            background-color: white;
+            border-radius: 50%;
+        }
+        
+        .option-text {
+            flex-grow: 1;
+        }
+        
+        /* Kontrolli i navigimit */
+        .navigation-controls {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 25px;
+        }
+        
+        .nav-button {
+            padding: 12px 24px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .nav-button:hover:not(:disabled) {
+            background-color: #2980b9;
+        }
+        
+        .nav-button:disabled {
+            background-color: #bdc3c7;
+            cursor: not-allowed;
+        }
+        
+        #prevBtn {
+            background-color: #7f8c8d;
+        }
+        
+        #prevBtn:hover:not(:disabled) {
+            background-color: #6c7b7d;
+        }
+        
+        /* Seksioni i rezultateve */
+        .results-section {
+            display: none;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        
+        .results-title {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 1.6rem;
+        }
+        
+        .results-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #eaeaea;
+        }
+        
+        .student-info-print {
+            font-size: 1rem;
+            color: #2c3e50;
+        }
+        
+        .student-info-print strong {
+            color: #3498db;
+        }
+        
+        .results-description {
+            margin-bottom: 25px;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            text-align: center;
+        }
+        
+        /* Profilet e rezultateve */
+        .profiles-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+        
+        .profile-card {
+            padding: 20px;
+            border-radius: 8px;
+            background-color: white;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            border-top: 5px solid #3498db;
+        }
+        
+        .profile-title {
+            font-size: 1.2rem;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .profile-score {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #3498db;
+            text-align: center;
+            margin: 15px 0;
+        }
+        
+        .profile-description {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.5;
+        }
+        
+        /* Rekomandimet dhe konsultimi */
+        .recommendations-section {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #e8f4fc;
+            border-radius: 8px;
+        }
+        
+        .recommendations-title {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .recommendations-list {
+            padding-left: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .recommendations-list li {
+            margin-bottom: 10px;
+        }
+        
+        .consultation-notice {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 6px;
+            padding: 15px;
+            margin-top: 20px;
+        }
+        
+        .consultation-notice h4 {
+            color: #856404;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .consultation-notice p {
+            color: #856404;
+            line-height: 1.5;
+        }
+        
+        /* Butoni i rifillimit */
+        .restart-button {
+            display: block;
+            margin: 30px auto 0;
+            background-color: #2ecc71;
+            padding: 12px 30px;
+        }
+        
+        .restart-button:hover {
+            background-color: #27ae60;
+        }
+        
+        /* Fundi i faqes */
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        /* Stilet për printim */
+        @media print {
+            body {
+                background-color: white;
+                padding: 0;
+                font-size: 12pt;
+            }
+            
+            .container {
+                box-shadow: none;
+                padding: 0;
+                max-width: 100%;
+            }
+            
+            .print-button, 
+            .navigation-controls,
+            .restart-button,
+            .footer,
+            .personal-info-section {
+                display: none !important;
+            }
+            
+            .results-section {
+                display: block !important;
+                border: 1px solid #ccc;
+                padding: 20px;
+            }
+            
+            .results-header {
+                border-bottom: 2px solid #000;
+            }
+            
+            .profiles-container {
+                grid-template-columns: repeat(2, 1fr);
+                page-break-inside: avoid;
+            }
+            
+            .profile-card {
+                page-break-inside: avoid;
+                box-shadow: none;
+                border: 1px solid #ddd;
+            }
+            
+            .recommendations-section {
+                page-break-inside: avoid;
+                border: 1px solid #ddd;
+            }
+            
+            .consultation-notice {
+                border: 1px solid #000;
+            }
+        }
+        
+        /* Përshtatje për ekranë të vegjël */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+            
+            .print-button {
+                position: static;
+                margin-bottom: 15px;
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .header {
+                text-align: center;
+            }
+            
+            .personal-info-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .navigation-controls {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-button {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .profiles-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .option {
+                padding: 12px;
+            }
+            
+            .results-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+        }
+        
+        /* Përshtatje për ekranë shumë të vegjël */
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.5rem;
+            }
+            
+            .question-text {
+                font-size: 1rem;
+            }
+            
+            .option-text {
+                font-size: 0.95rem;
+            }
+        }
+        
+        /* Përshtatje për Internet Explorer 11 dhe shfletues të vjetër */
+        @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+            .profiles-container {
+                display: flex;
+                flex-wrap: wrap;
+            }
+            
+            .profile-card {
+                flex: 1 0 250px;
+                margin: 10px;
+            }
+            
+            .options-container {
+                display: block;
+            }
+            
+            .option {
+                margin-bottom: 10px;
+            }
+            
+            .personal-info-grid {
+                display: block;
+            }
+            
+            .input-group {
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Butoni për printim -->
+        <button class="print-button" id="printBtn" aria-label="Printo rezultatet">
+            <i class="fas fa-print"></i> Printo Rezultatet
+        </button>
+        
+        <!-- Headeri i faqes -->
+        <header class="header">
+            <h1>Testi i Paraorjentimit në Karrierë</h1>
+            <p class="subtitle">Për nxënësit e klasës së 9-të për vazhdimin e shkollës së mesme të lartë</p>
+        </header>
+        
+        <!-- Seksioni i informatave personale -->
+        <section class="personal-info-section">
+            <h2 class="personal-info-title">Informacion Personal</h2>
+            
+            <div class="personal-info-grid">
+                <div class="input-group">
+                    <label for="firstName">Emri:</label>
+                    <input type="text" id="firstName" placeholder="Shkruani emrin tuaj">
+                </div>
+                
+                <div class="input-group">
+                    <label for="lastName">Mbiemri:</label>
+                    <input type="text" id="lastName" placeholder="Shkruani mbiemrin tuaj">
+                </div>
+                
+                <div class="input-group">
+                    <label for="schoolName">Shkolla:</label>
+                    <input type="text" id="schoolName" value='SHFMU "Emin Duraku"' placeholder="Emri i shkollës">
+                </div>
+                
+                <div class="input-group">
+                    <label for="classNumber">Klasa:</label>
+                    <select id="classNumber">
+                        <option value="">Zgjidhni klasën</option>
+                        <option value="9/1">Klasa 9/1</option>
+                        <option value="9/2">Klasa 9/2</option>
+                        <option value="9/3">Klasa 9/3</option>
+                        <option value="9/4">Klasa 9/4</option>
+                        <option value="9/5">Klasa 9/5</option>
+                        <option value="9/6">Klasa 9/6</option>
+                        <option value="9/7">Klasa 9/7</option>
+                        <option value="9/8">Klasa 9/8</option>
+                        <option value="9/9">Klasa 9/9</option>
+                        <option value="9/10">Klasa 9/10</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="author-info">
+                <p>Testi i krijuar nga: <strong>Naser A. Guri</strong></p>
+            </div>
+        </section>
+        
+        <!-- Seksioni i hyrjes -->
+        <section class="intro-section">
+            <p>Ky test është krijuar për të ndihmuar nxënësit e klasës së 9-të të identifikojnë preferencat, aftësitë dhe interesat e tyre për të zgjedhur drejtimin më të përshtatshëm në shkollën e mesme të lartë. Testi përfshin 15 pyetje që vlerësojnë katër profile kryesore: <strong>Shkencor-Teknologjik</strong>, <strong>Shkencave Shoqërore dhe Njerezore</strong>, <strong>Gjuhësor-Kumtues</strong> dhe <strong>Artistik-Krijues</strong>.</p>
+            <p><strong>Udhëzim:</strong> Përgjigjuni sinqerisht secilës pyetje duke zgjedhur përgjigjen që përshkruan më mirë preferencat tuaja. Pasi të përfundoni testin, mund të printoni rezultatet për t'i diskutuar me prindërit ose këshilltarët shkollorë.</p>
+        </section>
+        
+        <!-- Shiriti i progresit -->
+        <section class="progress-container">
+            <div class="progress-text">Progresi: <span id="currentQuestionNum">1</span>/15</div>
+            <div class="progress-bar">
+                <div class="progress" id="progressBar"></div>
+            </div>
+        </section>
+        
+        <!-- Seksioni i pyetjeve -->
+        <section class="questions-container" id="questionsContainer">
+            <!-- Pyetjet do të shtohen automatikisht me JavaScript -->
+        </section>
+        
+        <!-- Kontrolli i navigimit -->
+        <section class="navigation-controls">
+            <button class="nav-button" id="prevBtn" disabled>
+                <i class="fas fa-arrow-left"></i> Pyetja e Mëparshme
+            </button>
+            <button class="nav-button" id="nextBtn">
+                Pyetja tjetër <i class="fas fa-arrow-right"></i>
+            </button>
+        </section>
+        
+        <!-- Seksioni i rezultateve -->
+        <section class="results-section" id="resultsSection">
+            <div class="results-header">
+                <h2 class="results-title">Rezultatet e Testit të Paraorjentimit</h2>
+                <div class="student-info-print" id="studentInfoPrint">
+                    <!-- Informacionet e studentit do të shtohen automatikisht me JavaScript -->
+                </div>
+            </div>
+            
+            <p class="results-description">Bazuar në përgjigjet tuaja, kemi identifikuar profilet e mëposhtme. Çdo profil përfaqëson një grup aftësish dhe interesash që mund të jenë të përshtatshme për drejtime të caktuara në shkollën e mesme të lartë.</p>
+            
+            <div class="profiles-container" id="profilesContainer">
+                <!-- Rezultatet do të shtohen automatikisht me JavaScript -->
+            </div>
+            
+            <div class="recommendations-section">
+                <h3 class="recommendations-title">Rekomandime për zgjedhjen e drejtimit në shkollën e mesme</h3>
+                <ul class="recommendations-list" id="recommendationsList">
+                    <!-- Rekomandimet do të shtohen automatikisht me JavaScript -->
+                </ul>
+                
+                <div class="consultation-notice">
+                    <h4><i class="fas fa-exclamation-circle"></i> Rekomandim për Konsultim</h4>
+                    <p>Këto rezultate janë vetëm orientuese dhe parashikuese. Rekomandohet që të konsultoheni me këshilltarin për karrierë në shkollën tuaj për një vlerësim më të plotë dhe për të diskutuar opsionet konkrete për vazhdimin e arsimit në shkollën e mesme të lartë.</p>
+                </div>
+            </div>
+            
+            <div class="author-info" style="margin-top: 20px;">
+                <p>Testi i krijuar nga: <strong>Naser A. Guri</strong></p>
+            </div>
+            
+            <button class="nav-button restart-button" id="restartBtn">
+                <i class="fas fa-redo"></i> Fillo Testin Përsëri
+            </button>
+        </section>
+        
+        <!-- Fundi i faqes -->
+        <footer class="footer">
+            <p>Ky test është një mjet orientues dhe nuk duhet të konsiderohet si këshillë profesionale definitive. Këshillohet konsultimi me këshilltarët shkollorë për vendime më të hollësishme.</p>
+            <p>© 2023 Testi i Paraorjentimit në Karrierë për Nxënësit e Klasës së 9-të | Krijuar nga: Naser A. Guri</p>
+        </footer>
+    </div>
+
+    <script>
+        // Funksioni për inicializimin e faqes
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // Definimi i pyetjeve të testit
+            const testQuestions = [
+                {
+                    id: 1,
+                    text: "Çfarë lloj librash ose artikujsh keni dëshirë të lexoni më shumë?",
+                    options: [
+                        { text: "Libra shkencorë, revista teknologjike ose mistere", value: "shkencor" },
+                        { text: "Biografi, libra historikë ose artikuj mbi çështje sociale", value: "shoqeror" },
+                        { text: "Letërsinë artistike, poezi, romane ose revista gjuhësore", value: "gjuhësor" },
+                        { text: "Libra me foto, revista të artit, dizajnit ose muzikës", value: "artistik" }
+                    ]
+                },
+                {
+                    id: 2,
+                    text: "Çfarë lloj aktivitetesh ju pëlqen të bëni në kohën tuaj të lirë?",
+                    options: [
+                        { text: "Eksperimente, zgjidhje enigmash, programim kompjuterik", value: "shkencor" },
+                        { text: "Debate, diskutime me shokë, ndihmë për të tjerët", value: "shoqeror" },
+                        { text: "Shkrim kreativ, lexim, mësim i gjuhëve të huaja", value: "gjuhësor" },
+                        { text: "Vizatim, muzikë, fotografí, dizajn", value: "artistik" }
+                    ]
+                },
+                {
+                    id: 3,
+                    text: "Në cilën lëndë shkollore performoni më mirë?",
+                    options: [
+                        { text: "Matematikë, Fizikë ose Kimi", value: "shkencor" },
+                        { text: "Histori, Gjeografi ose Edukatë Civile", value: "shoqeror" },
+                        { text: "Gjuhë Shqipe, Letërsi ose Gjuhë të Huaja", value: "gjuhësor" },
+                        { text: "Edukatë Artistike, Muzikë ose Teknologji Informative", value: "artistik" }
+                    ]
+                },
+                {
+                    id: 4,
+                    text: "Kur keni një problem, si e zgjidhni atë?",
+                    options: [
+                        { text: "Analizoj metodikisht dhe gjej zgjidhje logjike", value: "shkencor" },
+                        { text: "Kërkoj këshilla nga të tjerët dhe diskutoj opsionet", value: "shoqeror" },
+                        { text: "Shkruaj mendimet dhe gjej zgjidhje kreative me fjalë", value: "gjuhësor" },
+                        { text: "Vizatoj ose krijoj diçka për të shprehur zgjidhjen", value: "artistik" }
+                    ]
+                },
+                {
+                    id: 5,
+                    text: "Çfarë lloj projektesh ose detyrash ju pëlqen të bëni?",
+                    options: [
+                        { text: "Projekte shkencore, modele matematikore ose aplikacione", value: "shkencor" },
+                        { text: "Projekte kërkimore mbi çështje sociale, raporte", value: "shoqeror" },
+                        { text: "Ese, raporte të shkruara, përkthime", value: "gjuhësor" },
+                        { text: "Projekte artistike, prezantime vizuale, video", value: "artistik" }
+                    ]
+                },
+                {
+                    id: 6,
+                    text: "Çfarë lloj programi televiziv ose YouTube shikoni më shpesh?",
+                    options: [
+                        { text: "Dokumentarë shkencorë, programe teknologjike", value: "shkencor" },
+                        { text: "Lajme, debate politike, dokumentarë historikë", value: "shoqeror" },
+                        { text: "Filma me subtitra, programe gjuhësore", value: "gjuhësor" },
+                        { text: "Programe artistike, filmat e artit, muzikë", value: "artistik" }
+                    ]
+                },
+                {
+                    id: 7,
+                    text: "Cili përshkrim ju përshkruan më mirë?",
+                    options: [
+                        { text: "Jam i saktë, analitik dhe i fokusuar në detaje", value: "shkencor" },
+                        { text: "Jam komunikues, shoqëror dhe i interesuar për njerëzit", value: "shoqeror" },
+                        { text: "Jam kreativ me fjalë, i shkathët gjuhësor", value: "gjuhësor" },
+                        { text: "Jam vizual, krijues dhe me imagjinatë të gjerë", value: "artistik" }
+                    ]
+                },
+                {
+                    id: 8,
+                    text: "Çfarë lloj karriere mund të imagjinoni për veten tuaj?",
+                    options: [
+                        { text: "Inxhinier, shkencëtar, programues, mjek", value: "shkencor" },
+                        { text: "Mësues, jurist, psikolog, punonjës social", value: "shoqeror" },
+                        { text: "Gazetar, shkrimtar, përkthyes, lingvist", value: "gjuhësor" },
+                        { text: "Artist, dizajner, arkitekt, muzikant", value: "artistik" }
+                    ]
+                },
+                {
+                    id: 9,
+                    text: "Kur punoni në grup, çfarë roli preferoni?",
+                    options: [
+                        { text: "Analist i të dhënave ose zgjidhës i problemeve", value: "shkencor" },
+                        { text: "Koordinator ose negociator", value: "shoqeror" },
+                        { text: "Shkrues i raporteve ose komunikuesi", value: "gjuhësor" },
+                        { text: "Dizajner i prezantimit ose krijuesi vizual", value: "artistik" }
+                    ]
+                },
+                {
+                    id: 10,
+                    text: "Çfarë lloj ekskurionesh shkollore ju pëlqen më shumë?",
+                    options: [
+                        { text: "Muzetë shkencore, fabrika, laboratore, natyrë", value: "shkencor" },
+                        { text: "Institucione shtetërore, muze historike", value: "shoqeror" },
+                        { text: "Teatri, biblioteka, shtypi", value: "gjuhësor" },
+                        { text: "Galeria e arteve, studio muzikore, ekspozita", value: "artistik" }
+                    ]
+                },
+                {
+                    id: 11,
+                    text: "Si e përballoni një detyrë të vështirë?",
+                    options: [
+                        { text: "E ndaj në hapa dhe zgjidh secilin pjesë-pjesë", value: "shkencor" },
+                        { text: "Kërkoj ndihmë dhe diskutoj me të tjerët", value: "shoqeror" },
+                        { text: "Kërkoj burime të shkruara dhe dokumentoj procesin", value: "gjuhësor" },
+                        { text: "Krijoj një plan vizual ose skemë për ta kuptuar", value: "artistik" }
+                    ]
+                },
+                {
+                    id: 12,
+                    text: "Çfarë aftësi mendoni se keni më të zhvilluara?",
+                    options: [
+                        { text: "Mendimi logjik, zgjidhja e problemeve matematikore", value: "shkencor" },
+                        { text: "Komunikimi, puna në grup, kuptimi i njerëzve", value: "shoqeror" },
+                        { text: "Shprehja me shkrim, mësimi i gjuhëve të reja", value: "gjuhësor" },
+                        { text: "Krijimtaria, të kuptuarit e ngjyrave dhe formave", value: "artistik" }
+                    ]
+                },
+                {
+                    id: 13,
+                    text: "Cilat janë pikat e forta tuaja në punën shkollore?",
+                    options: [
+                        { text: "Analiza e të dhënave, llogaritjet, eksperimentet", value: "shkencor" },
+                        { text: "Punë kërkimore, projekte në grup, prezentime", value: "shoqeror" },
+                        { text: "Shkrimi kreativ, analiza e teksteve, ese", value: "gjuhësor" },
+                        { text: "Projektet praktike, prezantimet vizuale, performancat", value: "artistik" }
+                    ]
+                },
+                {
+                    id: 14,
+                    text: "Çfarë mendoni për punën tuaj të ardhshme?",
+                    options: [
+                        { text: "Dua të punoj me numra, teknologji ose sisteme", value: "shkencor" },
+                        { text: "Dua të ndihmoj njerëzit dhe të kontribuoj në shoqëri", value: "shoqeror" },
+                        { text: "Dua të punoj me fjalë, tekste ose komunikim", value: "gjuhësor" },
+                        { text: "Dua të shpreh veten në mënyrë krijuese", value: "artistik" }
+                    ]
+                },
+                {
+                    id: 15,
+                    text: "Si e përdorni teknologjinë në jetën e përditshme?",
+                    options: [
+                        { text: "Për të mësuar kodim, analizë të dhënash ose simulime", value: "shkencor" },
+                        { text: "Për të komunikuar, të mësuar rreth çështjeve sociale", value: "shoqeror" },
+                        { text: "Për të lexuar, shkruar ose mësuar gjuhë të reja", value: "gjuhësor" },
+                        { text: "Për të krijuar art digital, muzikë ose video", value: "artistik" }
+                    ]
+                }
+            ];
+
+            // Përshkrimet e profileve dhe rekomandimet
+            const careerProfiles = {
+                shkencor: {
+                    name: "Profili Shkencor-Teknologjik",
+                    description: "Ky profil karakterizohet nga interesimi për shkencat ekzakte, teknologjinë, matematikën dhe zgjidhjen logjike të problemeve. Nxënësit me këtë profil kanë aftësi analitike të zhvilluara dhe janë të orientuar drejt detajeve.",
+                    score: 0,
+                    recommendations: [
+                        "Drejtimi i Shkencave të Natyrës dhe Matematikës - Gjimnaz",
+                        "Drejtimi Teknik dhe Teknologjik - Profesionale", 
+                        "Drejtimi i Shkencave Mjekësore - Gjimnaz ose e mesme mjekësore" 
+                    ]
+                },
+                shoqeror: {
+                    name: "Profili i Shkencave Shoqërore",
+                    description: "Ky profil tregon interesim për marrëdhëniet njerëzore, çështjet sociale, historinë dhe psikologjinë. Nxënësit me këtë profil kanë aftësi komunikimi dhe punës në grup të zhvilluara.",
+                    score: 0,
+                    recommendations: [
+                        "Drejtimi i Shkencave Shoqërore - Gjimnaz",
+                        "Drejtimi i Shkencave Edukative - Gjimnaz",
+                        "Drejtimi Juridik dhe Administrativ - Profesionale"
+                    ]
+                },
+                gjuhësor: {
+                    name: "Profili Gjuhësor-Kumtues",
+                    description: "Ky profil karakterizohet nga aftësi të zhvilluara gjuhësore, interes për letërsinë, shkrimin kreativ dhe komunikimin efektiv. Nxënësit me këtë profil janë të aftë për të shprehur mendimet në mënyrë të qartë dhe kreative.",
+                    score: 0,
+                    recommendations: [
+                        "Drejtimi Gjuhësor-Letrar",
+                        "Drejtimi i Gjuhëve të Huaja",
+                        "Drejtimi i Komunikimit dhe Medias"
+                    ]
+                },
+                artistik: {
+                    name: "Profili Artistik-Krijues",
+                    description: "Ky profil tregon kreativitet të lartë, imagjinatë dhe aftësi artistike. Nxënësit me këtë profil janë të orientuar drejt shprehjes vizuale, muzikore ose teatrale dhe kanë ndjenjë të zhvilluar për estetikën.",
+                    score: 0,
+                    recommendations: [
+                        "Drejtimi Artistik dhe Estetik",
+                        "Drejtimi i Dizajnit dhe Arkitekturës",
+                        "Drejtimi i Muzikës dhe Arteve Performative"
+                    ]
+                }
+            };
+
+            // Variablat globale
+            let currentQuestionIndex = 0;
+            let userAnswers = new Array(testQuestions.length).fill(null);
+            
+            // Elementet e DOM-it
+            const questionsContainer = document.getElementById('questionsContainer');
+            const prevButton = document.getElementById('prevBtn');
+            const nextButton = document.getElementById('nextBtn');
+            const resultsSection = document.getElementById('resultsSection');
+            const profilesContainer = document.getElementById('profilesContainer');
+            const recommendationsList = document.getElementById('recommendationsList');
+            const restartButton = document.getElementById('restartBtn');
+            const printButton = document.getElementById('printBtn');
+            const progressBar = document.getElementById('progressBar');
+            const currentQuestionNum = document.getElementById('currentQuestionNum');
+            const studentInfoPrint = document.getElementById('studentInfoPrint');
+            
+            // Elementet e informatave personale
+            const firstNameInput = document.getElementById('firstName');
+            const lastNameInput = document.getElementById('lastName');
+            const schoolNameInput = document.getElementById('schoolName');
+            const classNumberSelect = document.getElementById('classNumber');
+
+            // Funksioni për të inicializuar pyetjet në faqe
+            function initializeQuestions() {
+                testQuestions.forEach((question, index) => {
+                    const questionElement = document.createElement('div');
+                    questionElement.className = `question-box ${index === 0 ? 'active' : ''}`;
+                    questionElement.id = `question${index}`;
+                    
+                    let optionsHTML = '';
+                    question.options.forEach((option, optionIndex) => {
+                        optionsHTML += `
+                            <div class="option" data-question-index="${index}" data-option-value="${option.value}">
+                                <div class="option-circle"></div>
+                                <div class="option-text">${option.text}</div>
+                            </div>
+                        `;
+                    });
+                    
+                    questionElement.innerHTML = `
+                        <div class="question-number">Pyetja ${question.id}</div>
+                        <div class="question-text">${question.text}</div>
+                        <div class="options-container">${optionsHTML}</div>
+                    `;
+                    
+                    questionsContainer.appendChild(questionElement);
+                });
+                
+                // Shto event listeners për zgjedhjen e përgjigjeve
+                document.querySelectorAll('.option').forEach(option => {
+                    option.addEventListener('click', handleOptionSelection);
+                });
+                
+                updateProgress();
+            }
+
+            // Funksioni për trajtimin e zgjedhjes së një opsioni
+            function handleOptionSelection(event) {
+                const questionIndex = parseInt(event.currentTarget.getAttribute('data-question-index'));
+                const optionValue = event.currentTarget.getAttribute('data-option-value');
+                
+                // Heq përzgjedhjen nga opsionet e tjera të së njëjtës pyetje
+                const questionOptions = document.querySelectorAll(`.option[data-question-index="${questionIndex}"]`);
+                questionOptions.forEach(option => {
+                    option.classList.remove('selected');
+                });
+                
+                // Shto përzgjedhjen tek opsioni i klikuar
+                event.currentTarget.classList.add('selected');
+                
+                // Ruaj përgjigjen e përdoruesit
+                userAnswers[questionIndex] = optionValue;
+                
+                // Aktivizo butonin "Next" nëse është pyetja aktuale
+                if (currentQuestionIndex === questionIndex) {
+                    nextButton.disabled = false;
+                }
+            }
+
+            // Funksioni për të ndryshuar pyetjen
+            function changeQuestion(direction) {
+                // Kontrollo nëse ka përgjigje për pyetjen aktuale para se të lëvizësh përpara
+                if (direction === 1 && userAnswers[currentQuestionIndex] === null) {
+                    alert("Ju lutemi zgjidhni një përgjigje para se të vazhdoni!");
+                    return;
+                }
+                
+                // Fsheh pyetjen aktuale
+                document.getElementById(`question${currentQuestionIndex}`).classList.remove('active');
+                
+                // Ndrysho pyetjen aktuale
+                currentQuestionIndex += direction;
+                
+                // Shfaq pyetjen e re
+                document.getElementById(`question${currentQuestionIndex}`).classList.add('active');
+                
+                // Kontrollo gjendjen e butonave
+                prevButton.disabled = currentQuestionIndex === 0;
+                
+                // Ndrysho tekstin e butonit "Next" nëse jemi në pyetjen e fundit
+                if (currentQuestionIndex === testQuestions.length - 1) {
+                    nextButton.innerHTML = 'Shiko Rezultatet <i class="fas fa-chart-bar"></i>';
+                } else {
+                    nextButton.innerHTML = 'Pyetja tjetër <i class="fas fa-arrow-right"></i>';
+                }
+                
+                // Kontrollo nëse pyetja aktuale ka përgjigje
+                if (userAnswers[currentQuestionIndex] !== null) {
+                    const selectedOption = document.querySelector(`.option[data-question-index="${currentQuestionIndex}"][data-option-value="${userAnswers[currentQuestionIndex]}"]`);
+                    if (selectedOption) {
+                        // Heq përzgjedhjen nga opsionet e tjera
+                        const questionOptions = document.querySelectorAll(`.option[data-question-index="${currentQuestionIndex}"]`);
+                        questionOptions.forEach(option => {
+                            option.classList.remove('selected');
+                        });
+                        
+                        // Shto përzgjedhjen tek opsioni i ruajtur
+                        selectedOption.classList.add('selected');
+                    }
+                    nextButton.disabled = false;
+                } else {
+                    nextButton.disabled = true;
+                }
+                
+                updateProgress();
+            }
+
+            // Funksioni për të përditësuar shiritin e progresit
+            function updateProgress() {
+                const progressPercentage = ((currentQuestionIndex + 1) / testQuestions.length) * 100;
+                progressBar.style.width = `${progressPercentage}%`;
+                currentQuestionNum.textContent = currentQuestionIndex + 1;
+            }
+
+            // Funksioni për të marrë informacionet e studentit
+            function getStudentInfo() {
+                const firstName = firstNameInput.value.trim() || "[Emri]";
+                const lastName = lastNameInput.value.trim() || "[Mbiemri]";
+                const schoolName = schoolNameInput.value.trim() || 'SHFMU "Emin Duraku"';
+                const classNumber = classNumberSelect.value || "[Klasa]";
+                
+                return {
+                    firstName,
+                    lastName,
+                    schoolName,
+                    classNumber,
+                    fullName: `${firstName} ${lastName}`
+                };
+            }
+
+            // Funksioni për të shfaqur informacionet e studentit në rezultatet
+            function displayStudentInfo() {
+                const studentInfo = getStudentInfo();
+                
+                studentInfoPrint.innerHTML = `
+                    <p><strong>Nxënësi:</strong> ${studentInfo.fullName}</p>
+                    <p><strong>Shkolla:</strong> ${studentInfo.schoolName}</p>
+                    <p><strong>Klasa:</strong> ${studentInfo.classNumber}</p>
+                `;
+            }
+
+            // Funksioni për të llogaritur rezultatet
+            function calculateResults() {
+                // Kontrollo nëse ka përgjigje për pyetjen e fundit
+                if (userAnswers[currentQuestionIndex] === null) {
+                    alert("Ju lutemi zgjidhni një përgjigje për pyetjen e fundit para se të shikoni rezultatet!");
+                    return;
+                }
+                
+                // Shfaq informacionet e studentit në rezultatet
+                displayStudentInfo();
+                
+                // Rivendos rezultatet
+                Object.keys(careerProfiles).forEach(key => {
+                    careerProfiles[key].score = 0;
+                });
+                
+                // Llogarit rezultatet
+                userAnswers.forEach(answer => {
+                    if (answer && careerProfiles[answer]) {
+                        careerProfiles[answer].score += 1;
+                    }
+                });
+                
+                // Gjej profilet më të larta
+                const sortedProfiles = Object.keys(careerProfiles).sort((a, b) => {
+                    return careerProfiles[b].score - careerProfiles[a].score;
+                });
+                
+                const topProfile = sortedProfiles[0];
+                const secondProfile = sortedProfiles[1];
+                
+                // Krijo HTML për rezultatet e profileve
+                let profilesHTML = '';
+                sortedProfiles.forEach(key => {
+                    const profile = careerProfiles[key];
+                    const percentage = Math.round((profile.score / testQuestions.length) * 100);
+                    
+                    profilesHTML += `
+                        <div class="profile-card">
+                            <h3 class="profile-title">${profile.name}</h3>
+                            <div class="profile-score">${percentage}%</div>
+                            <p class="profile-description">${profile.description}</p>
+                        </div>
+                    `;
+                });
+                
+                profilesContainer.innerHTML = profilesHTML;
+                
+                // Krijo rekomandimet bazuar në profilet më të larta
+                let recommendationsHTML = '';
+                const topRecommendations = careerProfiles[topProfile].recommendations;
+                const secondRecommendations = careerProfiles[secondProfile].recommendations;
+                
+                // Shto rekomandimet nga profili kryesor
+                topRecommendations.forEach(rec => {
+                    recommendationsHTML += `<li><strong>${rec}</strong> (rekomandim kryesor)</li>`;
+                });
+                
+                // Shto rekomandimet nga profili dytësor
+                secondRecommendations.slice(0, 2).forEach(rec => {
+                    recommendationsHTML += `<li>${rec} (rekomandim dytësor)</li>`;
+                });
+                
+                recommendationsList.innerHTML = recommendationsHTML;
+                
+                // Shfaq rezultatet dhe fshi pyetjet
+                document.querySelector('.progress-container').style.display = 'none';
+                document.querySelector('.navigation-controls').style.display = 'none';
+                document.querySelector('.personal-info-section').style.display = 'none';
+                document.querySelector('.intro-section').style.display = 'none';
+                questionsContainer.style.display = 'none';
+                resultsSection.style.display = 'block';
+                
+                // Shfaq butonin e printimit
+                printButton.style.display = 'flex';
+                
+                // Scroll në fillim të faqes për të parë rezultatet
+                window.scrollTo(0, 0);
+            }
+
+            // Funksioni për të rifilluar testin
+            function restartTest() {
+                // Rivendos variablat
+                currentQuestionIndex = 0;
+                userAnswers = new Array(testQuestions.length).fill(null);
+                
+                // Fshi të gjitha përzgjedhjet
+                document.querySelectorAll('.option').forEach(option => {
+                    option.classList.remove('selected');
+                });
+                
+                // Rivendos pyetjen e parë si aktive
+                document.querySelectorAll('.question-box').forEach((box, index) => {
+                    box.classList.remove('active');
+                    if (index === 0) {
+                        box.classList.add('active');
+                    }
+                });
+                
+                // Rivendos butonat
+                prevButton.disabled = true;
+                nextButton.disabled = true;
+                nextButton.innerHTML = 'Pyetja tjetër <i class="fas fa-arrow-right"></i>';
+                
+                // Rivendos shfaqjen
+                document.querySelector('.progress-container').style.display = 'block';
+                document.querySelector('.navigation-controls').style.display = 'flex';
+                document.querySelector('.personal-info-section').style.display = 'block';
+                document.querySelector('.intro-section').style.display = 'block';
+                questionsContainer.style.display = 'block';
+                resultsSection.style.display = 'none';
+                printButton.style.display = 'flex';
+                
+                updateProgress();
+                
+                // Scroll në fillim të faqes
+                window.scrollTo(0, 0);
+            }
+
+            // Funksioni për të printuar rezultatet
+            function printResults() {
+                // Kontrollo nëse rezultatet janë të shfaqura
+                if (resultsSection.style.display === 'none') {
+                    alert("Ju duhet të përfundoni testin për të printuar rezultatet!");
+                    return;
+                }
+                
+                // Aktivizo printimin
+                window.print();
+            }
+
+            // Event listeners
+            prevButton.addEventListener('click', function() {
+                if (currentQuestionIndex > 0) {
+                    changeQuestion(-1);
+                }
+            });
+
+            nextButton.addEventListener('click', function() {
+                if (currentQuestionIndex < testQuestions.length - 1) {
+                    changeQuestion(1);
+                } else {
+                    calculateResults();
+                }
+            });
+
+            restartButton.addEventListener('click', restartTest);
+            
+            printButton.addEventListener('click', printResults);
+
+            // Validimi i hyrjes për emrin dhe mbiemrin
+            firstNameInput.addEventListener('input', function() {
+                if (this.value.trim() === "") {
+                    this.style.borderColor = "#e74c3c";
+                } else {
+                    this.style.borderColor = "#ccc";
+                }
+            });
+            
+            lastNameInput.addEventListener('input', function() {
+                if (this.value.trim() === "") {
+                    this.style.borderColor = "#e74c3c";
+                } else {
+                    this.style.borderColor = "#ccc";
+                }
+            });
+
+            // Inicializo testin
+            initializeQuestions();
+        });
+    </script>
+</body>
+</html>
+>
+                        <p style="margin-top: 10px; color: var(--text-dark);">
+                            Nota juaj mesatare (${averageGrade}) është nën minimumin e kërkuar (${schoolInfo.admissionCriteria.averageGrade}). 
+                            <strong>Rekomandojmë:</strong> Përmirësoni notat ose konsideroni shkolla alternative.
+                        </p>
+                    </div>` : `
+                    <div style="margin-top: 15px; padding: 15px; background-color: #f0fff4; border-radius: 8px; border-left: 4px solid var(--accent-green);">
+                        <strong style="color: var(--accent-green);">✅ Sukses:</strong>
+                        <p style="margin-top: 10px; color: var(--text-dark);">
+                            Plotësoni kriteret bazë të pranimit! Vazhdoni me përgatitjen për testin e pranimit.
+                        </p>
+                    </div>`}
+                </div>
+            `;
+            
+            return card;
+        }
+
+        function createSchoolComparisonCard(schoolInfo, homeMunicipality, locationPreference, averageGrade) {
+            const card = document.createElement('div');
+            card.className = 'profile-card';
+            card.style.borderLeft = '8px solid var(--secondary-blue)';
+            card.style.marginTop = '20px';
+            
+            const availableSchools = getSchoolsByLocation(schoolInfo, homeMunicipality, locationPreference);
+            
+            card.innerHTML = `
+                <div class="profile-header">
+                    <div class="profile-title">
+                        📍 Shkolla të Disponueshme sipas Preferencës suaj
+                    </div>
+                    <div style="color: var(--text-light); font-size: 1.1rem;">
+                        ${getLocationPreferenceName(locationPreference)}
+                    </div>
+                </div>
+                <div class="profile-description">
+                    Këto janë shkollat ${schoolInfo.name.toLowerCase()} në zonën tuaj të preferuar:
+                </div>
+                
+                ${availableSchools.length > 0 ? `
+                <div class="school-comparison">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Komuna</th>
+                                <th>Emri i Shkollës</th>
+                                <th>Konvikt</th>
+                                <th>Vende</th>
+                                <th>Nota Min.</th>
+                                <th>Statusi Juaj</th>
+                                <th>Distanca</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${availableSchools.map(school => {
+                                const meetsRequirements = averageGrade >= school.minAverage;
+                                const distance = calculateDistance(homeMunicipality, school.municipality);
+                                const isHomeMunicipality = school.municipality === homeMunicipality;
+                                
+                                return `
+                                    <tr>
+                                        <td>
+                                            <strong>${getMunicipalityName(school.municipality)}</strong>
+                                            ${isHomeMunicipality ? '<span style="color: var(--accent-green); font-size: 0.8em;"> (vendbanimi)</span>' : ''}
+                                        </td>
+                                        <td>${school.name}</td>
+                                        <td>${school.boardingAvailable ? '✅ Po' : '❌ Jo'}</td>
+                                        <td>${school.availableSpots}</td>
+                                        <td>${school.minAverage}</td>
+                                        <td>
+                                            ${meetsRequirements ? 
+                                                '<span class="available-badge">✅ Kualifikoheni</span>' : 
+                                                '<span class="not-available-badge">⚠️ Notë e pamjaftueshme</span>'
+                                            }
+                                        </td>
+                                        <td>${distance}</td>
+                                    </tr>
+                                `;
+                            }).join('')}
+                        </tbody>
+                    </table>
+                    
+                    <div style="margin-top: 20px; padding: 15px; background-color: var(--light-blue); border-radius: 8px;">
+                        <strong>📊 Analizë:</strong>
+                        <p style="margin-top: 10px; color: var(--text-dark);">
+                            • Gjithsej shkolla: <strong>${availableSchools.length}</strong><br>
+                            • Ku kualifikoheni: <strong>${availableSchools.filter(s => averageGrade >= s.minAverage).length}</strong><br>
+                            • Me konvikt: <strong>${availableSchools.filter(s => s.boardingAvailable).length}</strong><br>
+                            • Në vendbanim: <strong>${availableSchools.filter(s => s.municipality === homeMunicipality).length}</strong>
+                        </p>
+                    </div>
+                </div>` : `
+                <div style="margin-top: 20px; padding: 20px; background-color: #fff9f0; border-radius: 10px; border-left: 4px solid var(--accent-orange);">
+                    <strong style="color: var(--accent-orange);">ℹ️ Informacion:</strong>
+                    <p style="margin-top: 10px; color: var(--text-dark);">
+                        Nuk u gjetën shkolla ${schoolInfo.name.toLowerCase()} sipas preferencës suaj të lokacionit.
+                        <strong>Rekomandojmë:</strong> Ndryshoni preferencën e lokacionit ose konsideroni lloje të tjera shkollash.
+                    </p>
+                </div>`}
+            `;
+            
+            return card;
+        }
+
+        function createSuggestionsCard(schoolType, averageGrade) {
+            const card = document.createElement('div');
+            card.className = 'profile-card';
+            card.style.borderLeft = '8px solid var(--accent-purple)';
+            card.style.marginTop = '20px';
+            
+            const suggestions = profileSuggestions[schoolType] || [];
+            const schoolInfo = schoolsDatabase[schoolType];
+            const meetsCriteria = schoolInfo ? checkAdmissionCriteria(schoolInfo, averageGrade) : false;
+            
+            card.innerHTML = `
+                <div class="profile-header">
+                    <div class="profile-title">
+                        💡 Sugjerime dhe Rekomandime
+                    </div>
+                </div>
+                
+                <div class="suggestion-box">
+                    <h4><span class="icon">🎯</span> Hapat e Përgatitjes</h4>
+                    ${suggestions.length > 0 ? `
+                    <ul class="suggestion-list">
+                        ${suggestions.map((suggestion, index) => `
+                            <li>
+                                <span style="color: var(--accent-purple); font-weight: bold;">${index + 1}.</span>
+                                ${suggestion}
+                            </li>
+                        `).join('')}
+                    </ul>
+                    ` : `
+                    <p style="color: var(--text-light); text-align: center; padding: 20px;">
+                        Nuk ka sugjerime të disponueshme për këtë profil.
+                    </p>
+                    `}
+                </div>
+                
+                ${!meetsCriteria ? `
+                <div style="margin-top: 20px; padding: 20px; background: linear-gradient(135deg, #fff9f0, #fff5e6); border-radius: 10px; border-left: 4px solid var(--accent-orange);">
+                    <h4 style="color: var(--accent-orange); margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                        ⚠️ Plan Alternativ
+                    </h4>
+                    <p style="color: var(--text-dark); margin-bottom: 15px;">
+                        Meqenëse nota juaj mesatare (${averageGrade}) është nën kërkesën për ${schoolInfo.name}, 
+                        konsideroni këto opsione:
+                    </p>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-top: 15px;">
+                        <div style="background: white; padding: 15px; border-radius: 8px; border: 1px solid var(--border-color);">
+                            <strong style="color: var(--primary-blue);">1. Përmirësimi i Notave</strong>
+                            <p style="margin-top: 10px; color: var(--text-light); font-size: 0.9rem;">
+                                Fokusoheni në lëndët kryesore për të rritur notën mesatare.
+                            </p>
+                        </div>
+                        <div style="background: white; padding: 15px; border-radius: 8px; border: 1px solid var(--border-color);">
+                            <strong style="color: var(--primary-blue);">2. Shkolla Alternative</strong>
+                            <p style="margin-top: 10px; color: var(--text-light); font-size: 0.9rem;">
+                                Konsideroni shkolla me kriteret më të ulëta të pranimit.
+                            </p>
+                        </div>
+                        <div style="background: white; padding: 15px; border-radius: 8px; border: 1px solid var(--border-color);">
+                            <strong style="color: var(--primary-blue);">3. Testi i Pranimit</strong>
+                            <p style="margin-top: 10px; color: var(--text-light); font-size: 0.9rem;">
+                                Përgatituni shumë mirë për testin për të kompensuar notën.
+                            </p>
+                        </div>
+                    </div>
+                </div>` : ''}
+            `;
+            
+            return card;
+        }
+
+        function createAdviceCard(schoolInfo, averageGrade) {
+            const card = document.createElement('div');
+            card.className = 'profile-card';
+            card.style.borderLeft = '8px solid var(--accent-orange)';
+            card.style.marginTop = '20px';
+            
+            const meetsCriteria = checkAdmissionCriteria(schoolInfo, averageGrade);
+            
+            card.innerHTML = `
+                <div class="profile-header">
+                    <div class="profile-title">
+                        📅 Hapat e Ardhshëm dhe Kontakte
+                    </div>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px;">
+                    <div style="background: #fff9f0; padding: 20px; border-radius: 10px;">
+                        <h5 style="color: var(--accent-orange); margin-bottom: 10px;">1. ${meetsCriteria ? 'Aplikoni' : 'Përgatituni'}</h5>
+                        <p style="color: var(--text-dark);">
+                            ${meetsCriteria ? 
+                                'Plotësoni aplikacionin brenda afatit (${schoolInfo.admissionCriteria.applicationDeadline}).' : 
+                                'Përqendrohuni në përmirësimin e notave për të arritur kriteret minimale.'
+                            }
+                        </p>
+                    </div>
+                    
+                    <div style="background: #e6f3ff; padding: 20px; border-radius: 10px;">
+                        <h5 style="color: var(--primary-blue); margin-bottom: 10px;">2. Vizitoni Shkollat</h5>
+                        <p style="color: var(--text-dark);">
+                            Kontaktoni shkollat për të bërë një vizitë dhe për të parë objektet dhe ofertat.
+                        </p>
+                    </div>
+                    
+                    <div style="background: #f0fff4; padding: 20px; border-radius: 10px;">
+                        <h5 style="color: var(--accent-green); margin-bottom: 10px;">3. Këshillohuni</h5>
+                        <p style="color: var(--text-dark);">
+                            Diskutoni me këshilltarët shkollorë, prindërit dhe studentët aktualë.
+                        </p>
+                    </div>
+                </div>
+                
+                <div style="background: #f8f0ff; padding: 20px; border-radius: 10px; margin-top: 20px;">
+                    <strong>📞 Kontakte të Rëndësishme:</strong>
+                    <div style="margin-top: 15px; color: var(--text-dark);">
+                        <p><strong>• Ministria e Arsimit:</strong> 038 200 300</p>
+                        <p><strong>• Qendra për Këshillim Karriere:</strong> 038 200 400</p>
+                        <p><strong>• Agjencia Kombëtare për Punësim:</strong> 038 200 500</p>
+                        <p><strong>• Informacione për bursa:</strong> 038 200 600</p>
+                        <p><strong>• Transporti shkollor:</strong> 038 200 700</p>
+                    </div>
+                </div>
+                
+                <div style="background: var(--light-blue); padding: 20px; border-radius: 10px; margin-top: 20px;">
+                    <strong>📅 Afatet Kryesore:</strong>
+                    <div style="margin-top: 15px; color: var(--text-dark);">
+                        <p>• <strong>15 Qershor - 15 Korrik:</strong> Aplikimet për shkollat e mesme</p>
+                        <p>• <strong>20-30 Korrik:</strong> Testet e Pranimit</p>
+                        <p>• <strong>5 Gusht:</strong> Shpallja e rezultateve</p>
+                        <p>• <strong>10-20 Gusht:</strong> Regjistrimi dhe konfirmimi</p>
+                        <p>• <strong>1 Shtator:</strong> Fillimi i vitit shkollor</p>
+                    </div>
+                </div>
+            `;
+            
+            return card;
+        }
+
+        // ============================================
+        // FUNKSIONET NDIHMËSE
+        // ============================================
+        function checkAdmissionCriteria(schoolInfo, averageGrade) {
+            return averageGrade >= schoolInfo.admissionCriteria.averageGrade;
+        }
+
+        function calculateMatchPercentage(schoolInfo, averageGrade) {
+            const minGrade = schoolInfo.admissionCriteria.averageGrade;
+            const maxGrade = 5.0;
+            const studentGrade = averageGrade;
+            
+            if (studentGrade >= minGrade) {
+                return Math.min(100, 70 + ((studentGrade - minGrade) / (maxGrade - minGrade)) * 30);
+            } else {
+                return Math.max(0, (studentGrade / minGrade) * 70);
+            }
+        }
+
+        function getSchoolsByLocation(schoolInfo, homeMunicipality, locationPreference) {
+            const allSchools = schoolInfo.municipalities;
+            const schools = [];
+            
+            Object.keys(allSchools).forEach(municipality => {
+                const school = allSchools[municipality];
+                
+                let includeSchool = false;
+                
+                switch (locationPreference) {
+                    case "komuna":
+                        includeSchool = municipality === homeMunicipality;
+                        break;
+                    case "komuna-fqinje":
+                        // Komuna fqinje (thjeshtëzuar)
+                        const neighboringMunicipalities = {
+                            "prishtine": ["fushe-kosove", "obiliq", "lipjan"],
+                            "ferizaj": ["shtime", "kacanik", "shterpce"],
+                            "prizren": ["suhareke", "dragash", "mamushe"],
+                            "gjilan": ["kamenice", "viti", "partesh"],
+                            "peje": ["kline", "decan", "istog"],
+                            "gjakove": ["rahovec", "malisheve", "dragash"],
+                            "mitrovice": ["vushtrri", "skenderaj", "zubin-potok"]
+                        };
+                        includeSchool = municipality === homeMunicipality || 
+                            (neighboringMunicipalities[homeMunicipality] && 
+                             neighboringMunicipalities[homeMunicipality].includes(municipality));
+                        break;
+                    case "qytete-kryesore":
+                        const mainCities = ["prishtine", "prizren", "ferizaj", "gjilan", "mitrovice", "peje", "gjakove"];
+                        includeSchool = mainCities.includes(municipality);
+                        break;
+                    case "gjithë-kosova":
+                        includeSchool = true;
+                        break;
+                    case "konvikt-bursa":
+                        includeSchool = school.boardingAvailable === true;
+                        break;
+                    default:
+                        includeSchool = municipality === homeMunicipality;
+                }
+                
+                if (includeSchool) {
+                    schools.push({
+                        municipality: municipality,
+                        name: school.name,
+                        boardingAvailable: school.boardingAvailable,
+                        availableSpots: school.availableSpots,
+                        minAverage: school.minAverage
+                    });
+                }
+            });
+            
+            return schools;
+        }
+
+        function calculateDistance(municipality1, municipality2) {
+            if (municipality1 === municipality2) return "0 km";
+            
+            // Distancat e thjeshtëzuara midis komunave
+            const distances = {
+                "prishtine-ferizaj": "35 km",
+                "prishtine-prizren": "80 km",
+                "prishtine-gjilan": "45 km",
+                "prishtine-peje": "85 km",
+                "ferizaj-prizren": "50 km",
+                "ferizaj-gjilan": "65 km",
+                "prizren-gjakove": "40 km",
+                "peje-gjakove": "70 km"
+            };
+            
+            const key1 = `${municipality1}-${municipality2}`;
+            const key2 = `${municipality2}-${municipality1}`;
+            
+            return distances[key1] || distances[key2] || "~50-100 km";
+        }
+
+        function getGradeStatus(studentGrade, requiredGrade) {
+            if (studentGrade >= requiredGrade + 0.5) {
+                return '✅ Shumë mirë';
+            } else if (studentGrade >= requiredGrade) {
+                return '✅ Mirë';
+            } else if (studentGrade >= requiredGrade - 0.3) {
+                return '⚠️ Pothuajse';
+            } else {
+                return '❌ Duhet përmirësim';
+            }
+        }
+
+        function getMunicipalityName(code) {
+            const municipalities = {
+                "decan": "Deçan",
+                "dragash": "Dragash",
+                "ferizaj": "Ferizaj",
+                "fushe-kosove": "Fushë Kosovë",
+                "gjilan": "Gjilan",
+                "gjakove": "Gjakovë",
+                "junik": "Junik",
+                "kacanik": "Kaçanik",
+                "kamenice": "Kamenicë",
+                "kline": "Klinë",
+                "lepteri-qender": "Leptari i Qendrës",
+                "lipjan": "Lipjan",
+                "malisheve": "Malishevë",
+                "mamushe": "Mamushë",
+                "mitrovice": "Mitrovicë",
+                "novoberde": "Novobërdë",
+                "obiliq": "Obiliq",
+                "partesh": "Partesh",
+                "peje": "Pejë",
+                "podujeve": "Podujevë",
+                "prishtine": "Prishtinë",
+                "prizren": "Prizren",
+                "rahovec": "Rahovec",
+                "ranillug": "Ranillug",
+                "skenderaj": "Skënderaj",
+                "shtime": "Shtime",
+                "shtërpcë": "Shtërpcë",
+                "suhareke": "Suharekë",
+                "viti": "Viti",
+                "vushtrri": "Vushtrri",
+                "zubin-potok": "Zubin Potok",
+                "zvecan": "Zveçan"
+            };
+            return municipalities[code] || code;
+        }
+
+        function getLocationPreferenceName(code) {
+            const preferences = {
+                "komuna": "Vetëm në komunën time",
+                "komuna-fqinje": "Edhe në komuna fqinje",
+                "qytete-kryesore": "Në qytetet kryesore",
+                "gjithë-kosova": "Kudo në Kosovë",
+                "konvikt-bursa": "Vetëm me konvikt/bursë"
+            };
+            return preferences[code] || code;
+        }
+    </script>
+</body>
+</html>

@@ -140,6 +140,33 @@ section{padding:clamp(3.5rem,8vw,6rem) 0}
 .panel .btn{background:#fff;color:#22397A}
 @media (max-width:760px){.career{grid-template-columns:1fr}}
 
+/* karriera */
+.ctests{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-top:1.4rem}
+.ctest{display:flex;flex-direction:column;gap:.25rem;padding:1rem 1.1rem;border:1.5px solid var(--line);border-radius:14px;background:var(--surface);text-decoration:none;color:var(--ink)}
+.ctest strong{font:600 1.05rem "Bricolage Grotesque",system-ui,sans-serif;color:var(--spruce)}
+.ctest span{font-size:.92rem;color:var(--muted)}
+.ctest:hover{border-color:var(--gentian)}
+.career .note{font-size:.88rem;color:var(--muted);margin-top:.9rem}
+@media (max-width:560px){.ctests{grid-template-columns:1fr}}
+/* skemat */
+.figs{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
+.fig{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+.fig.wide{grid-column:1/-1}
+.fig .zoom{display:block;width:100%;padding:0;border:0;background:#F3F7F1;cursor:zoom-in}
+.fig svg{display:block;width:100%;height:auto}
+.fig.wide .zoom svg{max-height:380px}
+.fig figcaption{padding:1.1rem 1.3rem 1.3rem;display:flex;flex-direction:column;gap:.4rem;flex:1}
+.fig h3{font-size:1.25rem;color:var(--spruce)}
+.fig p{margin:0;color:var(--muted);font-size:.97rem}
+.fig .acts{display:flex;gap:.6rem;margin-top:auto;padding-top:.6rem}
+.fig .acts button{font:600 .9rem "Bricolage Grotesque",system-ui,sans-serif;color:var(--gentian);background:none;border:1.5px solid currentColor;border-radius:999px;padding:.4rem .9rem;cursor:pointer}
+.fig .acts button:hover{background:var(--gentian);color:var(--surface)}
+@media (max-width:760px){.figs{grid-template-columns:1fr}}
+dialog.lb{border:0;padding:0;border-radius:16px;max-width:min(1000px,94vw);width:100%;background:#F3F7F1}
+dialog.lb::backdrop{background:rgba(10,20,15,.75)}
+dialog.lb svg{display:block;width:100%;height:auto;max-height:85vh}
+dialog.lb .x{position:absolute;top:.6rem;right:.6rem;background:#1F3A2E;color:#fff;border:0;border-radius:999px;padding:.45rem .9rem;font:600 .9rem "Bricolage Grotesque",system-ui,sans-serif;cursor:pointer}
+
 footer{background:var(--ridge1);color:#DDE7E0;padding:3rem 0 2rem}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:2rem}
 footer a{color:#fff}
@@ -155,6 +182,7 @@ footer small{display:block;margin-top:2rem;opacity:.7;width:100%}
     <button class="menu-btn" aria-expanded="false" aria-controls="nav">Menyja</button>
     <nav class="nav" id="nav">
       <a href="#materialet">Materialet</a>
+      <a href="#skemat">Skemat</a>
       <a href="#seksionet">Seksionet</a>
       <a href="#rreth">Rreth meje</a>
       <a href="#karriera">Karriera</a>
@@ -186,23 +214,94 @@ footer small{display:block;margin-top:2rem;opacity:.7;width:100%}
   <div class="wrap">
     <div class="sec-head">
       <div>
-        <h2>Kuize për orën e biologjisë</h2>
-        <p>Lojëra dhe kuize në PowerPoint, gati për t'u përdorur në klasë. Disa skedarë .pptm kanë makro — hapini me “Enable content”.</p>
+        <h2>Materialet mësimore</h2>
+        <p>Kuize, teste, prezantime, plane mësimore, shabllone ditarësh, materiale për karrierë dhe për përdorimin e programeve kompjuterike në mësim për biologji, falas për nxënës dhe kolegë. Disa kuize .pptm kanë makro — hapini me “Enable content”.</p>
       </div>
     </div>
 
     <div class="tools">
-      <div class="chips" role="group" aria-label="Filtro sipas klasës">
+      <div class="chips" role="group" aria-label="Filtro sipas llojit">
         <button class="chip" data-f="all" aria-pressed="true">Të gjitha</button>
-        <button class="chip" data-f="6" aria-pressed="false">Klasa 6</button>
-        <button class="chip" data-f="7" aria-pressed="false">Klasa 7</button>
-        <button class="chip" data-f="x" aria-pressed="false">Lojëra të përgjithshme</button>
+        <button class="chip" data-f="kuiz" aria-pressed="false">Kuize</button>
+        <button class="chip" data-f="test" aria-pressed="false">Teste</button>
+        <button class="chip" data-f="prez" aria-pressed="false">Prezantime</button>
+        <button class="chip" data-f="plan" aria-pressed="false">Plane mësimore</button>
+        <button class="chip" data-f="kar" aria-pressed="false">Karrierë</button>
+        <button class="chip" data-f="tik" aria-pressed="false">Programe kompjuterike në mësim</button>
+        <button class="chip" data-f="ditar" aria-pressed="false">Ditarë</button>
       </div>
       <input class="search" type="search" placeholder="Kërko, p.sh. sjelljet e shtazëve" aria-label="Kërko në materiale">
     </div>
 
     <ul class="list" id="list"></ul>
     <p class="empty" id="empty" hidden>Asnjë material nuk përputhet me kërkimin. Provo një fjalë tjetër ose zgjidh “Të gjitha”.</p>
+  </div>
+</section>
+
+<section id="skemat" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head"><div><h2>Skema për mësim</h2>
+      <p>Skema të vizatuara për orët e biologjisë. Klikoni për t'i zmadhuar në tabelën interaktive ose shkarkojini si foto për prezantime dhe fletë pune.</p></div></div>
+    <div class="figs">
+      <figure class="fig" id="sk-foto">
+        <button class="zoom" aria-label="Zmadho skemën: Fotosinteza"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 440" role="img" aria-labelledby="t1"><title id="t1">Fotosinteza</title>
+<defs><marker id="aY" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10z" fill="#D9921A"/></marker><marker id="aG" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10z" fill="#5B6770"/></marker><marker id="aB" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10z" fill="#2F6FB3"/></marker><marker id="aT" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10z" fill="#3550A0"/></marker></defs>
+<rect width="600" height="440" fill="#F1F6FA"/>
+<rect y="300" width="600" height="140" fill="#8A6A48"/><rect y="300" width="600" height="8" fill="#6B5034"/>
+<g stroke="#F2B632" stroke-width="4" stroke-linecap="round">
+<line x1="80" y1="22" x2="80" y2="8"/><line x1="80" y1="128" x2="80" y2="142"/><line x1="27" y1="75" x2="13" y2="75"/><line x1="133" y1="75" x2="147" y2="75"/>
+<line x1="43" y1="38" x2="33" y2="28"/><line x1="117" y1="112" x2="127" y2="122"/><line x1="117" y1="38" x2="127" y2="28"/><line x1="43" y1="112" x2="33" y2="122"/></g>
+<circle cx="80" cy="75" r="36" fill="#F7C548"/>
+<path d="M320 300 C316 240 324 180 320 105" fill="none" stroke="#3E7B47" stroke-width="8" stroke-linecap="round"/>
+<g fill="#5DA35F" stroke="#3E7B47" stroke-width="2.5">
+<path d="M320 238 C282 206 246 210 224 232 C256 254 292 252 320 238Z"/>
+<path d="M320 192 C360 160 398 164 418 186 C388 208 350 208 320 192Z"/>
+<path d="M320 150 C286 124 256 128 238 146 C266 164 296 163 320 150Z"/>
+<path d="M320 108 C304 84 308 62 322 46 C336 64 338 88 320 108Z"/></g>
+<g fill="none" stroke="#E8D3B0" stroke-width="4" stroke-linecap="round">
+<path d="M320 304 C314 334 300 352 282 384"/><path d="M320 304 C326 336 342 356 362 386"/><path d="M320 304 L322 400"/>
+<path d="M306 340 L288 348"/><path d="M336 344 L352 340"/></g>
+<path d="M118 100 L222 196" stroke="#D9921A" stroke-width="4" fill="none" marker-end="url(#aY)"/>
+<text x="24" y="172" font-family="Bricolage Grotesque, Segoe UI, Arial, sans-serif" font-size="16" font-weight="600" fill="#9A5F07">Energjia e dritës</text>
+<path d="M30 262 L212 236" stroke="#5B6770" stroke-width="4" fill="none" marker-end="url(#aG)"/>
+<text x="24" y="226" font-family="Bricolage Grotesque, Segoe UI, Arial, sans-serif" font-size="16" font-weight="600" fill="#33414A">Dioksidi i karbonit</text>
+<text x="24" y="246" font-family="Bricolage Grotesque, Segoe UI, Arial, sans-serif" font-size="15" fill="#33414A">CO₂ nga ajri</text>
+<path d="M420 166 L548 120" stroke="#5B6770" stroke-width="4" fill="none" marker-end="url(#aG)"/>
+<text x="585" y="98" text-anchor="end" font-family="Bricolage Grotesque, Segoe UI, Arial, sans-serif" font-size="16" font-weight="600" fill="#33414A">Oksigjeni (O₂)</text>
+<text x="585" y="116" text-anchor="end" font-family="Bricolage Grotesque, Segoe UI, Arial, sans-serif" font-size="14" fill="#33414A">del në ajër</text>
+<path d="M404 214 L462 252" stroke="#3550A0" stroke-width="3" fill="none" marker-end="url(#aT)"/>
+<text x="470" y="262" font-family="Bricolage Grotesque, Segoe UI, Arial, sans-serif" font-size="16" font-weight="600" fill="#22397A">Glukoza</text>
+<text x="470" y="280" font-family="Bricolage Grotesque, Segoe UI, Arial, sans-serif" font-size="14" fill="#22397A">ushqim për bimën</text>
+<path d="M392 392 C372 360 350 336 332 314" stroke="#7FC0F2" stroke-width="4" fill="none" marker-end="url(#aB)"/>
+<path d="M412 352 C406 362 404 368 412 372 C420 368 418 362 412 352Z" fill="#7FC0F2"/>
+<text x="424" y="372" font-family="Bricolage Grotesque, Segoe UI, Arial, sans-serif" font-size="16" font-weight="600" fill="#FFFFFF">Uji (H₂O) nga toka</text>
+<text x="300" y="426" text-anchor="middle" font-family="Bricolage Grotesque, Segoe UI, Arial, sans-serif" font-size="22" font-weight="700" fill="#FFFFFF">6CO₂ + 6H₂O  →  C₆H₁₂O₆ + 6O₂</text>
+<text x="585" y="44" text-anchor="end" font-family="Bricolage Grotesque, Segoe UI, Arial, sans-serif" font-size="28" font-weight="800" fill="#1F3A2E">Fotosinteza</text>
+<text x="585" y="66" text-anchor="end" font-family="Bricolage Grotesque, Segoe UI, Arial, sans-serif" font-size="14" fill="#4E5F55">ndodh në kloroplastet e gjetheve</text>
+</svg></button>
+        <figcaption><h3>Fotosinteza</h3><p>Bima merr energji nga drita, dioksid karboni nga ajri dhe ujë nga toka, dhe prodhon glukozë e oksigjen.</p>
+          <div class="acts"><button data-dl="sk-foto">Shkarko PNG</button><button data-zoom="sk-foto">Zmadho</button></div></figcaption>
+      </figure>
+      <figure class="fig" id="sk-bretk">
+        <button class="zoom" aria-label="Zmadho skemën: Cikli i jetës së bretkosës"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-40 0 680 500" role="img" aria-labelledby="t2"><title id="t2">Cikli i jetës së bretkosës</title>
+<defs><marker id="aF" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10z" fill="#3E7B47"/></marker></defs><rect x="-40" width="680" height="500" fill="#F3F8F1"/>
+<circle cx="300" cy="250" r="92" fill="#E2EEDC"/>
+<text x="300" y="244" text-anchor="middle" font-family="Bricolage Grotesque, Segoe UI, Arial, sans-serif" font-size="22" font-weight="800" fill="#1F3A2E">Cikli i jetës</text>
+<text x="300" y="270" text-anchor="middle" font-family="Bricolage Grotesque, Segoe UI, Arial, sans-serif" font-size="22" font-weight="800" fill="#1F3A2E">së bretkosës</text>
+<text x="300" y="294" text-anchor="middle" font-family="Bricolage Grotesque, Segoe UI, Arial, sans-serif" font-size="13" fill="#4E5F55">metamorfozë</text>
+<path d="M351.8 99.7 A159 159 0 0 1 404.3 130.0" fill="none" stroke="#3E7B47" stroke-width="3.5" marker-end="url(#aF)"/><path d="M456.1 219.7 A159 159 0 0 1 456.1 280.3" fill="none" stroke="#3E7B47" stroke-width="3.5" marker-end="url(#aF)"/><path d="M404.3 370.0 A159 159 0 0 1 351.8 400.3" fill="none" stroke="#3E7B47" stroke-width="3.5" marker-end="url(#aF)"/><path d="M248.2 400.3 A159 159 0 0 1 195.7 370.0" fill="none" stroke="#3E7B47" stroke-width="3.5" marker-end="url(#aF)"/><path d="M143.9 280.3 A159 159 0 0 1 143.9 219.7" fill="none" stroke="#3E7B47" stroke-width="3.5" marker-end="url(#aF)"/><path d="M195.7 130.0 A159 159 0 0 1 248.2 99.7" fill="none" stroke="#3E7B47" stroke-width="3.5" marker-end="url(#aF)"/><g transform="translate(300.0 77.0) scale(1.15)"><g stroke="#2F5A2A" stroke-width="2" fill="#7DB868"><path d="M-24 14 C-46 16 -50 32 -32 34 L-12 30" fill="#6CA857"/><path d="M24 14 C46 16 50 32 32 34 L12 30" fill="#6CA857"/><ellipse cx="0" cy="8" rx="28" ry="19"/><ellipse cx="0" cy="-12" rx="21" ry="13"/><path d="M-14 22 L-18 34 M14 22 L18 34" fill="none"/></g><ellipse cx="0" cy="12" rx="15" ry="10" fill="#D9EBC7"/><circle cx="-11" cy="-22" r="6.5" fill="#7DB868" stroke="#2F5A2A" stroke-width="1.5"/><circle cx="-11" cy="-22" r="2.8" fill="#1B2A1A"/><circle cx="11" cy="-22" r="6.5" fill="#7DB868" stroke="#2F5A2A" stroke-width="1.5"/><circle cx="11" cy="-22" r="2.8" fill="#1B2A1A"/><path d="M-7 -6 Q0 -2 7 -6" fill="none" stroke="#2F5A2A" stroke-width="1.5"/></g><text x="300.0" y="131.0" text-anchor="middle" font-family="Bricolage Grotesque, Segoe UI, Arial, sans-serif" font-size="15" font-weight="600" fill="#1F3A2E">Bretkosa e rritur</text><g transform="translate(442.9 159.5) scale(1)"><circle cx="-20" cy="-8" r="9.5" fill="#E3EEDF" stroke="#97B394" stroke-width="1.5"/><circle cx="-20" cy="-8" r="3.2" fill="#2C2C2C"/><circle cx="-1" cy="-12" r="9.5" fill="#E3EEDF" stroke="#97B394" stroke-width="1.5"/><circle cx="-1" cy="-12" r="3.2" fill="#2C2C2C"/><circle cx="18" cy="-7" r="9.5" fill="#E3EEDF" stroke="#97B394" stroke-width="1.5"/><circle cx="18" cy="-7" r="3.2" fill="#2C2C2C"/><circle cx="-12" cy="9" r="9.5" fill="#E3EEDF" stroke="#97B394" stroke-width="1.5"/><circle cx="-12" cy="9" r="3.2" fill="#2C2C2C"/><circle cx="8" cy="8" r="9.5" fill="#E3EEDF" stroke="#97B394" stroke-width="1.5"/><circle cx="8" cy="8" r="3.2" fill="#2C2C2C"/><circle cx="26" cy="10" r="9.5" fill="#E3EEDF" stroke="#97B394" stroke-width="1.5"/><circle cx="26" cy="10" r="3.2" fill="#2C2C2C"/><circle cx="-28" cy="12" r="9.5" fill="#E3EEDF" stroke="#97B394" stroke-width="1.5"/><circle cx="-28" cy="12" r="3.2" fill="#2C2C2C"/><circle cx="0" cy="26" r="9.5" fill="#E3EEDF" stroke="#97B394" stroke-width="1.5"/><circle cx="0" cy="26" r="3.2" fill="#2C2C2C"/><circle cx="-18" cy="26" r="9.5" fill="#E3EEDF" stroke="#97B394" stroke-width="1.5"/><circle cx="-18" cy="26" r="3.2" fill="#2C2C2C"/><circle cx="18" cy="26" r="9.5" fill="#E3EEDF" stroke="#97B394" stroke-width="1.5"/><circle cx="18" cy="26" r="3.2" fill="#2C2C2C"/></g><text x="490.9" y="163.5" text-anchor="start" font-family="Bricolage Grotesque, Segoe UI, Arial, sans-serif" font-size="15" font-weight="600" fill="#1F3A2E">Vezët në ujë</text><g transform="translate(442.9 324.5) scale(1)"><circle cx="-17" cy="-6" r="15" fill="#E3EEDF" stroke="#97B394" stroke-width="1.5"/><path d="M-22 -5 C-23 -14 -12 -15 -11 -8 C-10 -2 -15 1 -18 3" fill="none" stroke="#3B4A38" stroke-width="3.5" stroke-linecap="round"/><circle cx="15" cy="-8" r="15" fill="#E3EEDF" stroke="#97B394" stroke-width="1.5"/><path d="M10 -7 C9 -16 20 -17 21 -10 C22 -4 17 -1 14 1" fill="none" stroke="#3B4A38" stroke-width="3.5" stroke-linecap="round"/><circle cx="0" cy="16" r="15" fill="#E3EEDF" stroke="#97B394" stroke-width="1.5"/><path d="M-5 17 C-6 8 5 7 6 14 C7 20 2 23 -1 25" fill="none" stroke="#3B4A38" stroke-width="3.5" stroke-linecap="round"/></g><text x="490.9" y="328.5" text-anchor="start" font-family="Bricolage Grotesque, Segoe UI, Arial, sans-serif" font-size="15" font-weight="600" fill="#1F3A2E">Embrioni</text><g transform="translate(300.0 407.0) scale(1.1)"><path d="M2 -6 C18 -14 30 6 48 -3 C32 12 18 6 2 7Z" fill="#6E7A68"/><ellipse cx="-10" cy="0" rx="16" ry="12" fill="#4F5C4B"/><circle cx="-16" cy="-4" r="2.5" fill="#fff"/></g><text x="300.0" y="461.0" text-anchor="middle" font-family="Bricolage Grotesque, Segoe UI, Arial, sans-serif" font-size="15" font-weight="600" fill="#1F3A2E">Larva (fulterëza)</text><text x="300.0" y="478.0" text-anchor="middle" font-family="Bricolage Grotesque, Segoe UI, Arial, sans-serif" font-size="13" font-weight="400" fill="#4E5F55">merr frymë me verza</text><g transform="translate(157.1 324.5) scale(1.1)"><path d="M0 7 L-2 18 L-8 22 M6 6 L8 17 L14 21" fill="none" stroke="#4F5C4B" stroke-width="3" stroke-linecap="round"/><path d="M2 -6 C18 -14 30 6 48 -3 C32 12 18 6 2 7Z" fill="#6E7A68"/><ellipse cx="-10" cy="0" rx="16" ry="12" fill="#4F5C4B"/><circle cx="-16" cy="-4" r="2.5" fill="#fff"/></g><text x="109.1" y="320.5" text-anchor="end" font-family="Bricolage Grotesque, Segoe UI, Arial, sans-serif" font-size="15" font-weight="600" fill="#1F3A2E">Larva</text><text x="109.1" y="337.5" text-anchor="end" font-family="Bricolage Grotesque, Segoe UI, Arial, sans-serif" font-size="13" font-weight="400" fill="#4E5F55">me këmbë të pasme</text><g transform="translate(157.1 159.5) scale(1.15)"><path d="M10 -2 C24 -6 32 4 40 -1 C30 9 20 6 10 7Z" fill="#6E8A60"/><g stroke="#2F5A2A" stroke-width="2" fill="#7DB868"><path d="M-6 8 L-14 20 L-22 22 M6 8 L12 20 L20 23 M-14 -2 L-24 6 M-4 2 L-6 12" fill="none"/><ellipse cx="-4" cy="0" rx="17" ry="12"/></g><circle cx="-12" cy="-10" r="4.5" fill="#7DB868" stroke="#2F5A2A" stroke-width="1.5"/><circle cx="-12" cy="-10" r="2" fill="#1B2A1A"/><circle cx="0" cy="-11" r="4.5" fill="#7DB868" stroke="#2F5A2A" stroke-width="1.5"/><circle cx="0" cy="-11" r="2" fill="#1B2A1A"/></g><text x="109.1" y="155.5" text-anchor="end" font-family="Bricolage Grotesque, Segoe UI, Arial, sans-serif" font-size="15" font-weight="600" fill="#1F3A2E">Bretkosa e re</text><text x="109.1" y="172.5" text-anchor="end" font-family="Bricolage Grotesque, Segoe UI, Arial, sans-serif" font-size="13" font-weight="400" fill="#4E5F55">me bisht</text></svg></button>
+        <figcaption><h3>Cikli i jetës së bretkosës</h3><p>Nga veza te bretkosa e rritur përmes metamorfozës: larva jeton në ujë, ndërsa bretkosa e rritur edhe në tokë.</p>
+          <div class="acts"><button data-dl="sk-bretk">Shkarko PNG</button><button data-zoom="sk-bretk">Zmadho</button></div></figcaption>
+      </figure>
+      <figure class="fig wide" id="sk-fara">
+        <button class="zoom" aria-label="Zmadho skemën: Mbirja e farës"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 330" role="img" aria-labelledby="t3"><title id="t3">Mbirja e farës</title>
+<defs><marker id="aS" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10z" fill="#9BB0A2"/></marker></defs><rect width="640" height="330" fill="#F4F7F2"/>
+<rect y="200" width="640" height="130" fill="#8A6A48"/><rect y="200" width="640" height="7" fill="#6B5034"/>
+<circle cx="64" cy="32" r="15" fill="#1F3A2E"/><text x="64" y="38" text-anchor="middle" font-family="Bricolage Grotesque, Segoe UI, Arial, sans-serif" font-size="16" font-weight="700" fill="#fff">1</text><text x="64" y="72" text-anchor="middle" font-family="Bricolage Grotesque, Segoe UI, Arial, sans-serif" font-size="15" font-weight="600" fill="#1F3A2E">Fara</text><circle cx="186" cy="32" r="15" fill="#1F3A2E"/><text x="186" y="38" text-anchor="middle" font-family="Bricolage Grotesque, Segoe UI, Arial, sans-serif" font-size="16" font-weight="700" fill="#fff">2</text><text x="186" y="72" text-anchor="middle" font-family="Bricolage Grotesque, Segoe UI, Arial, sans-serif" font-size="15" font-weight="600" fill="#1F3A2E">Thith ujë, fryhet</text><circle cx="314" cy="32" r="15" fill="#1F3A2E"/><text x="314" y="38" text-anchor="middle" font-family="Bricolage Grotesque, Segoe UI, Arial, sans-serif" font-size="16" font-weight="700" fill="#fff">3</text><text x="314" y="72" text-anchor="middle" font-family="Bricolage Grotesque, Segoe UI, Arial, sans-serif" font-size="15" font-weight="600" fill="#1F3A2E">Del rrënja</text><circle cx="446" cy="32" r="15" fill="#1F3A2E"/><text x="446" y="38" text-anchor="middle" font-family="Bricolage Grotesque, Segoe UI, Arial, sans-serif" font-size="16" font-weight="700" fill="#fff">4</text><text x="446" y="72" text-anchor="middle" font-family="Bricolage Grotesque, Segoe UI, Arial, sans-serif" font-size="15" font-weight="600" fill="#1F3A2E">Del kërcelli</text><circle cx="574" cy="32" r="15" fill="#1F3A2E"/><text x="574" y="38" text-anchor="middle" font-family="Bricolage Grotesque, Segoe UI, Arial, sans-serif" font-size="16" font-weight="700" fill="#fff">5</text><text x="574" y="72" text-anchor="middle" font-family="Bricolage Grotesque, Segoe UI, Arial, sans-serif" font-size="15" font-weight="600" fill="#1F3A2E">Bima e re</text><ellipse cx="64" cy="240" rx="17" ry="25" fill="#E7D3A8" stroke="#A88A55" stroke-width="2" transform="rotate(-15 64 240)"/><ellipse cx="186" cy="240" rx="21" ry="29" fill="#E7D3A8" stroke="#A88A55" stroke-width="2" transform="rotate(-15 186 240)"/><path d="M150 214 C145 222 145 227 150 228 C155 227 155 222 150 214Z" fill="#7FC0F2"/><path d="M222 226 C217 234 217 239 222 240 C227 239 227 234 222 226Z" fill="#7FC0F2"/><path d="M160 258 C155 266 155 271 160 272 C165 271 165 266 160 258Z" fill="#7FC0F2"/><ellipse cx="314" cy="232" rx="21" ry="29" fill="#E7D3A8" stroke="#A88A55" stroke-width="2" transform="rotate(-15 314 232)"/><path d="M306 214 L318 232 L312 250" fill="none" stroke="#A88A55" stroke-width="2"/><path d="M318 258 C320 270 314 280 318 292" fill="none" stroke="#F4ECDC" stroke-width="4" stroke-linecap="round"/><path d="M446 254 C448 270 440 282 446 300 M444 272 L430 280 M447 286 L460 292" fill="none" stroke="#F4ECDC" stroke-width="3.5" stroke-linecap="round"/><ellipse cx="440" cy="238" rx="18" ry="24" fill="#E7D3A8" stroke="#A88A55" stroke-width="2" transform="rotate(-15 440 238)"/><path d="M448 222 C452 190 452 168 440 160 C430 156 424 166 428 176" fill="none" stroke="#5DA35F" stroke-width="6" stroke-linecap="round"/><path d="M574 250 C576 270 566 284 572 304 M574 262 C584 274 594 280 600 292 M571 280 L556 290" fill="none" stroke="#F4ECDC" stroke-width="3.5" stroke-linecap="round"/><path d="M574 252 C574 200 576 150 574 110" fill="none" stroke="#5DA35F" stroke-width="6" stroke-linecap="round"/><path d="M574 122 C548 96 520 102 512 116 C532 134 556 134 574 122Z" fill="#6DB26A" stroke="#3E7B47" stroke-width="2"/><path d="M574 116 C600 88 626 96 632 110 C612 128 590 130 574 116Z" fill="#6DB26A" stroke="#3E7B47" stroke-width="2"/><path d="M92 140 L156 140" stroke="#9BB0A2" stroke-width="3" stroke-dasharray="6 6" fill="none" marker-end="url(#aS)"/><path d="M220 140 L282 140" stroke="#9BB0A2" stroke-width="3" stroke-dasharray="6 6" fill="none" marker-end="url(#aS)"/><path d="M350 140 L410 140" stroke="#9BB0A2" stroke-width="3" stroke-dasharray="6 6" fill="none" marker-end="url(#aS)"/><path d="M478 140 L538 140" stroke="#9BB0A2" stroke-width="3" stroke-dasharray="6 6" fill="none" marker-end="url(#aS)"/></svg></button>
+        <figcaption><h3>Mbirja e farës</h3><p>Pesë fazat e mbirjes: fara thith ujë, fryhet, del rrënja, pastaj kërcelli dhe gjethet e para.</p>
+          <div class="acts"><button data-dl="sk-fara">Shkarko PNG</button><button data-zoom="sk-fara">Zmadho</button></div></figcaption>
+      </figure>
+    </div>
   </div>
 </section>
 
@@ -260,6 +359,11 @@ footer small{display:block;margin-top:2rem;opacity:.7;width:100%}
       <h2>Këshillim për karrierë</h2>
       <p>Zgjedhja e shkollës së mesme është vendimi i parë i madh i nxënësit. Këtu gjeni punimet dhe materialet që përdor për t'i ndihmuar nxënësit të njohin interesat dhe aftësitë e tyre.</p>
       <a class="btn ghost" href="https://naserguri1.wordpress.com/punimet-per-keshilltar-karriere/">Punimet për këshilltar karriere</a>
+      <div class="ctests">
+        <a class="ctest" href="testet/testi-nxenesit.html"><strong>Testi për nxënësit</strong><span>Për klasën e 9-të: interesat, aftësitë dhe drejtimi i shkollës së mesme</span></a>
+        <a class="ctest" href="testet/testi-prinderit.html"><strong>Testi për prindërit</strong><span>Prindi vlerëson aftësitë dhe interesat e fëmijës</span></a>
+      </div>
+      <p class="note">Përgjigjet nuk dërgohen askund dhe nuk ruhen. Printoni rezultatet para se ta mbyllni faqen.</p>
     </div>
     <div class="panel">
       <h3>Testi i paraorientimit</h3>
@@ -283,6 +387,7 @@ footer small{display:block;margin-top:2rem;opacity:.7;width:100%}
     <small>Materialet janë falas për përdorim arsimor. © <span id="yr"></span> Naser Guri</small>
   </div>
 </footer>
+<dialog class="lb" id="lb"><button class="x" id="lbx">Mbyll</button><div id="lbc"></div></dialog>
 
 <script>
 const U="https://naserguri1.wordpress.com/wp-content/uploads/2022/10/";
@@ -300,18 +405,69 @@ const items=[
   {t:"Kuizi me 100 pyetje",c:"7",f:"kuizi-me-100-pyetje1-kl.7-copy-1.pptx",d:"Përsëritje e madhe e vitit"},
   {t:"Kush do të bëhet milioner",c:"x",f:"kush-do-te-behet-milioner-me-kod-1.ppt",d:"Lojë në formatin e njohur televiziv"},
   {t:"Loja memori – biologji",c:"x",f:"loja-memori-biologji.pptx",d:"Lojë kujtese me koncepte biologjike"},
-  {t:"Kuiz me 7 lëndë",c:"x",f:"kuiz-me-7-lende.pptx",d:"Kuiz ndërlëndor për gara shkollore"}
+  {t:"Kuiz me 7 lëndë",c:"x",f:"kuiz-me-7-lende.pptx",d:"Kuiz ndërlëndor për gara shkollore"},
+  {t:"Asociacion – Ngrohja globale",c:"6",f:"materialet/asociacion-ngrohja-globale-kl6.pptx",d:"Lojë asociacioni për lëndët djegëse dhe CO₂"},
+  {t:"Asociacion – Ndotja e mjedisit",c:"6",f:"materialet/asociacion-ndotja-e-mjedisit-kl6.pptx",d:"Ndotja e ujit dhe e ajrit, gazrat ndotës"},
+  {t:"Asociacion – Biodiversiteti",c:"6",f:"materialet/asociacion-biodiversiteti.pptx",d:"Lojë asociacioni për larminë e botës së gjallë"},
+  {t:"Asociacion – Gjunglla",c:"6",f:"materialet/asociacion-gjunglla.pptx",d:"Pyjet tropikale dhe gjallesat e tyre"},
+  {t:"Asociacion – Fotosinteza",c:"6",f:"materialet/asociacion-fotosinteza.pptx",d:"Dielli, uji dhe procesi i fotosintezës"},
+  {t:"Asociacion – Bimët në kushte të papërshtatshme",c:"6",f:"materialet/asociacion-bimet-kushte-te-papershtatshme.pptx",d:"Përshtatja e bimëve me mjedise të vështira"},
+  {t:"Dritaret – Biomet pyjore (versioni i plotë)",c:"6",f:"materialet/dritaret-biomet-pyjore-kl6.pptx",d:"58 sllajde, përfshin pyetjen me hartën e biomeve"},
+  {t:"Dritaret – Biomet pyjore (versioni i shkurtër)",c:"6",f:"materialet/dritaret-biomet-pyjore-kl6-shkurter.pptx",d:"37 sllajde, me buton “Përfundo”"},
+  {t:"Gjej fjalën misterioze – Biocenoza",c:"6",f:"materialet/gjej-fjalen-biocenoza-kl6.pptx",d:"Nxënësit zbulojnë fjalën shkronjë pas shkronje nga përgjigjet"},
+  {t:"Kuizi i madh i klasës 6",c:"6",f:"materialet/kuizi-i-madh-kl6.pptx",d:"94 sllajde me kategori loje, për përsëritje të vitit"},
+  {t:"Kuiz me kategori pyetjesh",c:"6",f:"materialet/kuiz-me-kategori-kl6.pptx",d:"Pyetje me figura, alternativa, plotësim fjalësh dhe sugjerime"},
+  {t:"Kuiz me 20 pyetje",c:"6",f:"materialet/kuiz-20-pyetje-kl6.pptx",d:"20 pyetje me alternativa A–D"},
+  {t:"Sistematika e gjallesave",c:"6",f:"materialet/kuiz-sistematika-kl6.pptm",d:"Kuiz interaktiv ku nxënësi shënon emrin dhe përgjigjet"},
+  {t:"Gjeje frazën",c:"6",f:"materialet/gjeje-frazen-kl6.pptx",d:"Nxënësit zgjedhin shkronjat për të zbuluar frazën e fshehur"},
+  {t:"Milioneri – Sjelljet e shtazëve",c:"6",f:"materialet/milioneri-sjelljet-e-shtazeve-kl6.pptx",d:"Lojë në stilin “Kush do të bëhet milioner”, 15 nivele"},
+  {t:"Sjelljet e shtazëve – pyetje me alternativa",c:"6",f:"materialet/kuiz-sjelljet-e-shtazeve-alternativa-kl6.pptx",d:"Sjelljet e lindura dhe të fituara, pyetje a–d"},
+  {t:"Kutitë e mistereve – Sjelljet ciklike",c:"6",f:"materialet/kutite-e-mistereve-sjelljet-ciklike-kl6.pptx",d:"Nxënësit zgjedhin një kuti dhe zbulojnë pyetjen"},
+  {t:"ZOOM – Gjallesat dhe mjediset",c:"6",f:"materialet/zoom-kl6.pptx",d:"Fotografia zmadhohet hap pas hapi, nxënësit gjejnë gjallesën"},
+  {t:"Loja memori – Biologji 6",c:"6",f:"materialet/loja-memori-kl6.pptx",d:"Gjej çiftet e kartave me koncepte të biologjisë"},
+  {t:"Kuiz me 4 grupe – Sjelljet e shtazëve",c:"6",f:"materialet/kuiz-4-grupe-sjelljet-e-shtazeve-kl6.pptx",d:"4 grupe × 5 pyetje, garë në klasë"},
+  {t:"Kuiz me 5 grupe – Sjelljet e shtazëve",c:"6",f:"materialet/kuiz-5-grupe-sjelljet-e-shtazeve-kl6.pptx",d:"Varianti për 5 grupe nxënësish"},
+  {t:"Asociacion – shabllon bosh",c:"x",f:"materialet/asociacion-shabllon-bosh.pptx",d:"Plotësojeni me fjalët tuaja për çdo temë"},
+  {t:"Minitest P1 – Qeliza dhe klasifikimi, grupi A",c:"6",k:"test",f:"materialet/minitest-p1-kl6-grupi-a-2023.docx",d:"10 pyetje me pikë dhe kriter vlerësimi (Word)"},
+  {t:"Minitest P1 – Qeliza dhe klasifikimi, grupi A",c:"6",k:"test",f:"materialet/minitest-p1-kl6-grupi-a-2023.pdf",d:"I njëjti test, gati për printim (PDF)"},
+  {t:"Minitest P1 – Qeliza dhe klasifikimi, grupi B",c:"6",k:"test",f:"materialet/minitest-p1-kl6-grupi-b-2023.docx",d:"Varianti B i minitestit (Word)"},
+  {t:"Minitest P1 – Lëkura, skeleti dhe muskujt, grupi A",c:"7",k:"test",f:"materialet/minitest-p1-kl7-grupi-a.docx",d:"10 pyetje me figura dhe kriter vlerësimi (Word)"},
+  {t:"Minitest P1 – Lëkura, skeleti dhe muskujt, grupi A",c:"7",k:"test",f:"materialet/minitest-p1-kl7-grupi-a.pdf",d:"I njëjti test, gati për printim (PDF)"},
+  {t:"Minitest P1 – Lëkura, skeleti dhe muskujt, grupi B",c:"7",k:"test",f:"materialet/minitest-p1-kl7-grupi-b.docx",d:"10 pyetje me figura dhe kriter vlerësimi (Word)"},
+  {t:"Minitest P1 – Lëkura, skeleti dhe muskujt, grupi B",c:"7",k:"test",f:"materialet/minitest-p1-kl7-grupi-b.pdf",d:"I njëjti test, gati për printim (PDF)"},
+  {t:"Test – Ekosistemet, grupet A–F",c:"6",k:"test",f:"materialet/test-p2-ekosistemet-kl6-grupet-a-f-2024.docx",d:"Periudha 2, gjashtë variante për grupe të ndryshme"},
+  {t:"Test – Sjelljet e shtazëve, grupet A–F",c:"6",k:"test",f:"materialet/test-sjelljet-kl6-grupet-a-f-2024.docx",d:"Gjashtë variante për të shmangur kopjimin"},
+  {t:"Test – Sjelljet e shtazëve, grupet A–B",c:"6",k:"test",f:"materialet/test-sjelljet-kl6-grupet-a-b-2024.docx",d:"Dy variante, me skema dhe figura"},
+  {t:"Biodiversiteti i Kosovës",c:"6",k:"prez",f:"materialet/biodiversiteti-i-kosoves.pptm",d:"Vendet më të pasura me lloje dhe rëndësia e ruajtjes së tyre"},
+  {t:"Organizimi i biocenozave",c:"6",k:"prez",f:"materialet/prezantim-organizimi-i-biocenozave.pptx",d:"Struktura hapësinore e kohore dhe qëndrueshmëria e ekosistemeve"},
+  {t:"Fazat e fotosintezës",c:"6",k:"prez",f:"materialet/prezantim-fazat-e-fotosintezes.pptx",d:"Faktorët dhe fazat e procesit të fotosintezës"},
+  {t:"Truri dhe palca kurrizore",c:"7",k:"prez",f:"materialet/prezantim-truri-dhe-palca-kurrizore.pptx",d:"Pjesët e trurit, rolet e tyre dhe si funksionon"},
+  {t:"Struktura trupore dhe sjellja te shtazët",c:"6",k:"prez",f:"materialet/prezantim-struktura-trupore-sjelljet-kl6.pptx",d:"Si e përcakton ndërtimi i trupit sjelljen, me shembullin e maces"},
+  {t:"Aplikimi i programeve kompjuterike në mësimdhënie – programi i trajnimit",c:"x",k:"tik",f:"materialet/tik-programi-i-trajnimit.pptx",d:"Qëllimet, pjesëmarrësit dhe plani i trajnimit (48 sllajde)"},
+  {t:"Bazat e Excel-it",c:"x",k:"tik",f:"materialet/tik-prezantim-bazat-e-excel-it.pptx",d:"Prezantim i zgjeruar: Excel për menaxhimin dhe analizën e të dhënave në shkollë"},
+  {t:"Bazat e PowerPoint-it",c:"x",k:"tik",f:"materialet/tik-prezantim-bazat-e-powerpoint.pptx",d:"Ndërfaqja, pamjet dhe krijimi i një prezantimi, me video shembuj"},
+  {t:"Testi Word, Excel dhe PowerPoint – grupi A",c:"x",k:"tik",f:"materialet/tik-testi-word-excel-powerpoint-grupi-a.pptm",d:"Test interaktiv me shirit kohe (1 min për pyetje) dhe pikë për çdo program"},
+  {t:"Testi Word, Excel dhe PowerPoint – grupi B",c:"x",k:"tik",f:"materialet/tik-testi-word-excel-powerpoint-grupi-b.pptm",d:"Varianti B, me shirit kohe 45 sekonda për pyetje"},
+  {t:"Testi “Bazat e Word-it”",c:"x",k:"tik",f:"materialet/tik-testi-bazat-e-word-it.pptm",d:"20 pyetje me kohëmatës, pjesëmarrësi shënon emrin"},
+  {t:"Test MS Word me markera",c:"x",k:"tik",f:"materialet/tik-test-word-me-markera.pptx",d:"Shkurtesat dhe mjetet e Word-it, me përgjigje të shënuara ✓ / ✗"},
+  {t:"Test interaktiv në Excel – 20 pyetje",c:"x",k:"tik",f:"materialet/tik-test-interaktiv-20-pyetje.xlsx",d:"Excel e kontrollon përgjigjen dhe numëron pikët automatikisht"},
+  {t:"Marrëveshje bashkëpunimi shkollë–biznes",c:"x",k:"kar",f:"materialet/marreveshje-bashkepunimi-shkolle-biznes.docx",d:"Shabllon për vizitat e nxënësve në biznese dhe institucione"},
+  {t:"Plani tremujor (prill–qershor)",c:"6",k:"plan",f:"materialet/plani-tremujor-2-kl6-2023-24.docx",d:"Biologji, viti shkollor 2023/2024"},
+  {t:"Plani tremujor (prill–qershor)",c:"7",k:"plan",f:"materialet/plani-tremujor-2-kl7-2023-24.docx",d:"Biologji, viti shkollor 2023/2024"},
+  {t:"Plani tremujor (prill–qershor)",c:"9",k:"plan",f:"materialet/plani-tremujor-2-kl9-2023-24.docx",d:"Biologji, viti shkollor 2023/2024"},
+  {t:"Ditari personal i mësimdhënësit – shabllon",c:"x",k:"ditar",f:"materialet/ditari-personal-shabllon.docx",d:"Ditar bosh për një gjysmëvjetor, gati për printim"},
+  {t:"Ditari elektronik i biologjisë – shabllon",c:"6",k:"ditar",f:"materialet/ditari-biologji-kl6-shabllon.xlsx",d:"Tabelë Excel që llogarit notat dhe suksesin automatikisht"}
 ];
 const list=document.getElementById("list"),empty=document.getElementById("empty"),q=document.querySelector(".search");
 let filt="all";
 const norm=s=>s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
 function render(){
   const term=norm(q.value.trim());
-  const rows=items.filter(i=>(filt==="all"||i.c===filt)&&(!term||norm(i.t+" "+i.d).includes(term)));
+  const rows=items.filter(i=>(filt==="all"||(i.k||"kuiz")===filt)&&(!term||norm(i.t+" "+i.d).includes(term)));
   list.innerHTML=rows.map(i=>{
     const ext=i.f.split(".").pop().toUpperCase();
-    const cls=i.c==="x"?"Lojë":"Klasa "+i.c;
-    return `<li class="item"><span class="cls">${cls}</span><div><h3>${i.t}</h3><div class="meta">${i.d} · ${ext}</div></div><a class="dl" href="${U}${i.f}" download>Shkarko</a></li>`;
+    const cls=i.k==="tik"?"Trajnim":(i.c==="x"?((i.k||"kuiz")==="kuiz"?"Lojë":"Çdo klasë"):"Klasa "+i.c);
+    return `<li class="item"><span class="cls">${cls}</span><div><h3>${i.t}</h3><div class="meta">${i.d} · ${ext}</div></div><a class="dl" href="${i.f.includes('/')?i.f:U+i.f}" download>Shkarko</a></li>`;
   }).join("");
   empty.hidden=rows.length>0;
 }
@@ -324,6 +480,23 @@ render();
 const mb=document.querySelector(".menu-btn"),nav=document.getElementById("nav");
 mb.addEventListener("click",()=>{const o=nav.classList.toggle("open");mb.setAttribute("aria-expanded",o)});
 nav.addEventListener("click",e=>{if(e.target.tagName==="A"){nav.classList.remove("open");mb.setAttribute("aria-expanded","false")}});
+
+const lb=document.getElementById("lb"),lbc=document.getElementById("lbc");
+function openFig(id){lbc.innerHTML=document.querySelector("#"+id+" svg").outerHTML;lb.showModal()}
+document.getElementById("lbx").onclick=()=>lb.close();
+lb.addEventListener("click",e=>{if(e.target===lb)lb.close()});
+document.querySelectorAll(".fig").forEach(f=>{
+  f.querySelector(".zoom").onclick=()=>openFig(f.id);
+  f.querySelector("[data-zoom]").onclick=()=>openFig(f.id);
+  f.querySelector("[data-dl]").onclick=()=>{
+    const svg=f.querySelector("svg"),vb=svg.viewBox.baseVal,sc=2;
+    const img=new Image(),url=URL.createObjectURL(new Blob([svg.outerHTML],{type:"image/svg+xml"}));
+    img.onload=()=>{const c=document.createElement("canvas");c.width=vb.width*sc;c.height=vb.height*sc;
+      c.getContext("2d").drawImage(img,0,0,c.width,c.height);URL.revokeObjectURL(url);
+      const a=document.createElement("a");a.download=f.id.replace("sk-","skema-")+".png";a.href=c.toDataURL("image/png");a.click()};
+    img.src=url;
+  };
+});
 document.getElementById("yr").textContent=new Date().getFullYear();
 </script>
 </body>
