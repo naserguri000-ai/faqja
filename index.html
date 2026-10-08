@@ -102,6 +102,9 @@ section{padding:clamp(3.5rem,8vw,6rem) 0}
 .dl{display:inline-flex;align-items:center;gap:.4rem;text-decoration:none;font:600 .92rem "Bricolage Grotesque",system-ui,sans-serif;
   color:var(--gentian);border:1.5px solid currentColor;border-radius:999px;padding:.4rem .9rem;white-space:nowrap}
 .dl:hover{background:var(--gentian);color:var(--surface)}
+.acts2{display:flex;gap:.45rem;flex-wrap:wrap;justify-content:flex-end}
+.dl.view{color:var(--spruce);border-color:var(--spruce)}
+.dl.view:hover{background:var(--spruce);color:var(--surface)}
 .empty{padding:2rem .25rem;color:var(--muted)}
 @media (max-width:560px){.item{grid-template-columns:1fr auto}.item .cls{grid-column:1/-1}}
 
@@ -215,7 +218,7 @@ footer small{display:block;margin-top:2rem;opacity:.7;width:100%}
     <div class="sec-head">
       <div>
         <h2>Materialet mësimore</h2>
-        <p>Kuize, teste, prezantime, plane mësimore, shabllone ditarësh, materiale për karrierë dhe për përdorimin e programeve kompjuterike në mësim për biologji, falas për nxënës dhe kolegë. Disa kuize .pptm kanë makro — hapini me “Enable content”.</p>
+        <p>Kuize, teste, prezantime, plane mësimore, shabllone ditarësh, materiale për karrierë dhe për përdorimin e programeve kompjuterike në mësim për biologji, falas për nxënës dhe kolegë. Me “Shiko” materiali hapet direkt në shfletues, edhe në telefon. Për lojërat interaktive (butonat, kohëmatësit, makrot) shkarkojeni dhe hapeni në PowerPoint.</p>
       </div>
     </div>
 
@@ -382,7 +385,7 @@ footer small{display:block;margin-top:2rem;opacity:.7;width:100%}
     </div>
     <div>
       <h3>Kontakti</h3>
-      <p>Email: <a href="mailto:naserguri@outlook.com">naserguri@outlook.com</a></p>
+      <p>Email: <a href="mailto:emri@shembull.com">emri@shembull.com</a></p>
     </div>
     <small>Materialet janë falas për përdorim arsimor. © <span id="yr"></span> Naser Guri</small>
   </div>
@@ -458,6 +461,13 @@ const items=[
   {t:"Ditari personal i mësimdhënësit – shabllon",c:"x",k:"ditar",f:"materialet/ditari-personal-shabllon.docx",d:"Ditar bosh për një gjysmëvjetor, gati për printim"},
   {t:"Ditari elektronik i biologjisë – shabllon",c:"6",k:"ditar",f:"materialet/ditari-biologji-kl6-shabllon.xlsx",d:"Tabelë Excel që llogarit notat dhe suksesin automatikisht"}
 ];
+const SITE="https://naserguri000-ai.github.io/faqja/";
+const PAMJE=new Set(["biodiversiteti-i-kosoves", "dritaret-biomet-pyjore-kl6", "dritaret-biomet-pyjore-kl6-shkurter", "kuiz-me-kategori-kl6", "kuizi-i-madh-kl6", "milioneri-sjelljet-e-shtazeve-kl6", "prezantim-struktura-trupore-sjelljet-kl6", "tik-prezantim-bazat-e-powerpoint"]);
+function fileUrl(f){return f.includes("/")?SITE+f:U+f}
+function viewUrl(f){const ext=f.split(".").pop().toLowerCase(),base=f.split("/").pop().replace(/\.[^.]+$/,"");
+  if(ext==="pdf")return fileUrl(f);
+  if(PAMJE.has(base))return SITE+"materialet/pamje/"+base+".pdf";
+  return "https://view.officeapps.live.com/op/view.aspx?src="+encodeURIComponent(fileUrl(f));}
 const list=document.getElementById("list"),empty=document.getElementById("empty"),q=document.querySelector(".search");
 let filt="all";
 const norm=s=>s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
@@ -467,7 +477,7 @@ function render(){
   list.innerHTML=rows.map(i=>{
     const ext=i.f.split(".").pop().toUpperCase();
     const cls=i.k==="tik"?"Trajnim":(i.c==="x"?((i.k||"kuiz")==="kuiz"?"Lojë":"Çdo klasë"):"Klasa "+i.c);
-    return `<li class="item"><span class="cls">${cls}</span><div><h3>${i.t}</h3><div class="meta">${i.d} · ${ext}</div></div><a class="dl" href="${i.f.includes('/')?i.f:U+i.f}" download>Shkarko</a></li>`;
+    return `<li class="item"><span class="cls">${cls}</span><div><h3>${i.t}</h3><div class="meta">${i.d} · ${ext}</div></div><span class="acts2"><a class="dl view" href="${viewUrl(i.f)}" target="_blank" rel="noopener">Shiko</a><a class="dl" href="${i.f.includes('/')?i.f:U+i.f}" download>Shkarko</a></span></li>`;
   }).join("");
   empty.hidden=rows.length>0;
 }
