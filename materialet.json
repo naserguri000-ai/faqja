@@ -1,0 +1,460 @@
+{
+ "email": "naserguri@outlook.com",
+ "materialet": [
+  {
+   "skedari": "https://naserguri1.wordpress.com/wp-content/uploads/2022/10/kuiz-1a-biologji-kl.-6-.pptm",
+   "titulli": "Kuiz 1A – Biologji",
+   "klasa": "6",
+   "lloji": "kuiz",
+   "pershkrimi": "Kuiz me pyetje për pjesën e parë"
+  },
+  {
+   "skedari": "https://naserguri1.wordpress.com/wp-content/uploads/2022/10/kuiz-1b-biologji-kl.-6.pptm",
+   "titulli": "Kuiz 1B – Biologji",
+   "klasa": "6",
+   "lloji": "kuiz",
+   "pershkrimi": "Varianti B i kuizit të parë"
+  },
+  {
+   "skedari": "https://naserguri1.wordpress.com/wp-content/uploads/2022/10/kuiz-2b-biologji-kl.-6.pptm",
+   "titulli": "Kuiz 2B – Biologji",
+   "klasa": "6",
+   "lloji": "kuiz",
+   "pershkrimi": "Kuizi i dytë, varianti B"
+  },
+  {
+   "skedari": "https://naserguri1.wordpress.com/wp-content/uploads/2022/10/kuiz-6-sjelljet-e-shtazeve-.pptm",
+   "titulli": "Sjelljet e shtazëve",
+   "klasa": "6",
+   "lloji": "kuiz",
+   "pershkrimi": "Kuiz tematik për sjelljet e shtazëve"
+  },
+  {
+   "skedari": "https://naserguri1.wordpress.com/wp-content/uploads/2022/10/kuiz-kl.6-p3-15-biol.-.pptm",
+   "titulli": "Kuiz periudha 3 – 15 pyetje",
+   "klasa": "6",
+   "lloji": "kuiz",
+   "pershkrimi": "Përsëritje për periudhën e tretë"
+  },
+  {
+   "skedari": "https://naserguri1.wordpress.com/wp-content/uploads/2022/10/asociacioni-b7p1-kod-1.pptx",
+   "titulli": "Asociacioni – periudha 1",
+   "klasa": "7",
+   "lloji": "kuiz",
+   "pershkrimi": "Lojë asociacioni me fjalë kyçe"
+  },
+  {
+   "skedari": "https://naserguri1.wordpress.com/wp-content/uploads/2022/10/biologj-7-p1-k1.pptx",
+   "titulli": "Biologji 7, periudha 1 – kuizi 1",
+   "klasa": "7",
+   "lloji": "kuiz",
+   "pershkrimi": "Kuiz për periudhën e parë"
+  },
+  {
+   "skedari": "https://naserguri1.wordpress.com/wp-content/uploads/2022/10/biologj-7-p1-k2.pptx",
+   "titulli": "Biologji 7, periudha 1 – kuizi 2",
+   "klasa": "7",
+   "lloji": "kuiz",
+   "pershkrimi": "Kuizi i dytë për periudhën e parë"
+  },
+  {
+   "skedari": "https://naserguri1.wordpress.com/wp-content/uploads/2022/10/kuiz-kl.7-p1-15-k1-biol.-.pptm",
+   "titulli": "Kuiz periudha 1 – 15 pyetje",
+   "klasa": "7",
+   "lloji": "kuiz",
+   "pershkrimi": "Përsëritje me 15 pyetje"
+  },
+  {
+   "skedari": "https://naserguri1.wordpress.com/wp-content/uploads/2022/10/3-grupe-x-5-pyetje-kl.7-gj.1-1-2.pptx",
+   "titulli": "3 grupe × 5 pyetje",
+   "klasa": "7",
+   "lloji": "kuiz",
+   "pershkrimi": "Garë mes tre grupeve në klasë"
+  },
+  {
+   "skedari": "https://naserguri1.wordpress.com/wp-content/uploads/2022/10/kuizi-me-100-pyetje1-kl.7-copy-1.pptx",
+   "titulli": "Kuizi me 100 pyetje",
+   "klasa": "7",
+   "lloji": "kuiz",
+   "pershkrimi": "Përsëritje e madhe e vitit"
+  },
+  {
+   "skedari": "https://naserguri1.wordpress.com/wp-content/uploads/2022/10/kush-do-te-behet-milioner-me-kod-1.ppt",
+   "titulli": "Kush do të bëhet milioner",
+   "klasa": "Të gjitha",
+   "lloji": "kuiz",
+   "pershkrimi": "Lojë në formatin e njohur televiziv"
+  },
+  {
+   "skedari": "https://naserguri1.wordpress.com/wp-content/uploads/2022/10/loja-memori-biologji.pptx",
+   "titulli": "Loja memori – biologji",
+   "klasa": "Të gjitha",
+   "lloji": "kuiz",
+   "pershkrimi": "Lojë kujtese me koncepte biologjike"
+  },
+  {
+   "skedari": "https://naserguri1.wordpress.com/wp-content/uploads/2022/10/kuiz-me-7-lende.pptx",
+   "titulli": "Kuiz me 7 lëndë",
+   "klasa": "Të gjitha",
+   "lloji": "kuiz",
+   "pershkrimi": "Kuiz ndërlëndor për gara shkollore"
+  },
+  {
+   "skedari": "materialet/asociacion-ngrohja-globale-kl6.pptx",
+   "titulli": "Asociacion – Ngrohja globale",
+   "klasa": "6",
+   "lloji": "kuiz",
+   "pershkrimi": "Lojë asociacioni për lëndët djegëse dhe CO₂"
+  },
+  {
+   "skedari": "materialet/asociacion-ndotja-e-mjedisit-kl6.pptx",
+   "titulli": "Asociacion – Ndotja e mjedisit",
+   "klasa": "6",
+   "lloji": "kuiz",
+   "pershkrimi": "Ndotja e ujit dhe e ajrit, gazrat ndotës"
+  },
+  {
+   "skedari": "materialet/asociacion-biodiversiteti.pptx",
+   "titulli": "Asociacion – Biodiversiteti",
+   "klasa": "6",
+   "lloji": "kuiz",
+   "pershkrimi": "Lojë asociacioni për larminë e botës së gjallë"
+  },
+  {
+   "skedari": "materialet/asociacion-gjunglla.pptx",
+   "titulli": "Asociacion – Gjunglla",
+   "klasa": "6",
+   "lloji": "kuiz",
+   "pershkrimi": "Pyjet tropikale dhe gjallesat e tyre"
+  },
+  {
+   "skedari": "materialet/asociacion-fotosinteza.pptx",
+   "titulli": "Asociacion – Fotosinteza",
+   "klasa": "6",
+   "lloji": "kuiz",
+   "pershkrimi": "Dielli, uji dhe procesi i fotosintezës"
+  },
+  {
+   "skedari": "materialet/asociacion-bimet-kushte-te-papershtatshme.pptx",
+   "titulli": "Asociacion – Bimët në kushte të papërshtatshme",
+   "klasa": "6",
+   "lloji": "kuiz",
+   "pershkrimi": "Përshtatja e bimëve me mjedise të vështira"
+  },
+  {
+   "skedari": "materialet/dritaret-biomet-pyjore-kl6.pptx",
+   "titulli": "Dritaret – Biomet pyjore (versioni i plotë)",
+   "klasa": "6",
+   "lloji": "kuiz",
+   "pershkrimi": "58 sllajde, përfshin pyetjen me hartën e biomeve"
+  },
+  {
+   "skedari": "materialet/dritaret-biomet-pyjore-kl6-shkurter.pptx",
+   "titulli": "Dritaret – Biomet pyjore (versioni i shkurtër)",
+   "klasa": "6",
+   "lloji": "kuiz",
+   "pershkrimi": "37 sllajde, me buton “Përfundo”"
+  },
+  {
+   "skedari": "materialet/gjej-fjalen-biocenoza-kl6.pptx",
+   "titulli": "Gjej fjalën misterioze – Biocenoza",
+   "klasa": "6",
+   "lloji": "kuiz",
+   "pershkrimi": "Nxënësit zbulojnë fjalën shkronjë pas shkronje nga përgjigjet"
+  },
+  {
+   "skedari": "materialet/kuizi-i-madh-kl6.pptx",
+   "titulli": "Kuizi i madh i klasës 6",
+   "klasa": "6",
+   "lloji": "kuiz",
+   "pershkrimi": "94 sllajde me kategori loje, për përsëritje të vitit"
+  },
+  {
+   "skedari": "materialet/kuiz-me-kategori-kl6.pptx",
+   "titulli": "Kuiz me kategori pyetjesh",
+   "klasa": "6",
+   "lloji": "kuiz",
+   "pershkrimi": "Pyetje me figura, alternativa, plotësim fjalësh dhe sugjerime"
+  },
+  {
+   "skedari": "materialet/kuiz-20-pyetje-kl6.pptx",
+   "titulli": "Kuiz me 20 pyetje",
+   "klasa": "6",
+   "lloji": "kuiz",
+   "pershkrimi": "20 pyetje me alternativa A–D"
+  },
+  {
+   "skedari": "materialet/kuiz-sistematika-kl6.pptm",
+   "titulli": "Sistematika e gjallesave",
+   "klasa": "6",
+   "lloji": "kuiz",
+   "pershkrimi": "Kuiz interaktiv ku nxënësi shënon emrin dhe përgjigjet"
+  },
+  {
+   "skedari": "materialet/gjeje-frazen-kl6.pptx",
+   "titulli": "Gjeje frazën",
+   "klasa": "6",
+   "lloji": "kuiz",
+   "pershkrimi": "Nxënësit zgjedhin shkronjat për të zbuluar frazën e fshehur"
+  },
+  {
+   "skedari": "materialet/milioneri-sjelljet-e-shtazeve-kl6.pptx",
+   "titulli": "Milioneri – Sjelljet e shtazëve",
+   "klasa": "6",
+   "lloji": "kuiz",
+   "pershkrimi": "Lojë në stilin “Kush do të bëhet milioner”, 15 nivele"
+  },
+  {
+   "skedari": "materialet/kuiz-sjelljet-e-shtazeve-alternativa-kl6.pptx",
+   "titulli": "Sjelljet e shtazëve – pyetje me alternativa",
+   "klasa": "6",
+   "lloji": "kuiz",
+   "pershkrimi": "Sjelljet e lindura dhe të fituara, pyetje a–d"
+  },
+  {
+   "skedari": "materialet/kutite-e-mistereve-sjelljet-ciklike-kl6.pptx",
+   "titulli": "Kutitë e mistereve – Sjelljet ciklike",
+   "klasa": "6",
+   "lloji": "kuiz",
+   "pershkrimi": "Nxënësit zgjedhin një kuti dhe zbulojnë pyetjen"
+  },
+  {
+   "skedari": "materialet/zoom-kl6.pptx",
+   "titulli": "ZOOM – Gjallesat dhe mjediset",
+   "klasa": "6",
+   "lloji": "kuiz",
+   "pershkrimi": "Fotografia zmadhohet hap pas hapi, nxënësit gjejnë gjallesën"
+  },
+  {
+   "skedari": "materialet/loja-memori-kl6.pptx",
+   "titulli": "Loja memori – Biologji 6",
+   "klasa": "6",
+   "lloji": "kuiz",
+   "pershkrimi": "Gjej çiftet e kartave me koncepte të biologjisë"
+  },
+  {
+   "skedari": "materialet/kuiz-4-grupe-sjelljet-e-shtazeve-kl6.pptx",
+   "titulli": "Kuiz me 4 grupe – Sjelljet e shtazëve",
+   "klasa": "6",
+   "lloji": "kuiz",
+   "pershkrimi": "4 grupe × 5 pyetje, garë në klasë"
+  },
+  {
+   "skedari": "materialet/kuiz-5-grupe-sjelljet-e-shtazeve-kl6.pptx",
+   "titulli": "Kuiz me 5 grupe – Sjelljet e shtazëve",
+   "klasa": "6",
+   "lloji": "kuiz",
+   "pershkrimi": "Varianti për 5 grupe nxënësish"
+  },
+  {
+   "skedari": "materialet/asociacion-shabllon-bosh.pptx",
+   "titulli": "Asociacion – shabllon bosh",
+   "klasa": "Të gjitha",
+   "lloji": "kuiz",
+   "pershkrimi": "Plotësojeni me fjalët tuaja për çdo temë"
+  },
+  {
+   "skedari": "materialet/minitest-p1-kl6-grupi-a-2023.docx",
+   "titulli": "Minitest P1 – Qeliza dhe klasifikimi, grupi A",
+   "klasa": "6",
+   "lloji": "test",
+   "pershkrimi": "10 pyetje me pikë dhe kriter vlerësimi (Word)"
+  },
+  {
+   "skedari": "materialet/minitest-p1-kl6-grupi-a-2023.pdf",
+   "titulli": "Minitest P1 – Qeliza dhe klasifikimi, grupi A",
+   "klasa": "6",
+   "lloji": "test",
+   "pershkrimi": "I njëjti test, gati për printim (PDF)"
+  },
+  {
+   "skedari": "materialet/minitest-p1-kl6-grupi-b-2023.docx",
+   "titulli": "Minitest P1 – Qeliza dhe klasifikimi, grupi B",
+   "klasa": "6",
+   "lloji": "test",
+   "pershkrimi": "Varianti B i minitestit (Word)"
+  },
+  {
+   "skedari": "materialet/minitest-p1-kl7-grupi-a.docx",
+   "titulli": "Minitest P1 – Lëkura, skeleti dhe muskujt, grupi A",
+   "klasa": "7",
+   "lloji": "test",
+   "pershkrimi": "10 pyetje me figura dhe kriter vlerësimi (Word)"
+  },
+  {
+   "skedari": "materialet/minitest-p1-kl7-grupi-a.pdf",
+   "titulli": "Minitest P1 – Lëkura, skeleti dhe muskujt, grupi A",
+   "klasa": "7",
+   "lloji": "test",
+   "pershkrimi": "I njëjti test, gati për printim (PDF)"
+  },
+  {
+   "skedari": "materialet/minitest-p1-kl7-grupi-b.docx",
+   "titulli": "Minitest P1 – Lëkura, skeleti dhe muskujt, grupi B",
+   "klasa": "7",
+   "lloji": "test",
+   "pershkrimi": "10 pyetje me figura dhe kriter vlerësimi (Word)"
+  },
+  {
+   "skedari": "materialet/minitest-p1-kl7-grupi-b.pdf",
+   "titulli": "Minitest P1 – Lëkura, skeleti dhe muskujt, grupi B",
+   "klasa": "7",
+   "lloji": "test",
+   "pershkrimi": "I njëjti test, gati për printim (PDF)"
+  },
+  {
+   "skedari": "materialet/test-p2-ekosistemet-kl6-grupet-a-f-2024.docx",
+   "titulli": "Test – Ekosistemet, grupet A–F",
+   "klasa": "6",
+   "lloji": "test",
+   "pershkrimi": "Periudha 2, gjashtë variante për grupe të ndryshme"
+  },
+  {
+   "skedari": "materialet/test-sjelljet-kl6-grupet-a-f-2024.docx",
+   "titulli": "Test – Sjelljet e shtazëve, grupet A–F",
+   "klasa": "6",
+   "lloji": "test",
+   "pershkrimi": "Gjashtë variante për të shmangur kopjimin"
+  },
+  {
+   "skedari": "materialet/test-sjelljet-kl6-grupet-a-b-2024.docx",
+   "titulli": "Test – Sjelljet e shtazëve, grupet A–B",
+   "klasa": "6",
+   "lloji": "test",
+   "pershkrimi": "Dy variante, me skema dhe figura"
+  },
+  {
+   "skedari": "materialet/biodiversiteti-i-kosoves.pptm",
+   "titulli": "Biodiversiteti i Kosovës",
+   "klasa": "6",
+   "lloji": "prez",
+   "pershkrimi": "Vendet më të pasura me lloje dhe rëndësia e ruajtjes së tyre"
+  },
+  {
+   "skedari": "materialet/prezantim-organizimi-i-biocenozave.pptx",
+   "titulli": "Organizimi i biocenozave",
+   "klasa": "6",
+   "lloji": "prez",
+   "pershkrimi": "Struktura hapësinore e kohore dhe qëndrueshmëria e ekosistemeve"
+  },
+  {
+   "skedari": "materialet/prezantim-fazat-e-fotosintezes.pptx",
+   "titulli": "Fazat e fotosintezës",
+   "klasa": "6",
+   "lloji": "prez",
+   "pershkrimi": "Faktorët dhe fazat e procesit të fotosintezës"
+  },
+  {
+   "skedari": "materialet/prezantim-truri-dhe-palca-kurrizore.pptx",
+   "titulli": "Truri dhe palca kurrizore",
+   "klasa": "7",
+   "lloji": "prez",
+   "pershkrimi": "Pjesët e trurit, rolet e tyre dhe si funksionon"
+  },
+  {
+   "skedari": "materialet/prezantim-struktura-trupore-sjelljet-kl6.pptx",
+   "titulli": "Struktura trupore dhe sjellja te shtazët",
+   "klasa": "6",
+   "lloji": "prez",
+   "pershkrimi": "Si e përcakton ndërtimi i trupit sjelljen, me shembullin e maces"
+  },
+  {
+   "skedari": "materialet/tik-programi-i-trajnimit.pptx",
+   "titulli": "Aplikimi i programeve kompjuterike në mësimdhënie – programi i trajnimit",
+   "klasa": "Trajnim",
+   "lloji": "tik",
+   "pershkrimi": "Qëllimet, pjesëmarrësit dhe plani i trajnimit (48 sllajde)"
+  },
+  {
+   "skedari": "materialet/tik-prezantim-bazat-e-excel-it.pptx",
+   "titulli": "Bazat e Excel-it",
+   "klasa": "Trajnim",
+   "lloji": "tik",
+   "pershkrimi": "Prezantim i zgjeruar: Excel për menaxhimin dhe analizën e të dhënave në shkollë"
+  },
+  {
+   "skedari": "materialet/tik-prezantim-bazat-e-powerpoint.pptx",
+   "titulli": "Bazat e PowerPoint-it",
+   "klasa": "Trajnim",
+   "lloji": "tik",
+   "pershkrimi": "Ndërfaqja, pamjet dhe krijimi i një prezantimi, me video shembuj"
+  },
+  {
+   "skedari": "materialet/tik-testi-word-excel-powerpoint-grupi-a.pptm",
+   "titulli": "Testi Word, Excel dhe PowerPoint – grupi A",
+   "klasa": "Trajnim",
+   "lloji": "tik",
+   "pershkrimi": "Test interaktiv me shirit kohe (1 min për pyetje) dhe pikë për çdo program"
+  },
+  {
+   "skedari": "materialet/tik-testi-word-excel-powerpoint-grupi-b.pptm",
+   "titulli": "Testi Word, Excel dhe PowerPoint – grupi B",
+   "klasa": "Trajnim",
+   "lloji": "tik",
+   "pershkrimi": "Varianti B, me shirit kohe 45 sekonda për pyetje"
+  },
+  {
+   "skedari": "materialet/tik-testi-bazat-e-word-it.pptm",
+   "titulli": "Testi “Bazat e Word-it”",
+   "klasa": "Trajnim",
+   "lloji": "tik",
+   "pershkrimi": "20 pyetje me kohëmatës, pjesëmarrësi shënon emrin"
+  },
+  {
+   "skedari": "materialet/tik-test-word-me-markera.pptx",
+   "titulli": "Test MS Word me markera",
+   "klasa": "Trajnim",
+   "lloji": "tik",
+   "pershkrimi": "Shkurtesat dhe mjetet e Word-it, me përgjigje të shënuara ✓ / ✗"
+  },
+  {
+   "skedari": "materialet/tik-test-interaktiv-20-pyetje.xlsx",
+   "titulli": "Test interaktiv në Excel – 20 pyetje",
+   "klasa": "Trajnim",
+   "lloji": "tik",
+   "pershkrimi": "Excel e kontrollon përgjigjen dhe numëron pikët automatikisht"
+  },
+  {
+   "skedari": "materialet/marreveshje-bashkepunimi-shkolle-biznes.docx",
+   "titulli": "Marrëveshje bashkëpunimi shkollë–biznes",
+   "klasa": "Të gjitha",
+   "lloji": "kar",
+   "pershkrimi": "Shabllon për vizitat e nxënësve në biznese dhe institucione"
+  },
+  {
+   "skedari": "materialet/plani-tremujor-2-kl6-2023-24.docx",
+   "titulli": "Plani tremujor (prill–qershor)",
+   "klasa": "6",
+   "lloji": "plan",
+   "pershkrimi": "Biologji, viti shkollor 2023/2024"
+  },
+  {
+   "skedari": "materialet/plani-tremujor-2-kl7-2023-24.docx",
+   "titulli": "Plani tremujor (prill–qershor)",
+   "klasa": "7",
+   "lloji": "plan",
+   "pershkrimi": "Biologji, viti shkollor 2023/2024"
+  },
+  {
+   "skedari": "materialet/plani-tremujor-2-kl9-2023-24.docx",
+   "titulli": "Plani tremujor (prill–qershor)",
+   "klasa": "9",
+   "lloji": "plan",
+   "pershkrimi": "Biologji, viti shkollor 2023/2024"
+  },
+  {
+   "skedari": "materialet/ditari-personal-shabllon.docx",
+   "titulli": "Ditari personal i mësimdhënësit – shabllon",
+   "klasa": "Të gjitha",
+   "lloji": "ditar",
+   "pershkrimi": "Ditar bosh për një gjysmëvjetor, gati për printim"
+  },
+  {
+   "skedari": "materialet/ditari-biologji-kl6-shabllon.xlsx",
+   "titulli": "Ditari elektronik i biologjisë – shabllon",
+   "klasa": "6",
+   "lloji": "ditar",
+   "pershkrimi": "Tabelë Excel që llogarit notat dhe suksesin automatikisht"
+  }
+ ]
+}

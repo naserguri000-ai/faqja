@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Menaxho materialet – Naser Guri</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Literata:opsz,wght@7..72,400;7..72,500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#EEF2EC;--surface:#FFFFFF;--ink:#16231C;--muted:#4E5F55;--spruce:#1F3A2E;--gentian:#3550A0;--sun:#E3B23C;--line:#CBD6CC;--bad:#A3322A;--ok:#2E6B3E}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121A16;--surface:#1A251F;--ink:#E6EEE8;--muted:#A3B4A9;--spruce:#A9D3B9;--gentian:#9DB2F2;--line:#2C3B33;--bad:#F0968E;--ok:#8FD3A2}}
+:root[data-theme="dark"]{--bg:#121A16;--surface:#1A251F;--ink:#E6EEE8;--muted:#A3B4A9;--spruce:#A9D3B9;--gentian:#9DB2F2;--line:#2C3B33;--bad:#F0968E;--ok:#8FD3A2}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:1rem/1.6 "Literata",Georgia,serif}
+h1,h2,h3,button,label,.tag{font-family:"Bricolage Grotesque",system-ui,sans-serif}
+.wrap{max-width:860px;margin:0 auto;padding:1.5rem 1rem 4rem}
+header{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:1.5rem}
+h1{margin:0;font-size:clamp(1.6rem,4vw,2.2rem);color:var(--spruce);font-weight:800}
+a{color:var(--gentian)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:1.4rem;margin-bottom:1.4rem}
+.card h2{margin:0 0 .9rem;font-size:1.3rem;color:var(--spruce)}
+label{display:block;font-weight:600;font-size:.95rem;margin:.9rem 0 .3rem}
+.hint{font-size:.88rem;color:var(--muted);margin:.25rem 0 0}
+input[type=text],input[type=password],select,textarea{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:10px;padding:.6rem .8rem}
+input[type=file]{font:inherit;color:var(--ink);max-width:100%}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:0 1rem}
+@media (max-width:600px){.row{grid-template-columns:1fr}}
+button{font-weight:600;font-size:.98rem;border-radius:999px;padding:.65rem 1.3rem;cursor:pointer;border:1.5px solid var(--spruce);background:var(--spruce);color:var(--bg)}
+button.ghost{background:none;color:var(--spruce)}
+button.small{padding:.35rem .8rem;font-size:.85rem}
+button.danger{border-color:var(--bad);color:var(--bad);background:none}
+button:disabled{opacity:.5;cursor:wait}
+:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+.actions{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1.2rem;align-items:center}
+.msg{margin-top:1rem;padding:.8rem 1rem;border-radius:10px;font-size:.95rem;display:none}
+.msg.ok{display:block;background:color-mix(in srgb,var(--ok) 14%,transparent);color:var(--ok)}
+.msg.err{display:block;background:color-mix(in srgb,var(--bad) 14%,transparent);color:var(--bad)}
+.msg.info{display:block;background:color-mix(in srgb,var(--gentian) 12%,transparent);color:var(--gentian)}
+ol.steps{padding-left:1.2rem;margin:.4rem 0 0}
+ol.steps li{margin:.35rem 0}
+.list{list-style:none;padding:0;margin:0;border-top:2px solid var(--spruce)}
+.list li{display:grid;grid-template-columns:1fr auto;gap:.6rem;align-items:center;padding:.7rem .2rem;border-bottom:1px solid var(--line)}
+.list strong{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:600}
+.list .meta{font-size:.85rem;color:var(--muted);word-break:break-all}
+.list .btns{display:flex;gap:.4rem;flex-wrap:wrap;justify-content:flex-end}
+.filter{margin-bottom:.8rem}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>Menaxho materialet</h1>
+  <a href="./">← Kthehu te faqja</a>
+</header>
+
+<!-- HYRJA -->
+<section class="card" id="login">
+  <h2>Hyrja</h2>
+  <p>Kjo faqe ngarkon materialet direkt në faqen tuaj në GitHub. Për ta përdorur, nevojitet një çelës (token) nga GitHub, që e krijoni vetëm një herë.</p>
+  <details>
+    <summary><strong>Si ta krijoni çelësin (vetëm herën e parë)</strong></summary>
+    <ol class="steps">
+      <li>Hapni <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">github.com/settings/personal-access-tokens/new</a> (kyçuni me llogarinë naserguri000-ai).</li>
+      <li>Te <b>Token name</b> shkruani: <i>faqja-materialet</i>. Te <b>Expiration</b> zgjidhni p.sh. 1 vit.</li>
+      <li>Te <b>Repository access</b> zgjidhni <b>Only select repositories</b> → <b>faqja</b>.</li>
+      <li>Te <b>Permissions → Repository permissions → Contents</b> zgjidhni <b>Read and write</b>.</li>
+      <li>Klikoni <b>Generate token</b>, kopjoni kodin që fillon me <code>github_pat_</code> dhe ngjiteni më poshtë.</li>
+    </ol>
+  </details>
+  <label for="tok">Çelësi (token)</label>
+  <input type="password" id="tok" autocomplete="off" placeholder="github_pat_...">
+  <p class="hint">Çelësi ruhet vetëm në këtë shfletues. Mos e përdorni në kompjuter të përbashkët, ose shtypni “Dil” kur të mbaroni.</p>
+  <div class="actions"><button id="btnLogin">Hyr</button></div>
+  <div class="msg" id="loginMsg"></div>
+</section>
+
+<div id="app" hidden>
+<!-- SHTO -->
+<section class="card" id="formCard">
+  <h2 id="formTitle">Shto material të ri</h2>
+  <label for="file">Skedari (PowerPoint, Word, Excel, PDF)</label>
+  <input type="file" id="file">
+  <p class="hint" id="fileHint">Emri i skedarit pastrohet automatikisht (pa hapësira, pa ë/ç). Madhësia maksimale: 50 MB.</p>
+
+  <label for="tit">Titulli</label>
+  <input type="text" id="tit" placeholder="p.sh. Kuiz për qelizën">
+  <div class="row">
+    <div>
+      <label for="kl">Klasa</label>
+      <select id="kl"><option>6</option><option>7</option><option>8</option><option>9</option><option>Të gjitha</option><option>Trajnim</option></select>
+    </div>
+    <div>
+      <label for="ll">Lloji</label>
+      <select id="ll">
+        <option value="kuiz">Kuiz / Lojë</option><option value="test">Test</option><option value="prez">Prezantim</option>
+        <option value="plan">Plan mësimor</option><option value="ditar">Ditar</option><option value="kar">Karrierë</option><option value="tik">Trajnim (programe kompjuterike)</option>
+      </select>
+    </div>
+  </div>
+  <label for="pers">Përshkrimi i shkurtër</label>
+  <input type="text" id="pers" placeholder="p.sh. 20 pyetje për ndërtimin e qelizës">
+
+  <label for="pdf">PDF për “Shiko” (opsionale)</label>
+  <input type="file" id="pdf" accept="application/pdf">
+  <p class="hint">Nevojitet vetëm për skedarë me makro (.pptm) ose më të mëdhenj se 10 MB. Në PowerPoint: File → Save As → PDF.</p>
+
+  <div class="actions">
+    <button id="btnSave">Ngarko materialin</button>
+    <button class="ghost" id="btnCancel" hidden>Anulo ndryshimin</button>
+  </div>
+  <div class="msg" id="saveMsg"></div>
+</section>
+
+<!-- LISTA -->
+<section class="card">
+  <h2>Materialet në faqe (<span id="count">0</span>)</h2>
+  <input type="text" class="filter" id="flt" placeholder="Kërko në listë…" aria-label="Kërko në listë">
+  <ul class="list" id="list"></ul>
+</section>
+
+<section class="card">
+  <h2>Cilësimet</h2>
+  <label for="email">Email-i që shfaqet te Kontakti</label>
+  <input type="text" id="email">
+  <div class="actions"><button class="ghost" id="btnEmail">Ruaj email-in</button><button class="danger" id="btnLogout">Dil (fshi çelësin nga ky shfletues)</button></div>
+  <div class="msg" id="setMsg"></div>
+</section>
+</div>
+</div>
+
+<script>
+const OWNER="naserguri000-ai",REPO="faqja",BRANCH="main";
+const API=`https://api.github.com/repos/${OWNER}/${REPO}/contents/`;
+const LL={kuiz:"Kuiz / Lojë",test:"Test",prez:"Prezantim",plan:"Plan mësimor",ditar:"Ditar",kar:"Karrierë",tik:"Trajnim"};
+const $=id=>document.getElementById(id);
+let TOKEN="",DATA=null,DATA_SHA=null,editIdx=-1;
+const store={get(){try{return localStorage.getItem("gh_tok")||""}catch(e){return ""}},set(v){try{localStorage.setItem("gh_tok",v)}catch(e){}},del(){try{localStorage.removeItem("gh_tok")}catch(e){}}};
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function msg(id,type,text){const m=$(id);m.className="msg "+type;m.textContent=text}
+function hide(id){$(id).className="msg"}
+
+async function gh(path,opt={}){
+  const r=await fetch(API+path.split("/").map(encodeURIComponent).join("/")+(opt.method?"":"?ref="+BRANCH),{
+    method:opt.method||"GET",
+    headers:{"Authorization":"Bearer "+TOKEN,"Accept":"application/vnd.github+json","X-GitHub-Api-Version":"2022-11-28",...(opt.body?{"Content-Type":"application/json"}:{})},
+    body:opt.body?JSON.stringify(opt.body):undefined,cache:"no-store"});
+  if(r.status===404&&!opt.method)return null;
+  if(!r.ok){let t="";try{t=(await r.json()).message}catch(e){}throw new Error(r.status+" "+t)}
+  return r.status===204?{}:r.json();
+}
+const b64ToText=b=>new TextDecoder().decode(Uint8Array.from(atob(b.replace(/\n/g,"")),c=>c.charCodeAt(0)));
+function textToB64(t){const u=new TextEncoder().encode(t);let s="";for(let i=0;i<u.length;i+=0x8000)s+=String.fromCharCode.apply(null,u.subarray(i,i+0x8000));return btoa(s)}
+const fileToB64=f=>new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(String(r.result).split(",")[1]);r.onerror=rej;r.readAsDataURL(f)});
+function cleanName(n){
+  const dot=n.lastIndexOf("."),ext=dot>0?n.slice(dot+1).toLowerCase():"",base=dot>0?n.slice(0,dot):n;
+  const b=base.toLowerCase().replace(/ë/g,"e").replace(/ç/g,"c").normalize("NFD").replace(/[̀-ͯ]/g,"")
+    .replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"").slice(0,80)||"material";
+  return ext?b+"."+ext:b;
+}
+function friendly(e){
+  const s=String(e.message||e);
+  if(/^401/.test(s))return "Çelësi nuk pranohet. Kontrolloni që e keni kopjuar të plotë dhe që nuk ka skaduar.";
+  if(/^403|^404/.test(s))return "Çelësi nuk ka leje shkrimi te “faqja”. Krijoni një çelës me Contents: Read and write për repository faqja.";
+  if(/^409/.test(s))return "Faqja u ndryshua ndërkohë. Rifreskoni këtë faqe dhe provoni sërish.";
+  if(/^422/.test(s))return "GitHub nuk e pranoi skedarin (ndoshta shumë i madh). Provoni një skedar më të vogël.";
+  if(/Failed to fetch|NetworkError/i.test(s))return "Nuk ka lidhje me internetin ose GitHub nuk po përgjigjet. Provoni sërish.";
+  return "Diçka shkoi keq: "+s;
+}
+
+async function loadData(){
+  const f=await gh("materialet.json");
+  if(f){DATA=JSON.parse(b64ToText(f.content));DATA_SHA=f.sha}else{DATA={email:"",materialet:[]};DATA_SHA=null}
+  DATA.materialet=DATA.materialet||[];
+  $("email").value=DATA.email||"";
+  renderList();
+}
+async function saveData(message){
+  const body={message,content:textToB64(JSON.stringify(DATA,null,1)),branch:BRANCH};
+  if(DATA_SHA)body.sha=DATA_SHA;
+  const r=await gh("materialet.json",{method:"PUT",body});
+  DATA_SHA=r.content.sha;
+}
+async function putFile(path,b64,message){
+  const old=await gh(path);
+  const body={message,content:b64,branch:BRANCH};if(old&&old.sha)body.sha=old.sha;
+  await gh(path,{method:"PUT",body});
+}
+
+function renderList(){
+  const q=$("flt").value.trim().toLowerCase();
+  $("count").textContent=DATA.materialet.length;
+  $("list").innerHTML=DATA.materialet.map((m,i)=>({m,i})).filter(({m})=>!q||(m.titulli+" "+m.skedari).toLowerCase().includes(q)).map(({m,i})=>`
+    <li><div><strong>${esc(m.titulli)}</strong><div class="meta">${esc(/^\d+$/.test(m.klasa)?"Klasa "+m.klasa:m.klasa)} · ${esc(LL[m.lloji]||m.lloji)} · ${esc(String(m.skedari).split("/").pop())}</div></div>
+    <div class="btns"><button class="ghost small" data-up="${i}" aria-label="Lart">↑</button><button class="ghost small" data-ed="${i}">Ndrysho</button><button class="danger small" data-del="${i}">Fshi</button></div></li>`).join("");
+}
+
+$("list").addEventListener("click",async e=>{
+  const b=e.target.closest("button");if(!b)return;
+  if(b.dataset.ed){startEdit(+b.dataset.ed);return}
+  if(b.dataset.up){const i=+b.dataset.up;if(i===0)return;
+    [DATA.materialet[i-1],DATA.materialet[i]]=[DATA.materialet[i],DATA.materialet[i-1]];renderList();
+    try{await saveData("Ndrysho rendin e materialeve")}catch(err){alert(friendly(err));await loadData()}return}
+  if(b.dataset.del){
+    const i=+b.dataset.del,m=DATA.materialet[i];
+    if(!confirm(`Ta fshij “${m.titulli}” nga faqja?`))return;
+    const local=!/^https?:/.test(m.skedari);
+    const alsoFile=local&&confirm("Ta fshij edhe vetë skedarin nga GitHub?\n\nOK = po, fshije skedarin\nCancel = jo, hiqe vetëm nga lista");
+    b.disabled=true;
+    try{
+      DATA.materialet.splice(i,1);
+      await saveData("Hiq materialin: "+m.titulli);
+      if(alsoFile){const f=await gh(m.skedari);if(f)await gh(m.skedari,{method:"DELETE",body:{message:"Fshi skedarin "+m.skedari,sha:f.sha,branch:BRANCH}})}
+      renderList();msg("saveMsg","ok",`“${m.titulli}” u hoq. Faqja përditësohet pas 1–3 minutash.`);
+    }catch(err){alert(friendly(err));await loadData()}
+  }
+});
+$("flt").addEventListener("input",renderList);
+
+function startEdit(i){
+  const m=DATA.materialet[i];editIdx=i;
+  $("formTitle").textContent="Ndrysho: "+m.titulli;
+  $("tit").value=m.titulli||"";$("pers").value=m.pershkrimi||"";$("kl").value=m.klasa||"Të gjitha";$("ll").value=m.lloji||"kuiz";
+  $("file").value="";$("pdf").value="";
+  $("fileHint").textContent="Lëreni bosh për të mbajtur skedarin ekzistues ("+String(m.skedari).split("/").pop()+"), ose zgjidhni një skedar të ri për ta zëvendësuar.";
+  $("btnSave").textContent="Ruaj ndryshimet";$("btnCancel").hidden=false;hide("saveMsg");
+  $("formCard").scrollIntoView({behavior:"smooth"});
+}
+function resetForm(){
+  editIdx=-1;$("formTitle").textContent="Shto material të ri";
+  ["file","pdf","tit","pers"].forEach(id=>$(id).value="");
+  $("fileHint").textContent="Emri i skedarit pastrohet automatikisht (pa hapësira, pa ë/ç). Madhësia maksimale: 50 MB.";
+  $("btnSave").textContent="Ngarko materialin";$("btnCancel").hidden=true;
+}
+$("btnCancel").onclick=()=>{resetForm();hide("saveMsg")};
+$("file").addEventListener("change",()=>{const f=$("file").files[0];if(f&&!$("tit").value){$("tit").value=f.name.replace(/\.[^.]+$/,"").replace(/[-_]+/g," ")}});
+
+$("btnSave").onclick=async()=>{
+  const f=$("file").files[0],pdf=$("pdf").files[0],tit=$("tit").value.trim();
+  if(editIdx<0&&!f){msg("saveMsg","err","Zgjidhni skedarin që doni të ngarkoni.");return}
+  if(!tit){msg("saveMsg","err","Shkruani titullin e materialit.");return}
+  if(f&&f.size>50*1024*1024){msg("saveMsg","err","Skedari është më i madh se 50 MB. Zvogëlojeni (p.sh. kompresoni figurat në PowerPoint) dhe provoni sërish.");return}
+  if(pdf&&pdf.size>50*1024*1024){msg("saveMsg","err","PDF-ja është më e madhe se 50 MB.");return}
+  $("btnSave").disabled=true;
+  try{
+    let path=editIdx>=0?DATA.materialet[editIdx].skedari:null;
+    if(f){
+      path="materialet/"+cleanName(f.name);
+      if(editIdx<0&&DATA.materialet.some(m=>m.skedari===path)&&!confirm("Një material me këtë emër skedari ekziston. Ta zëvendësoj?")){$("btnSave").disabled=false;return}
+      msg("saveMsg","info",`Duke ngarkuar ${f.name} (${(f.size/1048576).toFixed(1)} MB)… Mos e mbyllni faqen.`);
+      await putFile(path,await fileToB64(f),"Ngarko "+path);
+    }
+    if(pdf){
+      if(/^https?:/.test(path)){throw new Error("PDF-ja mund të shtohet vetëm për skedarë që ndodhen në GitHub.")}
+      const base=path.split("/").pop().replace(/\.[^.]+$/,"");
+      msg("saveMsg","info","Duke ngarkuar PDF-në për “Shiko”…");
+      await putFile("materialet/pamje/"+base+".pdf",await fileToB64(pdf),"Pamje PDF për "+base);
+    }
+    msg("saveMsg","info","Duke përditësuar listën…");
+    const entry={skedari:path,titulli:tit,klasa:$("kl").value,lloji:$("ll").value,pershkrimi:$("pers").value.trim()};
+    const fresh=await gh("materialet.json");if(fresh&&fresh.sha!==DATA_SHA){const keep=editIdx>=0?DATA.materialet[editIdx].skedari:null;DATA=JSON.parse(b64ToText(fresh.content));DATA_SHA=fresh.sha;DATA.materialet=DATA.materialet||[];if(keep)editIdx=DATA.materialet.findIndex(m=>m.skedari===keep)}
+    if(editIdx>=0)DATA.materialet[editIdx]=entry;
+    else{const j=DATA.materialet.findIndex(m=>m.skedari===path);if(j>=0)DATA.materialet[j]=entry;else DATA.materialet.unshift(entry)}
+    await saveData((editIdx>=0?"Ndrysho: ":"Shto: ")+tit);
+    const done=editIdx>=0?"u ndryshua":"u shtua";
+    resetForm();renderList();
+    msg("saveMsg","ok",`“${tit}” ${done}. Do të shfaqet në faqe pas 1–3 minutash (nëse nuk e shihni, shtypni Ctrl+F5).`);
+  }catch(err){msg("saveMsg","err",friendly(err))}
+  finally{$("btnSave").disabled=false}
+};
+
+$("btnEmail").onclick=async()=>{
+  const v=$("email").value.trim();
+  if(v&&!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)){msg("setMsg","err","Email-i nuk duket i saktë.");return}
+  try{DATA.email=v;await saveData("Ndrysho email-in e kontaktit");msg("setMsg","ok","Email-i u ruajt.")}catch(err){msg("setMsg","err",friendly(err))}
+};
+$("btnLogout").onclick=()=>{store.del();TOKEN="";location.reload()};
+
+async function login(t){
+  TOKEN=t;$("btnLogin").disabled=true;msg("loginMsg","info","Duke kontrolluar çelësin…");
+  try{
+    const r=await fetch(`https://api.github.com/repos/${OWNER}/${REPO}`,{headers:{"Authorization":"Bearer "+t,"Accept":"application/vnd.github+json"}});
+    if(!r.ok)throw new Error(r.status+"");
+    const j=await r.json();
+    if(!j.permissions||!j.permissions.push)throw new Error("403");
+    store.set(t);await loadData();
+    $("login").hidden=true;$("app").hidden=false;
+  }catch(err){TOKEN="";msg("loginMsg","err",friendly(err))}
+  finally{$("btnLogin").disabled=false}
+}
+$("btnLogin").onclick=()=>{const t=$("tok").value.trim();if(t)login(t);else msg("loginMsg","err","Ngjitni çelësin.")};
+$("tok").addEventListener("keydown",e=>{if(e.key==="Enter")$("btnLogin").click()});
+const saved=store.get();if(saved)login(saved);
+</script>
+</body>
+</html>
