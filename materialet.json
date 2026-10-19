@@ -2,6 +2,13 @@
  "email": "naserguri@outlook.com",
  "materialet": [
   {
+   "skedari": "materialet/index-platforma.html",
+   "titulli": "index platforma",
+   "klasa": "9",
+   "lloji": "kar",
+   "pershkrimi": "Platformë për orientim në karrierë"
+  },
+  {
    "skedari": "materialet/teknika-per-identifikimin-e-talenteve-dhe-interesave-te-nxenesve.docx",
    "titulli": "Teknika për Identifikimin e Talenteve dhe Interesave të Nxënësve",
    "klasa": "Të gjitha",
