@@ -1,0 +1,3717 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Platforma e Plotë e ORIENTIMIT - Test i Paraorjentimit në Karrierë</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* I njëjti CSS si më parë me përmirësime për responsive */
+        :root {
+            --primary-blue: #1a5f7a;
+            --secondary-blue: #3498db;
+            --dark-blue: #2c3e50;
+            --light-blue: #e6f3ff;
+            --accent-green: #27ae60;
+            --accent-orange: #e67e22;
+            --accent-red: #e74c3c;
+            --accent-purple: #8e44ad;
+            --accent-pink: #e84342;
+            --accent-gold: #f1c40f;
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+            --bg-white: #ffffff;
+            --bg-light: #f8f9fa;
+            --border-color: #dcdde1;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: var(--text-dark);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 10px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background-color: var(--bg-white);
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            animation: fadeIn 0.8s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .header {
+            background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+            color: white;
+            padding: 25px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header h1 {
+            font-size: clamp(1.5rem, 5vw, 2.8rem);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .header .subtitle {
+            font-size: clamp(1rem, 3vw, 1.3rem);
+            opacity: 0.95;
+            margin-top: 10px;
+            position: relative;
+            z-index: 1;
+            font-weight: 300;
+        }
+        
+        .print-button {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--secondary-blue);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 12px;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: background-color 0.3s;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .print-button {
+                position: static;
+                margin: 10px auto;
+                width: fit-content;
+            }
+        }
+        
+        .nav-tabs {
+            display: flex;
+            background-color: var(--dark-blue);
+            padding: 0;
+            margin: 0;
+            flex-wrap: wrap;
+        }
+        
+        .tab {
+            flex: 1;
+            padding: 15px 10px;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            cursor: pointer;
+            font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            border-bottom: 4px solid transparent;
+            min-width: 120px;
+        }
+        
+        .tab:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .tab.active {
+            background-color: white;
+            color: var(--primary-blue);
+            border-bottom-color: var(--secondary-blue);
+        }
+        
+        .tab-content {
+            display: none;
+            padding: 20px 15px;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .admin-panel {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        
+        .admin-login {
+            text-align: right;
+            padding: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: flex-end;
+        }
+        
+        .admin-login input {
+            padding: 10px;
+            margin: 5px;
+            border-radius: 5px;
+            border: none;
+            width: 100%;
+            max-width: 200px;
+        }
+        
+        .admin-login button {
+            padding: 10px 20px;
+            background-color: var(--accent-green);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .admin-content {
+            display: none;
+            padding: 15px;
+            background-color: white;
+            color: var(--text-dark);
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        
+        .admin-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .admin-tab {
+            padding: 10px 15px;
+            background-color: var(--bg-light);
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 0.9rem;
+        }
+        
+        .admin-tab.active {
+            background-color: var(--primary-blue);
+            color: white;
+        }
+        
+        .admin-section {
+            display: none;
+        }
+        
+        .admin-section.active {
+            display: block;
+        }
+        
+        .schools-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            overflow-x: auto;
+            display: block;
+        }
+        
+        .schools-table th {
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 10px;
+            text-align: left;
+            white-space: nowrap;
+        }
+        
+        .schools-table td {
+            padding: 8px;
+            border-bottom: 1px solid var(--border-color);
+            white-space: nowrap;
+        }
+        
+        .schools-table tr:hover {
+            background-color: var(--bg-light);
+        }
+        
+        .edit-btn, .delete-btn, .save-btn, .cancel-btn {
+            padding: 5px 8px;
+            margin: 2px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 0.8rem;
+        }
+        
+        .edit-btn {
+            background-color: var(--accent-orange);
+            color: white;
+        }
+        
+        .delete-btn {
+            background-color: var(--accent-red);
+            color: white;
+        }
+        
+        .save-btn {
+            background-color: var(--accent-green);
+            color: white;
+        }
+        
+        .cancel-btn {
+            background-color: var(--text-light);
+            color: white;
+        }
+        
+        .add-school-form {
+            background-color: var(--bg-light);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .add-school-form input,
+        .add-school-form select,
+        .add-school-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+        }
+        
+        .personal-info-section {
+            background-color: #f8f9fa;
+            padding: 20px 15px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
+        }
+        
+        .personal-info-title {
+            color: var(--dark-blue);
+            margin-bottom: 20px;
+            font-size: clamp(1.2rem, 4vw, 1.5rem);
+            text-align: center;
+        }
+        
+        .personal-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .input-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .input-group label {
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark-blue);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+        }
+        
+        .input-group input,
+        .input-group select {
+            padding: 12px;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s;
+            background-color: white;
+        }
+        
+        .author-info {
+            text-align: center;
+            font-style: italic;
+            color: var(--text-light);
+            padding-top: 15px;
+            border-top: 1px solid var(--border-color);
+            margin-top: 15px;
+            font-size: 0.9rem;
+        }
+        
+        .intro-section {
+            background-color: var(--light-blue);
+            padding: 20px 15px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border-left: 8px solid var(--secondary-blue);
+            box-shadow: var(--shadow);
+        }
+        
+        .progress-container {
+            margin-bottom: 30px;
+        }
+        
+        .progress-text {
+            text-align: center;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--dark-blue);
+            font-size: clamp(1rem, 3vw, 1.2rem);
+        }
+        
+        .progress-bar {
+            height: 12px;
+            background-color: #ecf0f1;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-green), var(--secondary-blue));
+            width: 0%;
+            transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 10px;
+        }
+        
+        .questions-container {
+            margin-bottom: 40px;
+        }
+        
+        .question-box {
+            background-color: white;
+            padding: 25px 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border-left: 8px solid var(--secondary-blue);
+            box-shadow: var(--shadow);
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .question-box.active {
+            display: block;
+        }
+        
+        .question-number {
+            font-weight: bold;
+            color: var(--secondary-blue);
+            font-size: clamp(1.1rem, 3vw, 1.3rem);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .question-text {
+            font-size: clamp(1.1rem, 3.5vw, 1.3rem);
+            margin-bottom: 25px;
+            color: var(--dark-blue);
+            line-height: 1.6;
+        }
+        
+        .options-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .option {
+            padding: 15px;
+            background-color: white;
+            border: 2px solid var(--border-color);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+        }
+        
+        .option:hover {
+            background-color: var(--light-blue);
+            border-color: var(--secondary-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .option.selected {
+            background-color: #e1f0fa;
+            border-color: #2980b9;
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.2);
+        }
+        
+        .option-circle {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            border: 2px solid var(--text-light);
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .option.selected .option-circle {
+            border-color: #2980b9;
+            background-color: #2980b9;
+        }
+        
+        .option.selected .option-circle::after {
+            content: "";
+            width: 10px;
+            height: 10px;
+            background-color: white;
+            border-radius: 50%;
+        }
+        
+        .option-text {
+            flex-grow: 1;
+            font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+            line-height: 1.5;
+        }
+        
+        .navigation-controls {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid var(--border-color);
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .nav-button {
+            padding: 15px 25px;
+            background: linear-gradient(135deg, var(--secondary-blue), var(--primary-blue));
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            font-weight: 600;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            min-width: 150px;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(45, 143, 191, 0.2);
+        }
+        
+        .nav-button:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(45, 143, 191, 0.3);
+        }
+        
+        .nav-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+        
+        #prevBtn {
+            background: linear-gradient(135deg, var(--text-light), #6c7b7d);
+        }
+        
+        .results-section {
+            display: none;
+            padding: 25px 20px;
+            background-color: white;
+            border-radius: 15px;
+            margin-top: 20px;
+            box-shadow: var(--shadow);
+        }
+        
+        .results-title {
+            color: var(--dark-blue);
+            margin-bottom: 25px;
+            text-align: center;
+            font-size: clamp(1.5rem, 5vw, 2rem);
+        }
+        
+        .results-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid var(--border-color);
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .student-info-print {
+            font-size: 1rem;
+            color: var(--dark-blue);
+            background-color: var(--light-blue);
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid var(--secondary-blue);
+            width: 100%;
+        }
+        
+        .profiles-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .profile-card {
+            padding: 25px 20px;
+            border-radius: 15px;
+            background-color: white;
+            box-shadow: var(--shadow);
+            border-top: 8px solid var(--secondary-blue);
+            transition: transform 0.3s;
+        }
+        
+        .profile-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .profile-title {
+            font-size: clamp(1.1rem, 3vw, 1.4rem);
+            color: var(--dark-blue);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .profile-score {
+            font-size: clamp(2rem, 5vw, 2.5rem);
+            font-weight: bold;
+            color: var(--secondary-blue);
+            text-align: center;
+            margin: 15px 0;
+        }
+        
+        .profile-description {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.6;
+        }
+        
+        .recommendations-section {
+            margin-top: 30px;
+            padding: 25px 20px;
+            background-color: var(--light-blue);
+            border-radius: 15px;
+            border-left: 8px solid var(--secondary-blue);
+        }
+        
+        .recommendations-title {
+            color: var(--dark-blue);
+            margin-bottom: 20px;
+            font-size: clamp(1.2rem, 4vw, 1.5rem);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .recommendations-list {
+            padding-left: 25px;
+            margin-bottom: 25px;
+        }
+        
+        .consultation-notice {
+            background-color: #fff3cd;
+            border: 2px solid #ffeaa7;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        
+        .restart-button {
+            display: block;
+            margin: 30px auto 0;
+            background: linear-gradient(135deg, var(--accent-green), #2ecc71);
+            padding: 15px 40px;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            padding: 25px 20px;
+            border-top: 2px solid var(--border-color);
+            background-color: var(--bg-light);
+        }
+        
+        .switch-tab-btn {
+            display: block;
+            margin: 25px auto;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, var(--secondary-blue), var(--primary-blue));
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            width: fit-content;
+        }
+        
+        .school-type-section {
+            margin-top: 30px;
+            padding: 25px 20px;
+            background: linear-gradient(135deg, #fff9f0, #fff5e6);
+            border-radius: 15px;
+            border-left: 8px solid var(--accent-orange);
+            box-shadow: var(--shadow);
+        }
+        
+        .school-types-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .school-type-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .school-type-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-orange);
+        }
+        
+        .school-type-card.selected {
+            background-color: #fff9f0;
+            border-color: var(--accent-orange);
+        }
+        
+        .school-type-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .school-type-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--dark-blue);
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .school-type-description {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            text-align: center;
+        }
+        
+        .school-type-description small {
+            display: block;
+            margin-top: 8px;
+            color: var(--accent-green);
+            font-weight: 600;
+        }
+        
+        .location-section {
+            margin-top: 30px;
+            padding: 25px 20px;
+            background: linear-gradient(135deg, #f0fff4, #e6ffee);
+            border-radius: 15px;
+            border-left: 8px solid var(--accent-green);
+            box-shadow: var(--shadow);
+        }
+        
+        .location-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 20px;
+        }
+        
+        .location-btn {
+            padding: 12px 20px;
+            background-color: white;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+            min-width: 160px;
+            justify-content: center;
+            flex: 1 1 auto;
+        }
+        
+        .location-btn:hover {
+            border-color: var(--accent-green);
+            background-color: #f0fff4;
+        }
+        
+        .location-btn.active {
+            background-color: var(--accent-green);
+            color: white;
+            border-color: var(--accent-green);
+        }
+        
+        .match-score {
+            background: linear-gradient(135deg, var(--accent-green), #2ecc71);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            width: fit-content;
+            margin-bottom: 15px;
+        }
+        
+        .available-badge {
+            background-color: var(--accent-green);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            display: inline-block;
+        }
+        
+        .not-available-badge {
+            background-color: var(--accent-red);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            display: inline-block;
+        }
+        
+        .error-message {
+            color: var(--accent-red);
+            font-size: 0.9rem;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        .mashti-badge {
+            background-color: var(--accent-purple);
+            color: white;
+            padding: 2px 6px;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            margin-left: 5px;
+            display: inline-block;
+        }
+        
+        .art-badge {
+            background: linear-gradient(135deg, #e84342, #c0392b);
+            color: white;
+            padding: 2px 6px;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            margin-left: 5px;
+            display: inline-block;
+        }
+        
+        .music-badge {
+            background: linear-gradient(135deg, #f1c40f, #e67e22);
+            color: white;
+            padding: 2px 6px;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            margin-left: 5px;
+            display: inline-block;
+        }
+        
+        .private-badge {
+            background: linear-gradient(135deg, #9b59b6, #8e44ad);
+            color: white;
+            padding: 2px 6px;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            margin-left: 5px;
+            display: inline-block;
+        }
+        
+        .filter-section {
+            background-color: var(--bg-light);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-section select, 
+        .filter-section input {
+            padding: 8px 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            min-width: 150px;
+            flex: 1 1 auto;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .stats-card {
+            background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .stats-card h4 {
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+        
+        .stats-card p {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        
+        .click-stat-card {
+            background-color: white;
+            border: 2px solid var(--border-color);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .click-count {
+            background-color: var(--accent-green);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                margin: 5px;
+                border-radius: 15px;
+            }
+            
+            .nav-tabs {
+                flex-direction: column;
+            }
+            
+            .tab {
+                width: 100%;
+                border-bottom: 2px solid transparent;
+            }
+            
+            .schools-table {
+                font-size: 0.8rem;
+            }
+            
+            .schools-table td, 
+            .schools-table th {
+                padding: 6px;
+            }
+            
+            .admin-login {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .admin-login input,
+            .admin-login button {
+                max-width: 100%;
+                margin: 5px 0;
+            }
+            
+            .location-options {
+                flex-direction: column;
+            }
+            
+            .location-btn {
+                width: 100%;
+            }
+            
+            .navigation-controls {
+                flex-direction: column;
+            }
+            
+            .nav-button {
+                width: 100%;
+            }
+        }
+        
+        @media print {
+            .print-button,
+            .navigation-controls,
+            .restart-button,
+            .footer,
+            .nav-tabs,
+            .switch-tab-btn,
+            .admin-panel {
+                display: none !important;
+            }
+            
+            .results-section {
+                display: block !important;
+            }
+        }
+
+        .editing-row input, .editing-row select {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid var(--border-color);
+            border-radius: 3px;
+        }
+
+        .change-password-section {
+            background-color: var(--bg-light);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border-color);
+        }
+
+        .change-password-section input {
+            padding: 8px;
+            margin: 5px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            width: 100%;
+            max-width: 200px;
+        }
+        
+        .next-button-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .recommended-school-card {
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--accent-green);
+        }
+        
+
+        .verified-badge {
+            background-color: var(--accent-green);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            margin-left: 5px;
+            display: inline-block;
+            white-space: nowrap;
+        }
+        .unverified-badge {
+            background-color: #95a5a6;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            margin-left: 5px;
+            display: inline-block;
+            white-space: nowrap;
+        }
+        .recommended-school-card.unverified { border-left-style: dashed; }
+        .points-box {
+            background-color: var(--light-blue);
+            border-radius: 10px;
+            padding: 18px;
+            margin: 20px 0;
+        }
+        .points-box h3 { font-size: 1.05rem; margin-bottom: 12px; color: var(--dark-blue); }
+        .points-box select { width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ccd; }
+        .grade-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+        .points-table td { padding: 8px 10px; }
+        .points-table .total-row { background-color: #fff; font-size: 1.05rem; }
+        .conditions-list { list-style: none; margin: 12px 0; padding: 0; }
+        .conditions-list li { margin: 6px 0; }
+        .cond-ok { color: var(--accent-green); }
+        .cond-fail { color: var(--accent-red); }
+        .cond-unknown { color: var(--accent-orange); }
+
+        .recommended-school-card.warning {
+            border-left-color: var(--accent-red);
+            opacity: 0.9;
+        }
+        
+        .school-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .school-name {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--dark-blue);
+        }
+        
+        .match-percent {
+            background: linear-gradient(135deg, var(--accent-green), #2ecc71);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <button class="print-button" id="printBtn">
+                <i class="fas fa-print"></i> Printo Rezultatet
+            </button>
+            
+            <h1>
+                <span>🎯</span>
+                PLATFORMA E ORIENTIMIT NË KARRIERË
+                <span>🎯</span>
+            </h1>
+            <p class="subtitle">Platformë orientuese për nxënësit e klasës së 9-të</p>
+            <p style="font-size: 0.9rem; margin-top: 10px; opacity: 0.9;">
+                <i class="fas fa-info-circle"></i> Kriteret e pranimit sipas konkurseve zyrtare të DKA-ve (2024/25 – 2025/26)
+                <span class="private-badge">Përfshin shkolla publike dhe private</span>
+            </p>
+        </div>
+
+        <!-- Navigation Tabs -->
+        <div class="nav-tabs">
+            <button class="tab active" data-tab="tab1">
+                <i class="fas fa-graduation-cap"></i> Testi i Paraorjentimit
+            </button>
+            <button class="tab" data-tab="tab2">
+                <i class="fas fa-search"></i> Sistemi i Përzgjedhjes
+            </button>
+            <button class="tab" data-tab="tab3">
+                <i class="fas fa-cog"></i> Admin Panel
+            </button>
+        </div>
+
+        <!-- Tab 1: Testi i Paraorjentimit -->
+        <div id="tab1" class="tab-content active">
+            <section class="personal-info-section">
+                <h2 class="personal-info-title">Informacion Personal</h2>
+                
+                <div class="personal-info-grid">
+                    <div class="input-group">
+                        <label for="firstName"><i class="fas fa-user"></i> Emri dhe Mbiemri:</label>
+                        <input type="text" id="firstName" placeholder="Shkruani emrin dhe mbiemrin tuaj">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="schoolName"><i class="fas fa-school"></i> Shkolla 9-vjeçare:</label>
+                        <input type="text" id="schoolName" placeholder="Emri i shkollës tuaj">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="classNumber"><i class="fas fa-users"></i> Klasa:</label>
+                        <select id="classNumber">
+                            <option value="">Zgjidhni klasën</option>
+                            <option value="9/1">Klasa 9/1</option>
+                            <option value="9/2">Klasa 9/2</option>
+                            <option value="9/3">Klasa 9/3</option>
+                            <option value="9/4">Klasa 9/4</option>
+                            <option value="9/5">Klasa 9/5</option>
+                            <option value="9/6">Klasa 9/6</option>
+                            <option value="9/7">Klasa 9/7</option>
+                            <option value="9/8">Klasa 9/8</option>
+                            <option value="9/9">Klasa 9/9</option>
+                            <option value="9/10">Klasa 9/10</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="author-info">
+                    <p>Testi i krijuar nga: <strong>Naser A. Guri - Këshilltar për Karrierë</strong></p>
+                    <p style="margin-top: 5px; font-size: 0.9rem;">
+                        <span class="mashti-badge">Kriteret 2025/26</span> 
+                        <span class="private-badge">Përfshin shkolla private</span>
+                        Shkollat me shenjën ✔ janë të verifikuara nga burime zyrtare
+                    </p>
+                </div>
+            </section>
+            
+            <section class="intro-section">
+                <p>Ky test është krijuar për të ndihmuar nxënësit e klasës së 9-të të identifikojnë preferencat, aftësitë dhe interesat e tyre për të zgjedhur drejtimin më të përshtatshëm në shkollën e mesme të lartë. Testi përfshin 15 pyetje që vlerësojnë gjashtë profile kryesore: <strong>Shkencor-Teknologjik</strong>, <strong>Shkencave Shoqërore</strong>, <strong>Gjuhësor</strong>, <strong>Artistik-Krijues</strong>, <strong>Arte Vizuale</strong> dhe <strong>Muzikë</strong>.</p>
+            </section>
+            
+            <section class="progress-container">
+                <div class="progress-text">Progresi: <span id="currentQuestionNum">1</span>/15</div>
+                <div class="progress-bar">
+                    <div class="progress" id="progressBar"></div>
+                </div>
+            </section>
+            
+            <section class="questions-container" id="questionsContainer"></section>
+            
+            <section class="navigation-controls">
+                <button class="nav-button" id="prevBtn" disabled>
+                    <i class="fas fa-arrow-left"></i> Pyetja e Mëparshme
+                </button>
+                <button class="nav-button" id="nextBtn">
+                    Pyetja tjetër <i class="fas fa-arrow-right"></i>
+                </button>
+            </section>
+            
+            <section class="results-section" id="resultsSection">
+                <div class="results-header">
+                    <h2 class="results-title">Rezultatet e Testit të Paraorjentimit</h2>
+                    <div class="student-info-print" id="studentInfoPrint"></div>
+                </div>
+                
+                <div class="profiles-container" id="profilesContainer"></div>
+                
+                <div class="recommendations-section">
+                    <h3 class="recommendations-title"><i class="fas fa-lightbulb"></i> Rekomandime për zgjedhjen e drejtimit</h3>
+                    <ul class="recommendations-list" id="recommendationsList"></ul>
+                    
+                    <div class="consultation-notice">
+                        <h4><i class="fas fa-exclamation-circle"></i> Rekomandim për Konsultim</h4>
+                        <p>Këto rezultate janë vetëm orientuese. Rekomandohet që të konsultoheni me këshilltarin për karrierë në shkollën tuaj.</p>
+                    </div>
+                </div>
+                
+                <button class="nav-button restart-button" id="restartBtn">
+                    <i class="fas fa-redo"></i> Fillo Testin Përsëri
+                </button>
+                
+                <button class="switch-tab-btn" id="goToAdvancedBtn">
+                    <i class="fas fa-arrow-right"></i> Shko te Sistemi për përzgjedhjen e shkollës
+                </button>
+            </section>
+        </div>
+
+        <!-- Tab 2: Sistemi i Avancuar -->
+        <div id="tab2" class="tab-content">
+            <div id="advancedSystemContainer"></div>
+            <button class="switch-tab-btn" id="goToBasicBtn">
+                <i class="fas fa-arrow-left"></i> Kthehu te Testi i Paraorjentimit
+            </button>
+        </div>
+
+        <!-- Tab 3: Admin Panel -->
+        <div id="tab3" class="tab-content">
+            <div class="admin-panel">
+                <div class="admin-login" id="adminLogin">
+                    <i class="fas fa-lock"></i> Zona e Administratorit
+                    <input type="password" id="adminPassword" placeholder="Fjalëkalimi">
+                    <button onclick="adminLogin()">Hyr</button>
+                </div>
+                
+                <div class="admin-content" id="adminContent">
+                    <div class="admin-tabs">
+                        <button class="admin-tab active" data-admin-tab="schools">
+                            <i class="fas fa-school"></i> Shkollat e Mesme
+                        </button>
+                        <button class="admin-tab" data-admin-tab="statistics">
+                            <i class="fas fa-chart-bar"></i> Statistikat e databazës
+                        </button>
+                        <button class="admin-tab" data-admin-tab="clicks">
+                            <i class="fas fa-mouse-pointer"></i> Gjurmimi i Klikimeve
+                        </button>
+                        <button class="admin-tab" data-admin-tab="settings">
+                            <i class="fas fa-cog"></i> Cilësimet
+                        </button>
+                    </div>
+                    
+                    <div id="adminSchoolsSection" class="admin-section active">
+                        <h3><i class="fas fa-edit"></i> Menaxhimi i Shkollave të Mesme</h3>
+                        <p style="color: var(--text-light); margin-bottom: 20px;">
+                            <i class="fas fa-info-circle"></i> Shkollat e shënuara "E verifikuar" janë konfirmuar nga konkurset e DKA-ve ose burime publike. Kur verifikoni një shkollë, ndryshojeni statusin këtu.
+                        </p>
+                        
+                        <div class="add-school-form" id="addSchoolForm" style="display: none;">
+                            <h4>Shto Shkollë të Re</h4>
+                            <input type="text" id="newSchoolName" placeholder="Emri i shkollës">
+                            <select id="newSchoolMunicipality">
+                                <option value="">Zgjidh komunën</option>
+                            </select>
+                            <select id="newSchoolType">
+                                <option value="gjimnaz">Gjimnaz</option>
+                                <option value="teknike">Shkollë Teknike</option>
+                                <option value="ekonomike">Shkollë Ekonomike</option>
+                                <option value="mjekesi">Shkollë Mjekësie</option>
+                                <option value="bujqesi">Shkollë Bujqësore / Veterinare</option>
+                                <option value="art">Shkollë e Arteve</option>
+                                <option value="muzik">Shkollë e Muzikës</option>
+                                <option value="gjimnaz-privat">Gjimnaz Privat</option>
+                                <option value="kolegj-privat">Kolegj Privat</option>
+                            </select>
+                            <select id="newSchoolStatus">
+                                <option value="publike">Publike</option>
+                                <option value="private">Private</option>
+                            </select>
+                            <input type="text" id="newSchoolPrograms" placeholder="Programet (ndaj me presje)">
+                            <input type="number" id="newSchoolQuota" min="0" placeholder="Kuota e shpallur në konkurs (opsionale)">
+                            <input type="text" id="newSchoolSource" placeholder="Burimi (p.sh. Konkursi i DKA-së 2025/26)">
+                            <label style="display:block; margin: 8px 0;"><input type="checkbox" id="newSchoolVerified"> E verifikuar nga burim zyrtar</label>
+                            <textarea id="newSchoolDescription" placeholder="Përshkrimi"></textarea>
+                            <button class="save-btn" onclick="addNewSchool()">Ruaj Shkollën</button>
+                            <button class="cancel-btn" onclick="toggleAddSchoolForm()">Anulo</button>
+                        </div>
+                        
+                        <button class="save-btn" onclick="toggleAddSchoolForm()" style="margin-bottom: 20px;">
+                            <i class="fas fa-plus"></i> Shto Shkollë të Re
+                        </button>
+                        
+                        <div class="filter-section">
+                            <select id="filterMunicipality" onchange="filterSchools()">
+                                <option value="">Të gjitha komunat</option>
+                            </select>
+                            <select id="filterType" onchange="filterSchools()">
+                                <option value="">Të gjitha tipet</option>
+                                <option value="gjimnaz">Gjimnaz</option>
+                                <option value="teknike">Shkollë Teknike</option>
+                                <option value="ekonomike">Shkollë Ekonomike</option>
+                                <option value="mjekesi">Shkollë Mjekësie</option>
+                                <option value="bujqesi">Shkollë Bujqësore / Veterinare</option>
+                                <option value="art">Shkollë e Arteve</option>
+                                <option value="muzik">Shkollë e Muzikës</option>
+                                <option value="gjimnaz-privat">Gjimnaz Privat</option>
+                                <option value="kolegj-privat">Kolegj Privat</option>
+                            </select>
+                            <select id="filterStatus" onchange="filterSchools()">
+                                <option value="">Të gjitha</option>
+                                <option value="publike">Publike</option>
+                                <option value="private">Private</option>
+                            </select>
+                            <input type="text" id="searchSchool" placeholder="Kërko shkollë..." onkeyup="filterSchools()">
+                        </div>
+                        
+                        <div id="schoolsListContainer"></div>
+                    </div>
+                    
+                    <div id="adminStatisticsSection" class="admin-section">
+                        <h3><i class="fas fa-chart-bar"></i> Statistikat e Arsimit të Mesëm në Kosovë</h3>
+                        <div id="statisticsContent"></div>
+                    </div>
+                    
+                    <div id="adminClicksSection" class="admin-section">
+                        <h3><i class="fas fa-mouse-pointer"></i> Gjurmimi i Klikimeve dhe Përdoruesve</h3>
+                        <div id="clicksContent"></div>
+                    </div>
+                    
+                    <div id="adminSettingsSection" class="admin-section">
+                        <h3><i class="fas fa-cog"></i> Cilësimet e Administratorit</h3>
+                        
+                        <div class="change-password-section">
+                            <h4>Ndrysho Fjalëkalimin</h4>
+                            <input type="password" id="currentPassword" placeholder="Fjalëkalimi aktual">
+                            <input type="password" id="newPassword" placeholder="Fjalëkalimi i ri">
+                            <input type="password" id="confirmPassword" placeholder="Konfirmo fjalëkalimin">
+                            <button class="save-btn" onclick="changeAdminPassword()">Ndrysho Fjalëkalimin</button>
+                        </div>
+                        
+                        <div class="change-password-section">
+                            <h4>Eksporto të Dhënat</h4>
+                            <button class="save-btn" onclick="exportData()">
+                                <i class="fas fa-download"></i> Shkarko Listën e Shkollave (JSON)
+                            </button>
+                            <button class="save-btn" onclick="exportToCSV()" style="margin-left: 10px;">
+                                <i class="fas fa-file-csv"></i> Shkarko si CSV
+                            </button>
+                            <button class="save-btn" onclick="exportClicksData()" style="margin-left: 10px;">
+                                <i class="fas fa-file-excel"></i> Shkarko Klikimet (CSV)
+                            </button>
+                        </div>
+                        
+                        <div class="change-password-section">
+                            <h4>Verifikimi i të Dhënave</h4>
+                            <button class="save-btn" onclick="verifyData()">
+                                <i class="fas fa-check-circle"></i> Kontrollo cilësinë e të dhënave
+                            </button>
+                            <div id="verificationResult" style="margin-top: 10px; padding: 10px; border-radius: 5px;"></div>
+                        </div>
+                        
+                        <div class="change-password-section">
+                            <h4>Resetimi i Statistikave</h4>
+                            <button class="delete-btn" onclick="resetClickStats()">
+                                <i class="fas fa-trash"></i> Fshij të gjitha statistikat e klikimeve
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>© 2024–2026 Platforma e ORIENTIMIT | Naser A. Guri - Këshilltar për Karrierë</p>
+            <p style="margin-top: 5px; font-size: 0.8rem;">Versioni 3.0 – Kriteret e pranimit sipas konkurseve të DKA-ve; të dhënat e shkollave të përditësuara në shtator 2026</p>
+        </footer>
+    </div>
+
+    <script>
+        // ============================================
+        // KONFIGURIMI I ADMINIT DHE STATISTIKAVE
+        // ============================================
+        let ADMIN_PASSWORD = 'mashti2024';
+        
+        // Sistemi për gjurmimin e klikimeve
+        let clickStatistics = {
+            totalClicks: 0,
+            uniqueVisitors: [],
+            schoolClicks: {},
+            userClicks: [],
+            lastReset: new Date().toISOString()
+        };
+
+        // Ngarko statistikat nga localStorage nëse ekzistojnë
+        function loadClickStatistics() {
+            const saved = localStorage.getItem('clickStatistics');
+            if (saved) {
+                try {
+                    clickStatistics = JSON.parse(saved);
+                } catch (e) {
+                    console.error('Error loading click statistics', e);
+                }
+            }
+        }
+
+        // Ruaj statistikat në localStorage
+        function saveClickStatistics() {
+            localStorage.setItem('clickStatistics', JSON.stringify(clickStatistics));
+        }
+
+        // Gjenero ID unike për vizitorin
+        function getVisitorId() {
+            let visitorId = localStorage.getItem('visitorId');
+            if (!visitorId) {
+                visitorId = 'visitor_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+                localStorage.setItem('visitorId', visitorId);
+            }
+            return visitorId;
+        }
+
+        // Regjistro një klikim
+        function trackClick(action, details = {}) {
+            const visitorId = getVisitorId();
+            const timestamp = new Date().toISOString();
+            const userName = document.getElementById('firstName')?.value || 'I panjohur';
+            const schoolName = document.getElementById('schoolName')?.value || 'I panjohur';
+            
+            // Regjistro vizitor unik
+            if (!clickStatistics.uniqueVisitors.includes(visitorId)) {
+                clickStatistics.uniqueVisitors.push(visitorId);
+            }
+            
+            // Rrit totalin e klikimeve
+            clickStatistics.totalClicks++;
+            
+            // Regjistro klikimin specifik
+            const clickRecord = {
+                id: clickStatistics.totalClicks,
+                visitorId: visitorId,
+                userName: userName,
+                userSchool: schoolName,
+                action: action,
+                details: details,
+                timestamp: timestamp
+            };
+            
+            clickStatistics.userClicks.push(clickRecord);
+            
+            // Regjistro për shkolla nëse është klikim në shkollë
+            if (action === 'school_click' && details.schoolId) {
+                if (!clickStatistics.schoolClicks[details.schoolId]) {
+                    clickStatistics.schoolClicks[details.schoolId] = {
+                        count: 0,
+                        name: details.schoolName || 'I panjohur',
+                        users: []
+                    };
+                }
+                clickStatistics.schoolClicks[details.schoolId].count++;
+                clickStatistics.schoolClicks[details.schoolId].users.push({
+                    userName: userName,
+                    timestamp: timestamp
+                });
+            }
+            
+            // Kufizo historikun e klikimeve në 1000 regjistrimet e fundit
+            if (clickStatistics.userClicks.length > 1000) {
+                clickStatistics.userClicks = clickStatistics.userClicks.slice(-1000);
+            }
+            
+            saveClickStatistics();
+            return clickRecord;
+        }
+
+        // Inicializo statistikat
+        loadClickStatistics();
+
+        // ============================================
+        // BAZA E TË DHËNAVE PËR SHKOLLAT E MESME TË LARTA (SHML)
+        // Burimet: konkurset zyrtare të DKA-ve për regjistrimin në klasën X,
+        // faqet e komunave dhe burime publike. Çdo shkollë ka fushën
+        // "verified": true = e konfirmuar nga burim zyrtar/publik (shih "source"),
+        // false = e trashëguar nga versioni i vjetër, duhet verifikuar me DKA-në.
+        // Përditësuar: shtator 2026
+        // ============================================
+
+        const DATA_LAST_UPDATED = 'Shtator 2026';
+
+        const KOSOVO_MUNICIPALITIES = [
+            { id: 'decan', name: 'Deçan' },
+            { id: 'dragash', name: 'Dragash' },
+            { id: 'drenas', name: 'Drenas (Gllogoc)' },
+            { id: 'ferizaj', name: 'Ferizaj' },
+            { id: 'fushe-kosove', name: 'Fushë Kosovë' },
+            { id: 'gjakove', name: 'Gjakovë' },
+            { id: 'gjilan', name: 'Gjilan' },
+            { id: 'gracanice', name: 'Graçanicë' },
+            { id: 'han-i-elezit', name: 'Hani i Elezit' },
+            { id: 'istog', name: 'Istog' },
+            { id: 'junik', name: 'Junik' },
+            { id: 'kacanik', name: 'Kaçanik' },
+            { id: 'kamenice', name: 'Kamenicë' },
+            { id: 'kline', name: 'Klinë' },
+            { id: 'kllokot', name: 'Kllokot' },
+            { id: 'leposaviq', name: 'Leposaviq' },
+            { id: 'lipjan', name: 'Lipjan' },
+            { id: 'malisheve', name: 'Malishevë' },
+            { id: 'mamusha', name: 'Mamushë' },
+            { id: 'mitrovice', name: 'Mitrovicë e Jugut' },
+            { id: 'mitrovice-veri', name: 'Mitrovicë e Veriut' },
+            { id: 'novoberde', name: 'Novobërdë' },
+            { id: 'obiliq', name: 'Obiliq' },
+            { id: 'partesh', name: 'Partesh' },
+            { id: 'peje', name: 'Pejë' },
+            { id: 'podujeve', name: 'Podujevë' },
+            { id: 'prishtine', name: 'Prishtinë' },
+            { id: 'prizren', name: 'Prizren' },
+            { id: 'rahovec', name: 'Rahovec' },
+            { id: 'ranillug', name: 'Ranillug' },
+            { id: 'shtime', name: 'Shtime' },
+            { id: 'shterpce', name: 'Shtërpcë' },
+            { id: 'skenderaj', name: 'Skënderaj' },
+            { id: 'suhareke', name: 'Suharekë' },
+            { id: 'viti', name: 'Viti' },
+            { id: 'vushtrri', name: 'Vushtrri' },
+            { id: 'zubin-potok', name: 'Zubin Potok' },
+            { id: 'zvecan', name: 'Zveçan' }
+        ]; // 38 komuna
+
+        // Burimet e përdorura
+        const SOURCES = {
+            prishtina2425: 'DKA Prishtinë – Konkursi për regjistrimin në klasën X, viti shkollor 2024/25',
+            prizren2526: 'DKA Prizren – Konkursi (plotësues) për regjistrimin në klasën X, 2025/26',
+            kacanik: 'Komuna e Kaçanikut – dokument zyrtar i Drejtorisë së Arsimit',
+            ferizaj: 'Raporte publike (KALLXO 2015, Kosovarja 2024, KEDS Academy)',
+            gjilan: 'Universiteti "Kadri Zeka" dhe burime publike',
+            peje: 'Wikipedia (Arsimi në Pejë) dhe faqja e gjimnazit',
+            gjakove: 'Faqet zyrtare të shkollave',
+            mitrovice: 'Bota Sot dhe burime publike',
+            viti: 'KEDS Academy / KQZ',
+            kqz: 'Lista e qendrave të votimit të KQZ-së',
+            osce: 'Raport i OSBE-së për arsimin në Kosovë'
+        };
+
+        // Rregullat zyrtare të pranimit (sipas konkurseve të DKA-ve 2024/25 dhe 2025/26)
+        const ADMISSION_RULES = {
+            // lëndët prioritare nga suksesi (kl. 6–9) sipas grupit
+            prioritySubjects: {
+                natyror:    ['Fizikë', 'Kimi', 'Biologji', 'Matematikë'],
+                shoqeror:   ['Gjuhë amtare', 'Gjuhë angleze', 'Histori', 'Gjeografi'],
+                shendetesi: ['Biologji', 'Kimi', 'Fizikë', 'Gjuhë amtare'],
+                teknike:    ['Matematikë', 'TIK', 'Fizikë', 'Gjuhë amtare'],
+                ekonomike:  ['Matematikë', 'Gjuhë amtare', 'Gjuhë angleze', 'Gjeografi'],
+                artistike:  ['Gjuhë amtare', 'Edukatë qytetare', 'Art', 'Muzikë']
+            },
+            // pesha e fushave të testit (gjithsej 40 pikë) sipas grupit
+            testWeights: {
+                natyror:    { natyrore: 20, matematike: 10, gjuhe: 7.5, shoqerore: 2.5 },
+                shoqeror:   { shoqerore: 15, gjuhe: 15, matematike: 7.5, natyrore: 2.5 },
+                shendetesi: { natyrore: 20, gjuhe: 10, matematike: 7.5, shoqerore: 2.5 },
+                teknike:    { matematike: 20, gjuhe: 10, natyrore: 7.5, shoqerore: 2.5 },
+                ekonomike:  { matematike: 20, gjuhe: 10, shoqerore: 7.5, natyrore: 2.5 },
+                artistike:  { gjuhe: 20, shoqerore: 10, matematike: 7.5, natyrore: 2.5 }
+            },
+            // grupet ku kërkohet mesatarja ≥ 4.00 në lëndët prioritare dhe ≥ 40% në test
+            strictGroups: ['natyror', 'shoqeror', 'shendetesi']
+        };
+
+        // Krijon një rekord shkolle me vlera të paracaktuara
+        function S(o) {
+            return Object.assign({
+                status: 'publike',
+                programs: [],
+                streams: [],
+                quota: null,
+                quotaYear: null,
+                verified: false,
+                source: '',
+                note: '',
+                description: '',
+                residentOnly: false
+            }, o);
+        }
+
+        const P25 = { verified: true, source: SOURCES.prishtina2425, quotaYear: '2024/25', residentOnly: true };
+        const PZ = { verified: true, source: SOURCES.prizren2526 };
+        const UNVERIFIED_NOTE = 'Kjo shkollë nuk është konfirmuar ende nga një burim zyrtar. Verifikoni emrin dhe profilet me DKA-në e komunës.';
+
+        let KOSOVO_HIGH_SCHOOLS_DATABASE = {
+            // ============ PRISHTINË (konkursi i DKA-së 2024/25) ============
+            'prishtine': {
+                'gjimnaz': [
+                    S({ ...P25, id: 'pr_gj_001', name: 'Gjimnazi "Sami Frashëri"', type: 'Gjimnaz', streams: ['natyror'],
+                        programs: ['Gjimnaz i shkencave natyrore', 'Paralele në gjuhën turke'], quota: 308,
+                        description: 'Gjimnaz i shkencave natyrore (10 paralele në shqip + 1 në gjuhën turke).' }),
+                    S({ ...P25, id: 'pr_gj_002', name: 'Gjimnazi "Ahmet Gashi"', type: 'Gjimnaz', streams: ['shoqeror'],
+                        programs: ['Gjimnaz i shkencave shoqërore dhe gjuhësore'], quota: 280,
+                        description: 'Gjimnaz i shkencave shoqërore dhe gjuhësore.' }),
+                    S({ ...P25, id: 'pr_gj_003', name: 'Gjimnazi Matematik i Specializuar', type: 'Gjimnaz i specializuar', streams: ['matematikor'],
+                        programs: ['Gjimnaz i shkencave matematikore'], quota: 50, residentOnly: false,
+                        description: 'Pranon nxënës të shkëlqyeshëm nga të gjitha komunat e Kosovës. Pranimi bëhet me provim pranues (40 pikë), suksesin kl. 6–9 (20), notat në matematikë (20) dhe testin në matematikë (20).' }),
+                    S({ ...P25, id: 'pr_gj_004', name: 'Gjimnazi "Xhevdet Doda"', type: 'Gjimnaz', streams: ['natyror'],
+                        programs: ['Gjimnaz i shkencave natyrore'], quota: 308,
+                        description: 'Gjimnaz i shkencave natyrore.' }),
+                    S({ ...P25, id: 'pr_gj_005', name: 'Gjimnazi "Eqrem Çabej"', type: 'Gjimnaz', streams: ['shoqeror'],
+                        programs: ['Gjimnaz i shkencave shoqërore dhe gjuhësore'], quota: 168,
+                        description: 'Gjimnaz i shkencave shoqërore dhe gjuhësore (ish-gjimnaz filologjik).' }),
+                    S({ ...P25, id: 'pr_gj_006', name: 'Medreseja "Alauddin"', type: 'Gjimnaz (medrese)', streams: ['shoqeror'],
+                        programs: ['Gjimnaz i shkencave shoqërore dhe gjuhësore'], quota: 140,
+                        description: 'Medrese e Bashkësisë Islame që pranon përmes konkursit të DKA-së; paralele të ndara për djem (84) dhe vajza (56).' })
+                ],
+                'teknike': [
+                    S({ ...P25, id: 'pr_tek_001', name: 'SHMT "28 Nëntori"', type: 'Shkollë Teknike',
+                        programs: ['Ndërtimtari', 'Murator', 'Arkitekturë', 'Gjeodezi', 'PTT', 'Grafikë e shtypit', 'Grafikë me libërlidhje', 'Grafikë e mediave'], quota: 260,
+                        description: 'Shkollë e mesme teknike: ndërtimtari, arkitekturë, gjeodezi dhe grafikë.' }),
+                    S({ ...P25, id: 'pr_tek_002', name: 'SHME "Gjin Gazulli"', type: 'Shkollë Elektroteknike',
+                        programs: ['Teknik i informatikës së biznesit', 'Teknik për dizajnimin e mediave interaktive', 'Zhvillues i aplikacioneve softuerike', 'Teknik i sistemeve të TIK', 'Teknik i elektronikës', 'Telekomunikacion', 'Teknik i energjetikës', 'Instalues elektrik'], quota: 264,
+                        description: 'Shkollë e mesme elektroteknike me profile të TIK-ut, elektronikës dhe energjetikës.' })
+                ],
+                'ekonomike': [
+                    S({ ...P25, id: 'pr_eko_001', name: 'SHMEJ "Hoxhë Kadri Prishtina"', type: 'Shkollë Ekonomike-Juridike',
+                        programs: ['Kontabilitet dhe tatime', 'Banka, financa dhe sigurime', 'Marketing dhe shitje', 'Shpedicion dhe logjistikë', 'Juridik, administratë dhe shërbime të zyrës'], quota: 312,
+                        description: 'Shkollë e mesme ekonomike-juridike.' }),
+                    S({ ...P25, id: 'pr_eko_002', name: 'SHMHT "7 Shtatori"', type: 'Shkollë Hoteleri-Turizëm',
+                        programs: ['Tregtar me shumicë dhe pakicë', 'Kuzhinier', 'Asistent i mikpritjes hoteliere', 'Asistent i turizmit dhe udhëtimeve'], quota: 208,
+                        description: 'Shkollë e mesme e hotelierisë, turizmit dhe tregtisë.' })
+                ],
+                'mjekesi': [
+                    S({ ...P25, id: 'pr_mjk_001', name: 'SHMM "Dr. Ali Sokoli"', type: 'Shkollë Mjekësie',
+                        programs: ['Bashkëpunëtor profesional i infermierisë', 'Teknik i fizioterapisë', 'Teknik dentar', 'Teknik i farmacisë', 'Teknik i farmacisë (gjuhë boshnjake)'], quota: 196,
+                        description: 'Shkollë e mesme e mjekësisë.' })
+                ],
+                'bujqesi': [
+                    S({ ...P25, id: 'pr_buj_001', name: 'SHMAT "Abdyl Frashëri"', type: 'Shkollë Bujqësore-Teknologjike',
+                        programs: ['Agrobiznes', 'Hortikulturë', 'Mbrojtje e bimëve', 'Përpunues i ushqimit', 'Asistent i sigurisë ushqimore dhe dietave', 'Veterinari'], quota: 182,
+                        description: 'Shkollë e mesme e bujqësisë, teknologjisë ushqimore dhe veterinarisë.' })
+                ],
+                'muzik': [
+                    S({ ...P25, id: 'pr_muz_001', name: 'SHMM "Prenk Jakova"', type: 'Shkollë e Muzikës',
+                        programs: ['Instrumental', 'Bashkëpunëtor muzikor'], quota: 50,
+                        description: 'Shkollë e mesme e muzikës. Kërkohet provim pranues; për drejtimin instrumental kërkohet shkolla e ulët e muzikës.' })
+                ],
+                'gjimnaz-privat': [
+                    S({ id: 'pr_gj_priv_001', name: 'Kolegji "Mehmet Akif"', type: 'Gjimnaz Privat', status: 'private', verified: true, source: SOURCES.osce,
+                        programs: ['Gjimnaz (sipas kurrikulës së Kosovës)'],
+                        description: 'Institucion arsimor privat në Prishtinë. Kushtet e pranimit dhe pagesa përcaktohen nga vetë shkolla.' }),
+                    S({ id: 'pr_gj_priv_003', name: 'Prishtina International School (PIS)', type: 'Shkollë Private Ndërkombëtare', status: 'private', verified: true, source: SOURCES.osce,
+                        programs: ['Mësim në gjuhën angleze'],
+                        description: 'Shkollë private ndërkombëtare në Prishtinë. Kushtet e pranimit dhe pagesa përcaktohen nga vetë shkolla.' }),
+                    S({ id: 'pr_gj_priv_002', name: 'Kolegji "AAB" – Gjimnazi', type: 'Gjimnaz Privat', status: 'private',
+                        programs: ['Gjimnaz'], note: UNVERIFIED_NOTE })
+                ],
+                'kolegj-privat': [
+                    S({ id: 'pr_kol_priv_001', name: 'Kolegji "UBT" – Gjimnazi', type: 'Kolegj Privat', status: 'private',
+                        programs: ['Gjimnaz'], note: UNVERIFIED_NOTE }),
+                    S({ id: 'pr_kol_priv_002', name: 'Kolegji "Iliria"', type: 'Kolegj Privat', status: 'private',
+                        programs: ['Gjimnaz'], note: UNVERIFIED_NOTE })
+                ]
+            },
+
+            // ============ PRIZREN (konkursi i DKA-së 2025/26) ============
+            'prizren': {
+                'gjimnaz': [
+                    S({ ...PZ, id: 'pz_gj_001', name: 'Gjimnazi "Gjon Buzuku"', type: 'Gjimnaz', streams: ['natyror'],
+                        programs: ['Shkencat natyrore (shqip, boshnjakisht, turqisht)', 'Paralele të ndara në Gjonaj dhe Romajë'],
+                        description: 'Gjimnaz i shkencave natyrore; mësim edhe në gjuhën boshnjake dhe turke.' }),
+                    S({ ...PZ, id: 'pz_gj_002', name: 'Gjimnazi "Remzi Ademaj"', type: 'Gjimnaz', streams: ['shoqeror'],
+                        programs: ['Drejtimi shoqëror-gjuhësor', 'Paralele të ndara në Zhur, Velezhë, Zym, Gjonaj, Romajë'],
+                        description: 'Gjimnaz i drejtimit shoqëror-gjuhësor.' })
+                ],
+                'mjekesi': [
+                    S({ ...PZ, id: 'pz_mjk_001', name: 'SHMM "Luciano Motroni"', type: 'Shkollë Mjekësie',
+                        programs: ['Bashkëpunëtor profesional i infermierisë', 'Teknik i farmacisë', 'Teknik dentar', 'Teknik i laborantit mjekësor'],
+                        description: 'Shkollë e mesme e mjekësisë; mësim edhe në gjuhën boshnjake dhe turke.' })
+                ],
+                'ekonomike': [
+                    S({ ...PZ, id: 'pz_eko_001', name: 'IAAP "Ymer Prizreni"', type: 'Shkollë Profesionale (ekonomi, tregti, hoteleri, bujqësi)',
+                        programs: ['Kontabilitet dhe tatime', 'Asistent financiar', 'Banka dhe sigurime', 'Marketing dhe shitje', 'Shpedicion dhe logjistikë', 'Tregti me pakicë dhe shumicë', 'Asistent i mikpritjes hoteliere', 'Kuzhinier', 'Administratë e shërbimeve të zyrës', 'Hortikulturë', 'Agrobiznes', 'Teknologji ushqimore', 'Rrobaqepësi'],
+                        description: 'Institucion i arsimit profesional me shumë profile; mësim edhe në gjuhën boshnjake dhe turke.' })
+                ],
+                'muzik': [
+                    S({ ...PZ, id: 'pz_muz_001', name: 'Shkolla e Muzikës "Lorenc Antoni"', type: 'Shkollë e Muzikës',
+                        programs: ['Bashkëpunëtor i përgjithshëm muzikor', 'Instrumental / Balet'],
+                        description: 'Shkollë e mesme e muzikës. Kërkohet provim pranues.' })
+                ],
+                'teknike': [
+                    S({ id: 'pz_tek_001', name: 'Qendra e Kompetencës – Prizren', type: 'Shkollë Profesionale',
+                        programs: ['Profile teknike'], note: UNVERIFIED_NOTE })
+                ],
+                'gjimnaz-privat': [
+                    S({ id: 'pz_gj_priv_001', name: 'Kolegji "Universi"', type: 'Gjimnaz Privat', status: 'private',
+                        programs: ['Gjimnaz'], note: UNVERIFIED_NOTE })
+                ]
+            },
+
+            // ============ FERIZAJ ============
+            'ferizaj': {
+                'gjimnaz': [
+                    S({ id: 'fer_gj_001', name: 'Gjimnazi "Shaban Hashani"', type: 'Gjimnaz', verified: true, source: SOURCES.ferizaj,
+                        programs: ['Gjimnaz (drejtimet sipas konkursit të DKA Ferizaj)'] }),
+                    S({ id: 'fer_gj_002', name: 'Gjimnazi "Kuvendi i Arbërit"', type: 'Gjimnaz', verified: true, source: SOURCES.ferizaj, streams: ['natyror'],
+                        programs: ['Gjimnaz shkencor (shkencat natyrore)'] })
+                ],
+                'teknike': [
+                    S({ id: 'fer_tek_001', name: 'SHMT "Pjetër Bogdani"', type: 'Shkollë Teknike', verified: true, source: SOURCES.ferizaj,
+                        programs: ['Elektroteknikë (instalues elektrik)', 'Profile të tjera teknike sipas konkursit'] }),
+                    S({ id: 'fer_tek_002', name: 'Qendra e Kompetencës – Ferizaj', type: 'Shkollë Profesionale',
+                        programs: ['Profile teknike'], note: UNVERIFIED_NOTE })
+                ],
+                'ekonomike': [
+                    S({ id: 'fer_eko_001', name: 'SHME "Faik Konica"', type: 'Shkollë Ekonomike', verified: true, source: SOURCES.ferizaj,
+                        programs: ['Ekonomi (profilet sipas konkursit)'] })
+                ],
+                'bujqesi': [
+                    S({ id: 'fer_buj_001', name: 'IAAP "Zenel Hajdini"', type: 'Shkollë Bujqësore', verified: true, source: SOURCES.ferizaj,
+                        programs: ['Bujqësi (profilet sipas konkursit)'] })
+                ],
+                'mjekesi': [
+                    S({ id: 'fer_mjk_001', name: 'SHMM "Elena Gjika"', type: 'Shkollë Mjekësie', verified: true, source: SOURCES.ferizaj,
+                        programs: ['Profile shëndetësore (sipas konkursit)'] })
+                ]
+            },
+
+            // ============ KAÇANIK ============
+            'kacanik': {
+                'gjimnaz': [
+                    S({ id: 'kac_gj_001', name: 'Gjimnazi "Skënderbeu"', type: 'Gjimnaz', verified: true, source: SOURCES.kacanik,
+                        programs: ['Gjimnaz (drejtimet sipas konkursit të DKA Kaçanik)'] })
+                ],
+                'teknike': [
+                    S({ id: 'kac_tek_001', name: 'SHMP "Feriz Guri dhe Vëllezërit Çaka"', type: 'Shkollë e Mesme Profesionale', verified: true, source: SOURCES.kacanik,
+                        programs: ['Elektroteknikë – automatikë', 'Profile të tjera sipas konkursit vjetor'] })
+                ]
+            },
+
+            // ============ VITI ============
+            'viti': {
+                'gjimnaz': [
+                    S({ id: 'viti_gj_001', name: 'Gjimnazi "Kuvendi i Lezhës"', type: 'Gjimnaz', verified: true, source: SOURCES.kqz,
+                        programs: ['Gjimnaz (drejtimet sipas konkursit)'] })
+                ],
+                'teknike': [
+                    S({ id: 'viti_tek_001', name: 'IAAP "Jonuz Zejnullahu"', type: 'Shkollë Profesionale', verified: true, source: SOURCES.viti,
+                        programs: ['Instalues elektrik', 'Profile të tjera sipas konkursit'] })
+                ]
+            },
+
+            // ============ GJILAN ============
+            'gjilan': {
+                'gjimnaz': [
+                    S({ id: 'gl_gj_001', name: 'Gjimnazi Shoqëror "Zenel Hajdini"', type: 'Gjimnaz', verified: true, source: SOURCES.gjilan, streams: ['shoqeror'],
+                        programs: ['Gjimnaz i shkencave shoqërore'] }),
+                    S({ id: 'gl_gj_002', name: 'Gjimnazi i Shkencave Natyrore – Gjilan', type: 'Gjimnaz', verified: true, source: SOURCES.gjilan, streams: ['natyror'],
+                        programs: ['Gjimnaz i shkencave natyrore'] })
+                ],
+                'teknike': [
+                    S({ id: 'gl_tek_001', name: 'SHMLT "Mehmet Isai"', type: 'Shkollë Teknike', verified: true, source: SOURCES.gjilan,
+                        programs: ['Profile teknike (sipas konkursit)'] })
+                ],
+                'ekonomike': [
+                    S({ id: 'gl_eko_001', name: 'SHMLE "Marin Barleti"', type: 'Shkollë Ekonomike', verified: true, source: SOURCES.gjilan,
+                        programs: ['Ekonomi (profilet sipas konkursit)'] })
+                ],
+                'bujqesi': [
+                    S({ id: 'gl_buj_001', name: 'SHMLAT "Arbëria"', type: 'Shkollë Bujqësore-Teknologjike', verified: true, source: SOURCES.gjilan,
+                        programs: ['Bujqësi dhe teknologji ushqimore (sipas konkursit)'] })
+                ],
+                'mjekesi': [
+                    S({ id: 'gl_mjk_001', name: 'SHMLM "Dr. Asllan Elezi"', type: 'Shkollë Mjekësie', verified: true, source: SOURCES.gjilan,
+                        programs: ['Profile shëndetësore (sipas konkursit)'] })
+                ],
+                'muzik': [
+                    S({ id: 'gl_muz_001', name: 'Shkolla e Mesme e Muzikës – Gjilan', type: 'Shkollë e Muzikës',
+                        programs: ['Muzikë'], note: UNVERIFIED_NOTE })
+                ],
+                'gjimnaz-privat': [
+                    S({ id: 'gl_gj_priv_001', name: 'Kolegji "Dardania"', type: 'Gjimnaz Privat', status: 'private',
+                        programs: ['Gjimnaz'], note: UNVERIFIED_NOTE })
+                ]
+            },
+
+            // ============ PEJË ============
+            'peje': {
+                'gjimnaz': [
+                    S({ id: 'pe_gj_001', name: 'Gjimnazi "Bedri Pejani"', type: 'Gjimnaz', verified: true, source: SOURCES.peje, streams: ['natyror', 'shoqeror'],
+                        programs: ['Shkenca natyrore', 'Shkenca shoqërore', 'Matematikë-informatikë', 'Gjuhësor'],
+                        description: 'Gjimnaz i themeluar më 1934, nga më të vjetrit në Kosovë.' })
+                ],
+                'teknike': [
+                    S({ id: 'pe_tek_001', name: 'SHMT "Shaban Spahija"', type: 'Shkollë Teknike', verified: true, source: SOURCES.peje,
+                        programs: ['Informatikë', 'Elektroinstalime', 'Automekanikë', 'Ndërtimtari', 'Zdrukthtari', 'Rrobaqepësi dhe dizajn kostumesh'] }),
+                    S({ id: 'pe_tek_002', name: 'IAAP "Rifat Gjota"', type: 'Shkollë Profesionale', verified: true, source: SOURCES.viti,
+                        programs: ['Energjetikë', 'Profile të tjera sipas konkursit'] })
+                ],
+                'mjekesi': [
+                    S({ id: 'pe_mjk_001', name: 'Shkolla e Mesme e Mjekësisë – Pejë', type: 'Shkollë Mjekësie', verified: true, source: SOURCES.peje,
+                        programs: ['Infermieri', 'Farmaci', 'Stomatologji', 'Mami dhe pediatri'] })
+                ],
+                'art': [
+                    S({ id: 'pe_art_001', name: 'Shkolla e Arteve – Pejë', type: 'Shkollë e Arteve',
+                        programs: ['Arte figurative'], note: UNVERIFIED_NOTE })
+                ]
+            },
+
+            // ============ MITROVICË E JUGUT ============
+            'mitrovice': {
+                'gjimnaz': [
+                    S({ id: 'mit_gj_003', name: 'Gjimnazi "Frang Bardhi"', type: 'Gjimnaz', verified: true, source: SOURCES.mitrovice,
+                        programs: ['Gjimnaz (drejtimet sipas konkursit)'] }),
+                    S({ id: 'mit_gj_001', name: 'SHML "Hasan Prishtina"', type: 'Gjimnaz', programs: ['Gjimnaz'], note: UNVERIFIED_NOTE }),
+                    S({ id: 'mit_gj_002', name: 'SHML "Tefta Tashko"', type: 'Gjimnaz', programs: ['Gjimnaz'], note: UNVERIFIED_NOTE })
+                ],
+                'mjekesi': [
+                    S({ id: 'mit_mjk_001', name: 'SHMM "Xheladin Deda"', type: 'Shkollë Mjekësie', verified: true, source: SOURCES.mitrovice,
+                        programs: ['Profile shëndetësore (sipas konkursit)'] })
+                ],
+                'teknike': [
+                    S({ id: 'mit_tek_001', name: 'SHMT "Arkitekt Sinani"', type: 'Shkollë Teknike', programs: ['Profile teknike'], note: UNVERIFIED_NOTE })
+                ]
+            },
+
+            // ============ GJAKOVË ============
+            'gjakove': {
+                'gjimnaz': [
+                    S({ id: 'gk_gj_001', name: 'Gjimnazi "Hajdar Dushi"', type: 'Gjimnaz', verified: true, source: SOURCES.gjakove,
+                        programs: ['Gjimnaz (drejtimet sipas konkursit)'] })
+                ],
+                'ekonomike': [
+                    S({ id: 'gk_eko_001', name: 'SHME "Kadri Kusari"', type: 'Shkollë Ekonomike', verified: true, source: SOURCES.gjakove,
+                        programs: ['Ekonomi (shumë profile, sipas konkursit)'] })
+                ]
+            },
+
+            // ============ DEÇAN ============
+            'decan': {
+                'gjimnaz': [
+                    S({ id: 'dec_gj_001', name: 'SHML "Vëllezërit Frashëri"', type: 'Gjimnaz', programs: ['Gjimnaz'], note: UNVERIFIED_NOTE })
+                ],
+                'teknike': [
+                    S({ id: 'dec_tek_001', name: 'IAAP "Tafil Kasumaj"', type: 'Shkollë Profesionale', verified: true, source: SOURCES.kqz,
+                        programs: ['Profile profesionale (sipas konkursit)'] })
+                ]
+            },
+
+            // ============ DRENAS (GLLOGOC) ============
+            'drenas': {
+                'teknike': [
+                    S({ id: 'gll_gj_001', name: 'IAAP "Fehmi Lladrovci"', type: 'Shkollë Profesionale', verified: true, source: 'Lista publike e mësimdhënësve (SHPIK)',
+                        programs: ['Profile profesionale (sipas konkursit)'] })
+                ]
+            },
+
+            // ============ KOMUNAT E TJERA – TË DHËNA TË PAVERIFIKUARA ============
+            'podujeve': {
+                'gjimnaz': [ S({ id: 'pod_gj_002', name: 'SHML "Aleksandër Xhuvani"', type: 'Gjimnaz', programs: ['Gjimnaz'], note: UNVERIFIED_NOTE }) ],
+                'teknike': [ S({ id: 'pod_tek_001', name: 'SHMLT "Fan S. Noli"', type: 'Shkollë Teknike', programs: ['Instalues elektrik', 'Profile të tjera teknike'], note: UNVERIFIED_NOTE }) ]
+            },
+            'vushtrri': {
+                'gjimnaz': [
+                    S({ id: 'vus_gj_001', name: 'SHML "Bahri Haxha"', type: 'Gjimnaz', programs: ['Gjimnaz'], note: UNVERIFIED_NOTE }),
+                    S({ id: 'vus_gj_002', name: 'SHML "Lutfi Musiqi"', type: 'Gjimnaz', programs: ['Gjimnaz'], note: UNVERIFIED_NOTE })
+                ]
+            },
+            'lipjan': {
+                'gjimnaz': [
+                    S({ id: 'lip_gj_001', name: 'SHML "Adem Gllavica"', type: 'Gjimnaz', programs: ['Gjimnaz'], note: UNVERIFIED_NOTE }),
+                    S({ id: 'lip_gj_002', name: 'SHML "Ulpiana"', type: 'Shkollë e mesme e lartë', programs: ['Sipas konkursit'], note: UNVERIFIED_NOTE })
+                ]
+            },
+            'suhareke': {
+                'gjimnaz': [
+                    S({ id: 'suh_gj_001', name: 'SHML "Jeta e Re"', type: 'Gjimnaz', programs: ['Gjimnaz'], note: UNVERIFIED_NOTE }),
+                    S({ id: 'suh_gj_002', name: 'SHML "Abdyl Ramaj"', type: 'Gjimnaz', programs: ['Gjimnaz'], note: UNVERIFIED_NOTE })
+                ]
+            },
+            'malisheve': {
+                'gjimnaz': [ S({ id: 'mal_gj_001', name: 'SHML "Abdyl Frashëri"', type: 'Gjimnaz', programs: ['Gjimnaz'], note: UNVERIFIED_NOTE }) ],
+                'teknike': [ S({ id: 'mal_tek_001', name: 'Qendra e Kompetencës – Malishevë', type: 'Shkollë Profesionale', programs: ['Profile teknike'], note: UNVERIFIED_NOTE }) ]
+            },
+            'skenderaj': {
+                'gjimnaz': [
+                    S({ id: 'sk_gj_001', name: 'SHML "Hamëz Jashari"', type: 'Gjimnaz', programs: ['Gjimnaz'], note: UNVERIFIED_NOTE }),
+                    S({ id: 'sk_gj_002', name: 'SHML "Anton Çetta"', type: 'Gjimnaz', programs: ['Gjimnaz'], note: UNVERIFIED_NOTE })
+                ]
+            },
+            'kline': {
+                'gjimnaz': [ S({ id: 'kl_gj_001', name: 'SHML "Fehmi Agani"', type: 'Gjimnaz', programs: ['Gjimnaz'], note: UNVERIFIED_NOTE }) ]
+            },
+            'rahovec': {
+                'gjimnaz': [
+                    S({ id: 'rah_gj_001', name: 'SHML "12 Maji"', type: 'Gjimnaz', programs: ['Gjimnaz'], note: UNVERIFIED_NOTE }),
+                    S({ id: 'rah_gj_002', name: 'SHML "Selajdin Mullaabazi"', type: 'Gjimnaz', programs: ['Gjimnaz'], note: UNVERIFIED_NOTE })
+                ]
+            },
+            'kamenice': {
+                'gjimnaz': [ S({ id: 'kam_gj_001', name: 'SHML "Ismail Qemali"', type: 'Gjimnaz', programs: ['Gjimnaz'], note: UNVERIFIED_NOTE }) ]
+            },
+            'shtime': {
+                'gjimnaz': [ S({ id: 'sht_gj_001', name: 'SHML "Naim Frashëri"', type: 'Gjimnaz', programs: ['Gjimnaz'], note: UNVERIFIED_NOTE }) ]
+            },
+            'fushe-kosove': {
+                'gjimnaz': [ S({ id: 'fk_gj_001', name: 'SHML "Hivzi Sulejmani"', type: 'Gjimnaz', programs: ['Gjimnaz'], note: UNVERIFIED_NOTE }) ],
+                'teknike': [ S({ id: 'fk_tek_001', name: 'SHML "Minatori"', type: 'Shkollë Teknike', programs: ['Profile teknike'], note: UNVERIFIED_NOTE }) ]
+            },
+            'obiliq': {
+                'gjimnaz': [ S({ id: 'ob_gj_001', name: 'SHML "17 Shkurti"', type: 'Gjimnaz', programs: ['Gjimnaz'], note: UNVERIFIED_NOTE }) ]
+            },
+            'dragash': {
+                'gjimnaz': [ S({ id: 'dr_gj_001', name: 'SHML "Ruzhdi Berisha"', type: 'Gjimnaz', programs: ['Gjimnaz'], note: UNVERIFIED_NOTE }) ]
+            },
+            'istog': {
+                'gjimnaz': [ S({ id: 'is_gj_001', name: 'SHML "Haxhi Zeka"', type: 'Gjimnaz', programs: ['Gjimnaz'], note: UNVERIFIED_NOTE }) ]
+            },
+            'han-i-elezit': {
+                'gjimnaz': [ S({ id: 'han_gj_001', name: 'SHML "Dardania"', type: 'Gjimnaz', programs: ['Gjimnaz'], note: UNVERIFIED_NOTE }) ]
+            },
+            'mamusha': {
+                'gjimnaz': [ S({ id: 'mam_gj_001', name: 'SHML "Ataturk"', type: 'Gjimnaz', programs: ['Gjimnaz (mësim në gjuhën turke)'], note: UNVERIFIED_NOTE }) ]
+            },
+            'shterpce': {
+                'gjimnaz': [ S({ id: 'shtp_gj_001', name: 'SHML "Kongresi i Manastirit"', type: 'Gjimnaz', programs: ['Gjimnaz'], note: UNVERIFIED_NOTE }) ]
+            }
+            // Komunat pa të dhëna ende: Graçanicë, Junik, Kllokot, Leposaviq, Mitrovicë e Veriut,
+            // Novobërdë, Partesh, Ranillug, Zubin Potok, Zveçan (shumica me shkolla në sistemin serb).
+            // Shtoni shkollat përmes Admin Panel-it pasi t'i verifikoni.
+        };
+
+        // Komunat që kanë një lloj të caktuar shkolle (llogaritet automatikisht nga databaza)
+        function municipalitiesWithType(type) {
+            return Object.keys(KOSOVO_HIGH_SCHOOLS_DATABASE)
+                .filter(m => (KOSOVO_HIGH_SCHOOLS_DATABASE[m][type] || []).length > 0);
+        }
+        function municipalityNamesWithType(type) {
+            return municipalitiesWithType(type)
+                .map(id => KOSOVO_MUNICIPALITIES.find(m => m.id === id)?.name || id)
+                .sort((a, b) => a.localeCompare(b))
+                .join(', ');
+        }
+
+        // ============================================
+        // VARIABLAT GLOBALE
+        // ============================================
+        let currentQuestionIndex = 0;
+        let userAnswers = new Array(15).fill(null);
+        let basicTestResults = {
+            profiles: {},
+            topProfile: null,
+            secondProfile: null
+        };
+
+        // Profilet e karrierës
+        const careerProfiles = {
+            shkencor: {
+                name: "Profili Shkencor-Teknologjik",
+                description: "Ky profil karakterizohet nga interesimi për shkencat ekzakte, teknologjinë, matematikën dhe zgjidhjen logjike të problemeve.",
+                score: 0,
+                recommendations: [
+                    "Gjimnaz i shkencave natyrore (kërkon mesataren ≥ 4.00 në fizikë, kimi, biologji, matematikë)",
+                    "Gjimnazi Matematik i Specializuar – Prishtinë (me provim pranues, për nxënës të shkëlqyeshëm)",
+                    "Shkollë elektroteknike – Zhvillues i aplikacioneve softuerike, Sisteme të TIK, Elektronikë",
+                    "Shkollë teknike – Ndërtimtari, Arkitekturë, Gjeodezi",
+                    "Shkollë e mjekësisë – Teknik i laborantit mjekësor, Teknik i farmacisë"
+                ]
+            },
+            shoqeror: {
+                name: "Profili i Shkencave Shoqërore",
+                description: "Ky profil tregon interesim për marrëdhëniet njerëzore, çështjet sociale, historinë dhe psikologjinë.",
+                score: 0,
+                recommendations: [
+                    "Gjimnaz i shkencave shoqërore dhe gjuhësore",
+                    "Shkollë ekonomike – Kontabilitet dhe tatime",
+                    "Shkollë ekonomike – Banka, financa dhe sigurime",
+                    "Shkollë juridike – Juridik, administratë dhe shërbime të zyrës",
+                    "Shkollë e mjekësisë – Bashkëpunëtor profesional i infermierisë"
+                ]
+            },
+            gjuhësor: {
+                name: "Profili Gjuhësor",
+                description: "Ky profil karakterizohet nga aftësi të zhvilluara gjuhësore, interes për letërsinë, shkrimin kreativ dhe komunikimin efektiv.",
+                score: 0,
+                recommendations: [
+                    "Gjimnaz i shkencave shoqërore dhe gjuhësore",
+                    "Shkollë e hotelierisë dhe turizmit – Asistent i turizmit dhe udhëtimeve",
+                    "Shkollë e hotelierisë – Asistent i mikpritjes hoteliere",
+                    "Shkollë ekonomike – Marketing dhe shitje",
+                    "Shkollë elektroteknike – Dizajnim i mediave interaktive"
+                ]
+            },
+            artistik: {
+                name: "Profili Artistik-Krijues",
+                description: "Ky profil tregon kreativitet të lartë, imagjinatë dhe aftësi artistike. Përfshin artet figurative dhe ato pamore.",
+                score: 0,
+                recommendations: [
+                    "Shkollë e arteve (aty ku ofrohet – kontrolloni konkursin e DKA-së)",
+                    "Shkollë teknike – Arkitekturë",
+                    "Shkollë teknike – Grafikë e mediave, Grafikë e shtypit",
+                    "Shkollë elektroteknike – Teknik për dizajnimin e mediave interaktive",
+                    "Gjimnaz, me lëndë zgjedhore të artit"
+                ]
+            },
+            muzik: {
+                name: "Profili Muzikor",
+                description: "Ky profil tregon talent dhe interes për muzikën, instrumente muzikore dhe interpretim.",
+                score: 0,
+                recommendations: [
+                    "Shkollë e muzikës – Bashkëpunëtor muzikor (kërkon testin kombëtar dhe provim pranues)",
+                    "Shkollë e muzikës – Drejtimi instrumental (kërkon shkollën e ulët të muzikës)",
+                    "Shkollat e muzikës: \"Prenk Jakova\" (Prishtinë), \"Lorenc Antoni\" (Prizren), Gjilan",
+                    "Gjimnaz, me lëndë zgjedhore të muzikës",
+                    "Shkollë e hotelierisë dhe turizmit – për ata që duan punë me publikun dhe evente"
+                ]
+            }
+        };
+
+        // Pyetjet e testit
+        const testQuestions = [
+            {
+                id: 1,
+                text: "Çfarë lloj librash ose artikujsh keni dëshirë të lexoni më shumë?",
+                options: [
+                    { text: "Libra shkencorë, revista teknologjike", value: "shkencor" },
+                    { text: "Biografi, libra historikë, artikuj socialë", value: "shoqeror" },
+                    { text: "Letërsi artistike, poezi, romane", value: "gjuhësor" },
+                    { text: "Libra të artit, dizajnit, pikturës", value: "artistik" },
+                    { text: "Biografi muzikantësh, teori muzike", value: "muzik" }
+                ]
+            },
+            {
+                id: 2,
+                text: "Kur keni një problem kompleks për të zgjidhur, si e qaseni?",
+                options: [
+                    { text: "E analizoj në pjesë dhe gjej zgjidhje logjike", value: "shkencor" },
+                    { text: "Konsultoj me të tjerët", value: "shoqeror" },
+                    { text: "Diskutoj dhe komunikoj", value: "gjuhësor" },
+                    { text: "Përdor imagjinatën", value: "artistik" },
+                    { text: "E shpreh përmes muzikës", value: "muzik" }
+                ]
+            },
+            {
+                id: 3,
+                text: "Çfarë lloj aktivitetesh jashtëshkollore ju interesojnë?",
+                options: [
+                    { text: "Robotika, programimi, eksperimente", value: "shkencor" },
+                    { text: "Puna vullnetare, debatet", value: "shoqeror" },
+                    { text: "Shkrimi krijues, gazetaria", value: "gjuhësor" },
+                    { text: "Teatër, vizatim, pikturë", value: "artistik" },
+                    { text: "Orkestra, kori, instrumente", value: "muzik" }
+                ]
+            },
+            {
+                id: 4,
+                text: "Cilat lëndë shkollore ju pëlqejnë më shumë?",
+                options: [
+                    { text: "Matematikë, Fizikë, Kimi, Informatikë", value: "shkencor" },
+                    { text: "Histori, Gjuhë Shqipe, Sociologji", value: "shoqeror" },
+                    { text: "Gjuhë të huaja, Letërsi", value: "gjuhësor" },
+                    { text: "Edukatë Figurative, Dizajn", value: "artistik" },
+                    { text: "Edukatë Muzikore", value: "muzik" }
+                ]
+            },
+            {
+                id: 5,
+                text: "Çfarë karriere e ëndërroni?",
+                options: [
+                    { text: "Inxhinier, programues, shkencëtar", value: "shkencor" },
+                    { text: "Mësues, psikolog, punonjës social", value: "shoqeror" },
+                    { text: "Gazetar, shkrimtar, përkthyes", value: "gjuhësor" },
+                    { text: "Piktor, dizajner, arkitekt", value: "artistik" },
+                    { text: "Muzikant, kompozitor, dirigjent", value: "muzik" }
+                ]
+            },
+            {
+                id: 6,
+                text: "Si preferoni të mësoni gjëra të reja?",
+                options: [
+                    { text: "Nëpërmjet eksperimenteve", value: "shkencor" },
+                    { text: "Nëpërmjet diskutimeve", value: "shoqeror" },
+                    { text: "Nëpërmjet leximit", value: "gjuhësor" },
+                    { text: "Nëpërmjet praktikës vizuale", value: "artistik" },
+                    { text: "Nëpërmjet dëgjimit dhe praktikës", value: "muzik" }
+                ]
+            },
+            {
+                id: 7,
+                text: "Cilat janë pikat tuaja më të forta?",
+                options: [
+                    { text: "Mendimi logjik", value: "shkencor" },
+                    { text: "Komunikimi dhe puna në grup", value: "shoqeror" },
+                    { text: "Shprehja e qartë", value: "gjuhësor" },
+                    { text: "Kreativiteti vizual", value: "artistik" },
+                    { text: "Ndjenja për ritëm dhe melodi", value: "muzik" }
+                ]
+            },
+            {
+                id: 8,
+                text: "Si e përshkruani veten?",
+                options: [
+                    { text: "Analitik", value: "shkencor" },
+                    { text: "Empatik", value: "shoqeror" },
+                    { text: "Komunikues", value: "gjuhësor" },
+                    { text: "Kreativ", value: "artistik" },
+                    { text: "Artistik", value: "muzik" }
+                ]
+            },
+            {
+                id: 9,
+                text: "Çfarë lloj filmash preferoni?",
+                options: [
+                    { text: "Dokumentarë shkencorë, SF", value: "shkencor" },
+                    { text: "Drama historike, sociale", value: "shoqeror" },
+                    { text: "Adaptime letrare", value: "gjuhësor" },
+                    { text: "Filma artistikë, animacione", value: "artistik" },
+                    { text: "Filma muzikorë, biografi muzikantësh", value: "muzik" }
+                ]
+            },
+            {
+                id: 10,
+                text: "Kur vizitoni një muze, çfarë shihni?",
+                options: [
+                    { text: "Seksionin e shkencës", value: "shkencor" },
+                    { text: "Seksionin e historisë", value: "shoqeror" },
+                    { text: "Seksionin e letërsisë", value: "gjuhësor" },
+                    { text: "Seksionin e arteve", value: "artistik" },
+                    { text: "Seksionin e instrumenteve muzikore", value: "muzik" }
+                ]
+            },
+            {
+                id: 11,
+                text: "Çfarë lloj detyrash preferoni?",
+                options: [
+                    { text: "Probleme matematikore", value: "shkencor" },
+                    { text: "Punë kërkimore", value: "shoqeror" },
+                    { text: "Ese dhe analiza", value: "gjuhësor" },
+                    { text: "Projekte kreative", value: "artistik" },
+                    { text: "Kompozime dhe interpretime", value: "muzik" }
+                ]
+            },
+            {
+                id: 12,
+                text: "Çfarë ju motivon më shumë?",
+                options: [
+                    { text: "Zbulimet e reja", value: "shkencor" },
+                    { text: "Ndihma ndaj të tjerëve", value: "shoqeror" },
+                    { text: "Shprehja e mendimeve", value: "gjuhësor" },
+                    { text: "Krijimi i diçkaje të re", value: "artistik" },
+                    { text: "Shprehja përmes muzikës", value: "muzik" }
+                ]
+            },
+            {
+                id: 13,
+                text: "Si e kaloni kohën e lirë?",
+                options: [
+                    { text: "Eksperimente, enigma", value: "shkencor" },
+                    { text: "Takime me miqtë", value: "shoqeror" },
+                    { text: "Lexim, shkrim", value: "gjuhësor" },
+                    { text: "Vizatim, pikturë", value: "artistik" },
+                    { text: "Ushtrime muzikore", value: "muzik" }
+                ]
+            },
+            {
+                id: 14,
+                text: "Çfarë lënde do të zgjidhnit si lëndë zgjedhore?",
+                options: [
+                    { text: "Programim", value: "shkencor" },
+                    { text: "Psikologji", value: "shoqeror" },
+                    { text: "Gjuhë e huaj", value: "gjuhësor" },
+                    { text: "Art", value: "artistik" },
+                    { text: "Muzikë", value: "muzik" }
+                ]
+            },
+            {
+                id: 15,
+                text: "Cili është profesioni ideal për ju?",
+                options: [
+                    { text: "Inxhinier", value: "shkencor" },
+                    { text: "Mësues", value: "shoqeror" },
+                    { text: "Gazetar", value: "gjuhësor" },
+                    { text: "Piktor/Dizajner", value: "artistik" },
+                    { text: "Muzikant", value: "muzik" }
+                ]
+            }
+        ];
+
+        // ============================================
+        // FUNKSIONET ADMINISTRATIVE TË PËRMIRËSUARA
+        // ============================================
+        
+        window.adminLogin = function() {
+            const password = document.getElementById('adminPassword').value;
+            if (password === ADMIN_PASSWORD) {
+                document.getElementById('adminLogin').style.display = 'none';
+                document.getElementById('adminContent').style.display = 'block';
+                loadAdminData();
+                populateMunicipalityFilters();
+                
+                // Regjistro hyrjen e adminit
+                trackClick('admin_login', { username: 'admin' });
+                
+                alert('U kyçët me sukses në panelin e administratorit!');
+            } else {
+                alert('Fjalëkalimi i gabuar!');
+            }
+        };
+
+        function populateMunicipalityFilters() {
+            const filterSelect = document.getElementById('filterMunicipality');
+            const newSchoolSelect = document.getElementById('newSchoolMunicipality');
+            
+            if (filterSelect) {
+                filterSelect.innerHTML = '<option value="">Të gjitha komunat</option>';
+                [...KOSOVO_MUNICIPALITIES].sort((a, b) => a.name.localeCompare(b.name)).forEach(mun => {
+                    filterSelect.innerHTML += `<option value="${mun.id}">${mun.name}</option>`;
+                });
+            }
+            
+            if (newSchoolSelect) {
+                newSchoolSelect.innerHTML = '<option value="">Zgjidh komunën</option>';
+                [...KOSOVO_MUNICIPALITIES].sort((a, b) => a.name.localeCompare(b.name)).forEach(mun => {
+                    newSchoolSelect.innerHTML += `<option value="${mun.id}">${mun.name}</option>`;
+                });
+            }
+        }
+
+        window.toggleAddSchoolForm = function() {
+            const form = document.getElementById('addSchoolForm');
+            form.style.display = form.style.display === 'none' ? 'block' : 'none';
+        };
+
+        window.addNewSchool = function() {
+            const name = document.getElementById('newSchoolName').value;
+            const municipalityId = document.getElementById('newSchoolMunicipality').value;
+            const type = document.getElementById('newSchoolType').value;
+            const status = document.getElementById('newSchoolStatus').value;
+            const programsStr = document.getElementById('newSchoolPrograms').value;
+            const quotaVal = parseInt(document.getElementById('newSchoolQuota').value);
+            const source = document.getElementById('newSchoolSource').value.trim();
+            const verified = document.getElementById('newSchoolVerified').checked;
+            const description = document.getElementById('newSchoolDescription').value;
+
+            if (!name || !municipalityId || !type || !status || !programsStr) {
+                alert('Ju lutem plotësoni emrin, komunën, tipin, statusin dhe profilet!');
+                return;
+            }
+
+            const municipality = KOSOVO_MUNICIPALITIES.find(m => m.id === municipalityId).name;
+            const programs = programsStr.split(',').map(p => p.trim());
+            const newId = `${municipalityId}_${type}_${Date.now()}`;
+
+            const newSchool = S({
+                id: newId,
+                name: name,
+                type: getSchoolTypeName(type),
+                status: status,
+                description: description,
+                quota: isNaN(quotaVal) ? null : quotaVal,
+                quotaYear: isNaN(quotaVal) ? null : 'sipas konkursit',
+                programs: programs,
+                verified: verified,
+                source: source || 'Shtuar nga administratori',
+                note: verified ? '' : UNVERIFIED_NOTE
+            });
+
+            if (!KOSOVO_HIGH_SCHOOLS_DATABASE[municipalityId]) {
+                KOSOVO_HIGH_SCHOOLS_DATABASE[municipalityId] = {};
+            }
+            
+            if (!KOSOVO_HIGH_SCHOOLS_DATABASE[municipalityId][type]) {
+                KOSOVO_HIGH_SCHOOLS_DATABASE[municipalityId][type] = [];
+            }
+
+            KOSOVO_HIGH_SCHOOLS_DATABASE[municipalityId][type].push(newSchool);
+            
+            // Regjistro shtimin e shkollës
+            trackClick('add_school', { schoolName: name, type: type });
+            
+            alert('Shkolla u shtua me sukses!');
+            toggleAddSchoolForm();
+            loadSchoolsList();
+            
+            // Pastro formën
+            document.getElementById('newSchoolName').value = '';
+            document.getElementById('newSchoolPrograms').value = '';
+            document.getElementById('newSchoolQuota').value = '';
+            document.getElementById('newSchoolSource').value = '';
+            document.getElementById('newSchoolVerified').checked = false;
+            document.getElementById('newSchoolDescription').value = '';
+        };
+
+        window.editSchool = function(municipalityId, type, schoolId) {
+            const school = KOSOVO_HIGH_SCHOOLS_DATABASE[municipalityId][type].find(s => s.id === schoolId);
+            if (!school) return;
+
+            const row = document.querySelector(`tr[data-school-id="${schoolId}"]`);
+            row.innerHTML = `
+                <td>${KOSOVO_MUNICIPALITIES.find(m => m.id === municipalityId).name}</td>
+                <td><input type="text" id="edit_name_${schoolId}" value="${school.name}"></td>
+                <td>
+                    <select id="edit_type_${schoolId}">
+                        <option value="gjimnaz" ${type === 'gjimnaz' ? 'selected' : ''}>Gjimnaz</option>
+                        <option value="teknike" ${type === 'teknike' ? 'selected' : ''}>Shkollë Teknike</option>
+                        <option value="ekonomike" ${type === 'ekonomike' ? 'selected' : ''}>Shkollë Ekonomike</option>
+                        <option value="mjekesi" ${type === 'mjekesi' ? 'selected' : ''}>Shkollë Mjekësie</option>
+                        <option value="bujqesi" ${type === 'bujqesi' ? 'selected' : ''}>Shkollë Bujqësore / Veterinare</option>
+                        <option value="art" ${type === 'art' ? 'selected' : ''}>Shkollë e Arteve</option>
+                        <option value="muzik" ${type === 'muzik' ? 'selected' : ''}>Shkollë e Muzikës</option>
+                        <option value="gjimnaz-privat" ${type === 'gjimnaz-privat' ? 'selected' : ''}>Gjimnaz Privat</option>
+                        <option value="kolegj-privat" ${type === 'kolegj-privat' ? 'selected' : ''}>Kolegj Privat</option>
+                    </select>
+                </td>
+                <td>
+                    <select id="edit_status_${schoolId}">
+                        <option value="publike" ${school.status === 'publike' ? 'selected' : ''}>Publike</option>
+                        <option value="private" ${school.status === 'private' ? 'selected' : ''}>Private</option>
+                    </select>
+                </td>
+                <td><input type="text" id="edit_programs_${schoolId}" value="${school.programs.join(', ')}"></td>
+                <td>
+                    <input type="number" id="edit_quota_${schoolId}" min="0" placeholder="Kuota" value="${school.quota ?? ''}">
+                    <label><input type="checkbox" id="edit_verified_${schoolId}" ${school.verified ? 'checked' : ''}> E verifikuar</label>
+                </td>
+                <td>
+                    <button class="save-btn" onclick="saveSchoolEdit('${municipalityId}', '${type}', '${schoolId}')">Ruaj</button>
+                    <button class="cancel-btn" onclick="loadSchoolsList()">Anulo</button>
+                </td>
+            `;
+        };
+
+        window.saveSchoolEdit = function(municipalityId, oldType, schoolId) {
+            const newName = document.getElementById(`edit_name_${schoolId}`).value;
+            const newType = document.getElementById(`edit_type_${schoolId}`).value;
+            const newStatus = document.getElementById(`edit_status_${schoolId}`).value;
+            const newProgramsStr = document.getElementById(`edit_programs_${schoolId}`).value;
+            const newQuota = parseInt(document.getElementById(`edit_quota_${schoolId}`).value);
+            const newVerified = document.getElementById(`edit_verified_${schoolId}`).checked;
+
+            if (!newName || !newProgramsStr) {
+                alert('Ju lutem plotësoni të gjitha fushat!');
+                return;
+            }
+
+            // Gjej dhe fshij shkollën e vjetër
+            const schoolIndex = KOSOVO_HIGH_SCHOOLS_DATABASE[municipalityId][oldType].findIndex(s => s.id === schoolId);
+            if (schoolIndex === -1) return;
+            
+            const school = KOSOVO_HIGH_SCHOOLS_DATABASE[municipalityId][oldType][schoolIndex];
+            KOSOVO_HIGH_SCHOOLS_DATABASE[municipalityId][oldType].splice(schoolIndex, 1);
+
+            // Përditëso të dhënat
+            school.name = newName;
+            school.programs = newProgramsStr.split(',').map(p => p.trim());
+            school.quota = isNaN(newQuota) ? null : newQuota;
+            school.verified = newVerified;
+            school.note = newVerified ? '' : UNVERIFIED_NOTE;
+            school.type = getSchoolTypeName(newType);
+            school.status = newStatus;
+
+            // Shto në kategorinë e re nëse është e nevojshme
+            if (oldType !== newType) {
+                if (!KOSOVO_HIGH_SCHOOLS_DATABASE[municipalityId][newType]) {
+                    KOSOVO_HIGH_SCHOOLS_DATABASE[municipalityId][newType] = [];
+                }
+                KOSOVO_HIGH_SCHOOLS_DATABASE[municipalityId][newType].push(school);
+            } else {
+                KOSOVO_HIGH_SCHOOLS_DATABASE[municipalityId][oldType].push(school);
+            }
+
+            // Regjistro ndryshimin
+            trackClick('edit_school', { schoolId: schoolId, schoolName: newName });
+            
+            alert('Ndryshimet u ruajtën me sukses!');
+            loadSchoolsList();
+        };
+
+        window.deleteSchool = function(municipalityId, type, schoolId) {
+            if (confirm('A jeni të sigurt që dëshironi të fshini këtë shkollë?')) {
+                const schoolIndex = KOSOVO_HIGH_SCHOOLS_DATABASE[municipalityId][type].findIndex(s => s.id === schoolId);
+                if (schoolIndex !== -1) {
+                    const schoolName = KOSOVO_HIGH_SCHOOLS_DATABASE[municipalityId][type][schoolIndex].name;
+                    KOSOVO_HIGH_SCHOOLS_DATABASE[municipalityId][type].splice(schoolIndex, 1);
+                    
+                    // Regjistro fshirjen
+                    trackClick('delete_school', { schoolId: schoolId, schoolName: schoolName });
+                    
+                    alert('Shkolla u fshi me sukses!');
+                    loadSchoolsList();
+                }
+            }
+        };
+
+        window.filterSchools = function() {
+            loadSchoolsList();
+        };
+
+        window.changeAdminPassword = function() {
+            const current = document.getElementById('currentPassword').value;
+            const newPass = document.getElementById('newPassword').value;
+            const confirm = document.getElementById('confirmPassword').value;
+
+            if (current !== ADMIN_PASSWORD) {
+                alert('Fjalëkalimi aktual është i gabuar!');
+                return;
+            }
+
+            if (newPass.length < 6) {
+                alert('Fjalëkalimi i ri duhet të ketë të paktën 6 karaktere!');
+                return;
+            }
+
+            if (newPass !== confirm) {
+                alert('Fjalëkalimi i ri dhe konfirmimi nuk përputhen!');
+                return;
+            }
+
+            ADMIN_PASSWORD = newPass;
+            
+            // Regjistro ndryshimin e fjalëkalimit
+            trackClick('change_password');
+            
+            alert('Fjalëkalimi u ndryshua me sukses!');
+            
+            // Pastro fushat
+            document.getElementById('currentPassword').value = '';
+            document.getElementById('newPassword').value = '';
+            document.getElementById('confirmPassword').value = '';
+        };
+
+        window.exportData = function() {
+            const dataStr = JSON.stringify(KOSOVO_HIGH_SCHOOLS_DATABASE, null, 2);
+            const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
+            
+            const exportFileDefaultName = 'shkollat_e_mesme_kosove.json';
+            
+            const linkElement = document.createElement('a');
+            linkElement.setAttribute('href', dataUri);
+            linkElement.setAttribute('download', exportFileDefaultName);
+            linkElement.click();
+            
+            trackClick('export_data', { format: 'json' });
+        };
+
+        window.exportToCSV = function() {
+            let csv = '\uFEFFKomuna,Emri i Shkollës,Tipi,Statusi,Profilet,Kuota,Viti i kuotës,E verifikuar,Burimi\n';
+            
+            Object.keys(KOSOVO_HIGH_SCHOOLS_DATABASE).forEach(munId => {
+                const munName = KOSOVO_MUNICIPALITIES.find(m => m.id === munId)?.name || munId;
+                
+                Object.keys(KOSOVO_HIGH_SCHOOLS_DATABASE[munId]).forEach(type => {
+                    KOSOVO_HIGH_SCHOOLS_DATABASE[munId][type].forEach(school => {
+                        const q = v => '"' + String(v ?? '').replace(/"/g, '""') + '"';
+                        csv += [munName, school.name, school.type, school.status || 'publike', school.programs.join('; '), school.quota ?? '', school.quotaYear ?? '', school.verified ? 'Po' : 'Jo', school.source || ''].map(q).join(',') + '\n';
+                    });
+                });
+            });
+            
+            const dataUri = 'data:text/csv;charset=utf-8,'+ encodeURIComponent(csv);
+            const exportFileDefaultName = 'shkollat_e_mesme_kosove.csv';
+            
+            const linkElement = document.createElement('a');
+            linkElement.setAttribute('href', dataUri);
+            linkElement.setAttribute('download', exportFileDefaultName);
+            linkElement.click();
+            
+            trackClick('export_data', { format: 'csv' });
+        };
+
+        window.exportClicksData = function() {
+            let csv = 'ID,Vizitor,Përdorues,Shkolla,Veprimi,Detajet,Data\n';
+            
+            clickStatistics.userClicks.forEach(click => {
+                csv += `"${click.id}","${click.visitorId}","${click.userName}","${click.userSchool}","${click.action}","${JSON.stringify(click.details)}","${click.timestamp}"\n`;
+            });
+            
+            const dataUri = 'data:text/csv;charset=utf-8,'+ encodeURIComponent(csv);
+            const exportFileDefaultName = 'klikimet_' + new Date().toISOString().slice(0,10) + '.csv';
+            
+            const linkElement = document.createElement('a');
+            linkElement.setAttribute('href', dataUri);
+            linkElement.setAttribute('download', exportFileDefaultName);
+            linkElement.click();
+        };
+
+        window.resetClickStats = function() {
+            if (confirm('A jeni të sigurt që dëshironi të fshini të gjitha statistikat e klikimeve? Ky veprim nuk mund të zhbëhet!')) {
+                clickStatistics = {
+                    totalClicks: 0,
+                    uniqueVisitors: [],
+                    schoolClicks: {},
+                    userClicks: [],
+                    lastReset: new Date().toISOString()
+                };
+                saveClickStatistics();
+                alert('Statistikat u fshinë me sukses!');
+                loadClicksData();
+            }
+        };
+
+        window.verifyData = function() {
+            const resultDiv = document.getElementById('verificationResult');
+            let total = 0, verified = 0;
+            const unverifiedByMun = {};
+            Object.keys(KOSOVO_HIGH_SCHOOLS_DATABASE).forEach(mun => {
+                Object.values(KOSOVO_HIGH_SCHOOLS_DATABASE[mun]).forEach(list => {
+                    list.forEach(school => {
+                        total++;
+                        if (school.verified) verified++;
+                        else unverifiedByMun[mun] = (unverifiedByMun[mun] || 0) + 1;
+                    });
+                });
+            });
+            const noData = KOSOVO_MUNICIPALITIES.filter(m => !KOSOVO_HIGH_SCHOOLS_DATABASE[m.id]).map(m => m.name);
+            const unverifiedList = Object.entries(unverifiedByMun)
+                .map(([id, n]) => `${KOSOVO_MUNICIPALITIES.find(m => m.id === id)?.name || id} (${n})`).join(', ');
+
+            resultDiv.innerHTML = `
+                <p><strong>Gjithsej shkolla:</strong> ${total} &nbsp;|&nbsp; <strong>Të verifikuara:</strong> ${verified} &nbsp;|&nbsp; <strong>Të paverifikuara:</strong> ${total - verified}</p>
+                ${unverifiedList ? `<p><strong>Shkolla për t'u verifikuar sipas komunave:</strong> ${unverifiedList}</p>` : ''}
+                ${noData.length ? `<p><strong>Komuna pa asnjë shkollë në databazë:</strong> ${noData.join(', ')}</p>` : ''}
+                <p><small>Burimi më i mirë për verifikim: konkursi vjetor i DKA-së për regjistrimin në klasën X (publikohet në faqen e komunës).</small></p>`;
+            resultDiv.style.backgroundColor = (total - verified) === 0 && noData.length === 0 ? '#d4edda' : '#fff3cd';
+            trackClick('verify_data');
+        };
+
+        function loadAdminData() {
+            loadSchoolsList();
+            loadStatistics();
+            loadClicksData();
+        }
+
+        function loadSchoolsList() {
+            const container = document.getElementById('schoolsListContainer');
+            const filterMun = document.getElementById('filterMunicipality')?.value || '';
+            const filterType = document.getElementById('filterType')?.value || '';
+            const filterStatus = document.getElementById('filterStatus')?.value || '';
+            const searchTerm = document.getElementById('searchSchool')?.value?.toLowerCase() || '';
+            
+            let html = '<h4>Shkollat e Mesme të Larta të Kosovës</h4>';
+            html += '<p style="margin-bottom: 15px;"><strong>Totali i shkollave:</strong> ' + getTotalSchoolsCount() + ' (publike + private)</p>';
+            html += '<table class="schools-table">';
+            html += '<thead><tr><th>Komuna</th><th>Emri i Shkollës</th><th>Tipi</th><th>Statusi</th><th>Profilet</th><th>Kuota / Verifikimi</th><th>Veprime</th></tr></thead><tbody>';
+            
+            Object.keys(KOSOVO_HIGH_SCHOOLS_DATABASE).sort().forEach(municipalityId => {
+                if (filterMun && filterMun !== municipalityId) return;
+                
+                const municipality = KOSOVO_MUNICIPALITIES.find(m => m.id === municipalityId);
+                const munName = municipality ? municipality.name : municipalityId;
+                
+                Object.keys(KOSOVO_HIGH_SCHOOLS_DATABASE[municipalityId]).forEach(schoolType => {
+                    if (filterType && filterType !== schoolType) return;
+                    
+                    KOSOVO_HIGH_SCHOOLS_DATABASE[municipalityId][schoolType].forEach(school => {
+                        if (filterStatus && filterStatus !== (school.status || 'publike')) return;
+                        
+                        if (searchTerm && !school.name.toLowerCase().includes(searchTerm) && 
+                            !school.programs.join(' ').toLowerCase().includes(searchTerm)) {
+                            return;
+                        }
+                        
+                        const statusBadge = school.status === 'private' ? 
+                            '<span class="private-badge">Private</span>' : 
+                            '<span class="mashti-badge">Publike</span>';
+                        
+                        html += `<tr data-school-id="${school.id}">
+                            <td><strong>${munName}</strong></td>
+                            <td>${school.name} ${statusBadge}</td>
+                            <td>${school.type}</td>
+                            <td>${school.status || 'publike'}</td>
+                            <td>${school.programs.join(', ')}</td>
+                            <td>${school.quota ? school.quota + ' (' + school.quotaYear + ')' : '–'}<br>${school.verified ? '<span class="verified-badge">✔ E verifikuar</span>' : '<span class="unverified-badge">? E paverifikuar</span>'}</td>
+                            <td>
+                                <button class="edit-btn" onclick="editSchool('${municipalityId}', '${schoolType}', '${school.id}')">
+                                    <i class="fas fa-edit"></i> Ndrysho
+                                </button>
+                                <button class="delete-btn" onclick="deleteSchool('${municipalityId}', '${schoolType}', '${school.id}')">
+                                    <i class="fas fa-trash"></i> Fshi
+                                </button>
+                            </td>
+                        </tr>`;
+                    });
+                });
+            });
+            
+            html += '</tbody></table>';
+            container.innerHTML = html;
+        }
+
+        function getTotalSchoolsCount() {
+            let count = 0;
+            Object.keys(KOSOVO_HIGH_SCHOOLS_DATABASE).forEach(mun => {
+                Object.keys(KOSOVO_HIGH_SCHOOLS_DATABASE[mun]).forEach(type => {
+                    count += KOSOVO_HIGH_SCHOOLS_DATABASE[mun][type].length;
+                });
+            });
+            return count;
+        }
+
+        function loadStatistics() {
+            const container = document.getElementById('statisticsContent');
+            
+            let totalSchools = 0;
+            let publicSchools = 0;
+            let privateSchools = 0;
+            let schoolsByType = {};
+            let schoolsByMunicipality = {};
+            
+            Object.keys(KOSOVO_HIGH_SCHOOLS_DATABASE).forEach(mun => {
+                schoolsByMunicipality[mun] = { total: 0, publike: 0, private: 0 };
+                
+                Object.keys(KOSOVO_HIGH_SCHOOLS_DATABASE[mun]).forEach(type => {
+                    const count = KOSOVO_HIGH_SCHOOLS_DATABASE[mun][type].length;
+                    
+                    if (!schoolsByType[type]) {
+                        schoolsByType[type] = 0;
+                    }
+                    schoolsByType[type] += count;
+                    
+                    KOSOVO_HIGH_SCHOOLS_DATABASE[mun][type].forEach(school => {
+                        if (school.status === 'private') {
+                            privateSchools++;
+                            schoolsByMunicipality[mun].private++;
+                        } else {
+                            publicSchools++;
+                            schoolsByMunicipality[mun].publike++;
+                        }
+                    });
+                    
+                    totalSchools += count;
+                    schoolsByMunicipality[mun].total += count;
+                });
+            });
+            
+            let html = '<div class="stats-grid">';
+            html += `<div class="stats-card">
+                <h4>Totali i shkollave</h4>
+                <p>${totalSchools}</p>
+            </div>`;
+            html += `<div class="stats-card" style="background: linear-gradient(135deg, var(--accent-green), #2ecc71);">
+                <h4>Publike</h4>
+                <p>${publicSchools}</p>
+            </div>`;
+            html += `<div class="stats-card" style="background: linear-gradient(135deg, #9b59b6, #8e44ad);">
+                <h4>Private</h4>
+                <p>${privateSchools}</p>
+            </div>`;
+            html += '</div>';
+            
+            html += '<h4 style="margin-top: 20px;">Shpërndarja sipas llojit:</h4>';
+            html += '<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; margin-bottom: 20px;">';
+            
+            Object.keys(schoolsByType).sort().forEach(type => {
+                const typeName = getSchoolTypeName(type);
+                const count = schoolsByType[type];
+                let color = 'var(--secondary-blue)';
+                if (type.includes('privat')) color = '#9b59b6';
+                
+                html += `<div style="background-color: ${color}; color: white; padding: 15px; border-radius: 10px; text-align: center;">
+                    <h5 style="font-size: 0.9rem; margin-bottom: 5px;">${typeName}</h5>
+                    <p style="font-size: 1.8rem; font-weight: bold;">${count}</p>
+                </div>`;
+            });
+            
+            html += '</div>';
+            
+            html += '<h4 style="margin-top: 20px;">Shpërndarja e shkollave sipas komunave:</h4>';
+            html += '<table class="schools-table">';
+            html += '<thead><tr><th>Komuna</th><th>Publike</th><th>Private</th><th>Total</th></tr></thead><tbody>';
+            
+            [...KOSOVO_MUNICIPALITIES].sort((a, b) => a.name.localeCompare(b.name)).forEach(mun => {
+                const data = schoolsByMunicipality[mun.id] || { publike: 0, private: 0, total: 0 };
+                
+                if (data.total > 0) {
+                    html += `<tr>
+                        <td><strong>${mun.name}</strong></td>
+                        <td>${data.publike}</td>
+                        <td>${data.private}</td>
+                        <td><strong>${data.total}</strong></td>
+                    </tr>`;
+                }
+            });
+            
+            html += '</tbody></table>';
+            
+            container.innerHTML = html;
+        }
+
+        function loadClicksData() {
+            const container = document.getElementById('clicksContent');
+            if (!container) return;
+            
+            let html = '<div class="stats-grid">';
+            html += `<div class="stats-card">
+                <h4>Total Klikime</h4>
+                <p>${clickStatistics.totalClicks}</p>
+            </div>`;
+            html += `<div class="stats-card" style="background: linear-gradient(135deg, var(--accent-orange), #e67e22);">
+                <h4>Vizitorë Unikë</h4>
+                <p>${clickStatistics.uniqueVisitors.length}</p>
+            </div>`;
+            html += `<div class="stats-card" style="background: linear-gradient(135deg, var(--accent-purple), #8e44ad);">
+                <h4>Shkolla të Klikuara</h4>
+                <p>${Object.keys(clickStatistics.schoolClicks).length}</p>
+            </div>`;
+            html += '</div>';
+            
+            html += '<h4>Shkollat më të kërkuara:</h4>';
+            
+            const sortedSchools = Object.entries(clickStatistics.schoolClicks)
+                .sort((a, b) => b[1].count - a[1].count)
+                .slice(0, 10);
+            
+            if (sortedSchools.length > 0) {
+                sortedSchools.forEach(([schoolId, data]) => {
+                    html += `
+                        <div class="click-stat-card">
+                            <div>
+                                <strong>${data.name}</strong><br>
+                                <small>ID: ${schoolId}</small>
+                            </div>
+                            <div>
+                                <span class="click-count">${data.count} klikime</span>
+                            </div>
+                        </div>
+                    `;
+                });
+            } else {
+                html += '<p>Nuk ka të dhëna për klikime ende.</p>';
+            }
+            
+            html += '<h4 style="margin-top: 20px;">Klikimet e fundit (max 50):</h4>';
+            
+            const recentClicks = clickStatistics.userClicks.slice(-50).reverse();
+            if (recentClicks.length > 0) {
+                html += '<table class="schools-table">';
+                html += '<thead><tr><th>Data</th><th>Përdoruesi</th><th>Shkolla</th><th>Veprimi</th></tr></thead><tbody>';
+                
+                recentClicks.forEach(click => {
+                    const date = new Date(click.timestamp).toLocaleString('sq');
+                    html += `<tr>
+                        <td>${date}</td>
+                        <td>${click.userName}</td>
+                        <td>${click.userSchool}</td>
+                        <td>${click.action}</td>
+                    </tr>`;
+                });
+                
+                html += '</tbody></table>';
+            } else {
+                html += '<p>Nuk ka klikime të regjistruara.</p>';
+            }
+            
+            container.innerHTML = html;
+        }
+
+        // ============================================
+        // SISTEMI I AVANCUAR I ORIENTIMIT
+        // ============================================
+        const TYPE_TO_GROUP = {
+            'teknike': 'teknike',
+            'ekonomike': 'ekonomike',
+            'mjekesi': 'shendetesi',
+            'bujqesi': 'shendetesi',
+            'art': 'artistike',
+            'muzik': 'artistike'
+        };
+
+        function initializeAdvancedSystem() {
+            const advancedContainer = document.getElementById('advancedSystemContainer');
+            const typeCard = (type, icon, title, desc) => `
+                <div class="school-type-card" data-type="${type}">
+                    <div class="school-type-icon">${icon}</div>
+                    <div class="school-type-title">${title}</div>
+                    <div class="school-type-description">${desc}</div>
+                </div>`;
+            
+            advancedContainer.innerHTML = `
+                <div class="info-section active" id="advancedInfoSection">
+                    <h2><i class="fas fa-user-graduate"></i> Sistemi i Përzgjedhjes së Shkollës së Mesme</h2>
+                    <p style="margin-bottom: 25px; background-color: var(--light-blue); padding: 15px; border-radius: 10px;">
+                        <i class="fas fa-info-circle" style="color: var(--secondary-blue);"></i> 
+                        Pikët llogariten sipas kritereve zyrtare të konkurseve të DKA-ve: suksesi kl. 6–9 (40 pikë),
+                        lëndët prioritare (20 pikë) dhe testi (40 pikë). Shkollat me <span class="verified-badge"><i class="fas fa-check"></i> E verifikuar</span>
+                        janë konfirmuar nga burime zyrtare; të tjerat duhet t'i kontrolloni me DKA-në e komunës.
+                        <br><small>Të dhënat u përditësuan: ${DATA_LAST_UPDATED}</small>
+                    </p>
+                    
+                    <div class="info-grid">
+                        <div class="input-group">
+                            <label for="advancedStudentName"><i class="fas fa-user"></i> Emri dhe Mbiemri:</label>
+                            <input type="text" id="advancedStudentName" placeholder="Shkruani emrin tuaj" value="${document.getElementById('firstName')?.value || ''}">
+                        </div>
+                        <div class="input-group">
+                            <label for="advancedMunicipality"><i class="fas fa-map-marker-alt"></i> Komuna ku e përfundoni klasën e 9-të:</label>
+                            <select id="advancedMunicipality">
+                                <option value="">Zgjidhni komunën tuaj...</option>
+                                ${[...KOSOVO_MUNICIPALITIES].sort((a, b) => a.name.localeCompare(b.name)).map(m => `<option value="${m.id}">${m.name}</option>`).join('')}
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="points-box">
+                        <h3><i class="fas fa-star"></i> Suksesi i përgjithshëm (nota mesatare e secilës klasë)</h3>
+                        <div class="grade-grid">
+                            ${[6, 7, 8, 9].map(k => `
+                                <div class="input-group">
+                                    <label for="gradeClass${k}">Klasa ${k}:</label>
+                                    <input type="number" id="gradeClass${k}" min="1" max="5" step="0.01" placeholder="p.sh. 4.50">
+                                </div>`).join('')}
+                        </div>
+                        <small>Formula zyrtare: (kl.6 + kl.7 + kl.8 + kl.9) × 2 = maksimumi 40 pikë.</small>
+                    </div>
+
+                    <div class="info-grid">
+                        <div class="input-group">
+                            <label for="advancedSchoolStatus"><i class="fas fa-building"></i> Preferenca për statusin:</label>
+                            <select id="advancedSchoolStatus">
+                                <option value="">Të gjitha shkollat</option>
+                                <option value="publike">Vetëm publike</option>
+                                <option value="private">Vetëm private</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div id="advancedSchoolTypeSection" class="school-type-section">
+                        <h2><i class="fas fa-graduation-cap"></i> Zgjedhni tipin e shkollës</h2>
+                        <div class="school-types-grid">
+                            ${typeCard('gjimnaz', '🎓', 'GJIMNAZ', 'Përgatitje për universitet – 3 vite<br><small>Kërkohet mesatarja ≥ 4.00 në lëndët prioritare</small>')}
+                            ${typeCard('teknike', '🔧', 'SHKOLLA TEKNIKE', 'Elektroteknikë, TIK, ndërtimtari – 3 vite<br><small>Renditje sipas pikëve</small>')}
+                            ${typeCard('ekonomike', '💼', 'EKONOMI / JURIDIK / TURIZËM', 'Kontabilitet, banka, hoteleri – 3 vite<br><small>Renditje sipas pikëve</small>')}
+                            ${typeCard('mjekesi', '⚕️', 'SHKOLLA E MJEKËSISË', 'Infermieri, farmaci, laborant – 3 vite<br><small>Kërkohet mesatarja ≥ 4.00 në lëndët prioritare</small>')}
+                            ${typeCard('bujqesi', '🌱', 'BUJQËSI & VETERINARI', 'Agrobiznes, hortikulturë, teknologji ushqimore<br><small>Renditje sipas pikëve</small>')}
+                            ${typeCard('art', '🎨', 'SHKOLLA E ARTEVE', 'Arte figurative<br><small>Mund të ketë provim pranues</small>')}
+                            ${typeCard('muzik', '🎵', 'SHKOLLA E MUZIKËS', 'Instrumental, bashkëpunëtor muzikor<br><small>Provim pranues i detyrueshëm</small>')}
+                            ${typeCard('gjimnaz-privat', '🏫', 'GJIMNAZ PRIVAT', 'Kriteret i cakton vetë shkolla<br><small>Me pagesë</small>')}
+                            ${typeCard('kolegj-privat', '🏛️', 'KOLEGJ PRIVAT', 'Kriteret i cakton vetë shkolla<br><small>Me pagesë</small>')}
+                        </div>
+                    </div>
+
+                    <div id="gymStreamSection" class="points-box" style="display:none;">
+                        <h3><i class="fas fa-route"></i> Drejtimi i gjimnazit</h3>
+                        <select id="gymStream">
+                            <option value="natyror">Gjimnaz i shkencave natyrore</option>
+                            <option value="shoqeror">Gjimnaz i shkencave shoqërore dhe gjuhësore</option>
+                            <option value="matematikor">Gjimnazi Matematik i Specializuar (Prishtinë, me provim pranues)</option>
+                        </select>
+                    </div>
+
+                    <div id="prioritySection" class="points-box" style="display:none;">
+                        <h3><i class="fas fa-list-ol"></i> Lëndët prioritare (mesatarja e notave kl. 6–9 për secilën lëndë)</h3>
+                        <div class="grade-grid" id="priorityInputs"></div>
+                        <small id="priorityHint">Shuma e katër mesatareve = maksimumi 20 pikë.</small>
+                    </div>
+
+                    <div id="testSection" class="points-box" style="display:none;">
+                        <h3><i class="fas fa-file-alt"></i> Testi i arritshmërisë (opsional) – përqindja e saktë sipas fushave</h3>
+                        <div class="grade-grid">
+                            <div class="input-group"><label for="testGjuhe">Gjuhë amtare + anglisht (%)</label><input type="number" id="testGjuhe" min="0" max="100" placeholder="0–100"></div>
+                            <div class="input-group"><label for="testShoqerore">Shkenca shoqërore (%)</label><input type="number" id="testShoqerore" min="0" max="100" placeholder="0–100"></div>
+                            <div class="input-group"><label for="testMatematike">Matematikë + informatikë (%)</label><input type="number" id="testMatematike" min="0" max="100" placeholder="0–100"></div>
+                            <div class="input-group"><label for="testNatyrore">Shkenca natyrore (%)</label><input type="number" id="testNatyrore" min="0" max="100" placeholder="0–100"></div>
+                        </div>
+                        <small>Nëse testi nuk është mbajtur ende, lëreni bosh – do të shfaqet intervali i mundshëm i pikëve.</small>
+                    </div>
+
+                    <div id="advancedLocationSection" class="location-section">
+                        <h2><i class="fas fa-map-marked-alt"></i> Preferenca e vendndodhjes</h2>
+                        <div class="location-options">
+                            <div class="location-btn" data-location="komuna">
+                                <i class="fas fa-home"></i> Vetëm në komunën time
+                            </div>
+                            <div class="location-btn" data-location="rajon">
+                                <i class="fas fa-map"></i> Në komuna të rajonit
+                            </div>
+                            <div class="location-btn" data-location="gjithë-kosova">
+                                <i class="fas fa-globe-europe"></i> Kudo në Kosovë
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="next-button-container">
+                        <button type="button" id="advancedContinueBtn" class="nav-button">
+                            <i class="fas fa-search"></i> Shiko rekomandimet
+                        </button>
+                    </div>
+                </div>
+
+                <div id="advancedResultsSection" style="display: none;">
+                    <div class="results-header">
+                        <h2 class="results-title">Rekomandimet për shkollën e mesme</h2>
+                        <div class="match-score" id="matchScore">Pikët e parashikuara: –</div>
+                    </div>
+                    
+                    <div class="student-info-print" id="advancedStudentInfoPrint"></div>
+                    <div id="pointsSummary" style="margin-top: 20px;"></div>
+                    <div id="recommendedSchoolsContainer" style="margin-top: 30px;"></div>
+                    
+                    <div class="consultation-notice">
+                        <h4><i class="fas fa-handshake"></i> Hapat e ardhshëm</h4>
+                        <p>1. Ndiqni konkursin e Drejtorisë Komunale të Arsimit (zakonisht në qershor–korrik; afati plotësues në gusht).</p>
+                        <p>2. Dokumentet dorëzohen në shkollën ku konkurroni: fletëparaqitja (merret në shkollë), dëftesa origjinale e kl. 6–9 dhe certifikata e lindjes.</p>
+                        <p>3. Kundër rezultatit mund të ankoheni brenda 2 ditëve të punës, fillimisht në shkollë e pastaj në DKA.</p>
+                        <p>4. Konsultohuni me këshilltarin për karrierë në shkollën tuaj. Për shkollat private kontaktoni drejtpërdrejt shkollën.</p>
+                    </div>
+                    
+                    <div class="next-button-container" style="margin-top: 40px;">
+                        <button class="nav-button restart-button" id="advancedRestartBtn">
+                            <i class="fas fa-redo"></i> Fillo përsëri
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            initializeAdvancedSystemLogic();
+        }
+
+        // Grupi i kritereve sipas tipit të shkollës (dhe drejtimit të gjimnazit)
+        function getCriteriaGroup(schoolType) {
+            if (schoolType === 'gjimnaz') {
+                const stream = document.getElementById('gymStream')?.value || 'natyror';
+                return stream === 'shoqeror' ? 'shoqeror' : stream === 'matematikor' ? 'matematikor' : 'natyror';
+            }
+            return TYPE_TO_GROUP[schoolType] || null; // null = shkollë private
+        }
+
+        function renderPriorityInputs(schoolType) {
+            const group = getCriteriaGroup(schoolType);
+            const prioritySection = document.getElementById('prioritySection');
+            const testSection = document.getElementById('testSection');
+            const gymStreamSection = document.getElementById('gymStreamSection');
+            gymStreamSection.style.display = schoolType === 'gjimnaz' ? 'block' : 'none';
+
+            if (!group || group === 'matematikor') {
+                prioritySection.style.display = 'none';
+                testSection.style.display = 'none';
+                return;
+            }
+            const subjects = ADMISSION_RULES.prioritySubjects[group];
+            document.getElementById('priorityInputs').innerHTML = subjects.map((s, i) => `
+                <div class="input-group">
+                    <label for="prio${i}">${s}:</label>
+                    <input type="number" id="prio${i}" min="1" max="5" step="0.01" placeholder="p.sh. 4.25">
+                </div>`).join('');
+            document.getElementById('priorityHint').textContent = ADMISSION_RULES.strictGroups.includes(group)
+                ? 'Kusht: mesatarja e këtyre katër lëndëve duhet të jetë së paku 4.00. Shuma e mesatareve = maksimumi 20 pikë.'
+                : 'Shuma e katër mesatareve = maksimumi 20 pikë.';
+            prioritySection.style.display = 'block';
+            testSection.style.display = 'block';
+        }
+
+        function readNumber(id, min, max) {
+            const v = parseFloat(document.getElementById(id)?.value);
+            if (isNaN(v)) return null;
+            return Math.min(max, Math.max(min, v));
+        }
+
+        // Llogarit pikët sipas formulës zyrtare
+        function calculateAdmissionPoints(schoolType) {
+            const group = getCriteriaGroup(schoolType);
+            const classGrades = [6, 7, 8, 9].map(k => readNumber(`gradeClass${k}`, 1, 5));
+            const result = { group, classGrades, missing: [] };
+
+            if (classGrades.some(g => g === null)) result.missing.push('notat mesatare të klasëve 6–9');
+            result.successPoints = classGrades.every(g => g !== null)
+                ? classGrades.reduce((a, b) => a + b, 0) * 2 : null;
+            result.avgGrade = classGrades.every(g => g !== null)
+                ? classGrades.reduce((a, b) => a + b, 0) / 4 : null;
+
+            if (!group || group === 'matematikor') return result;
+
+            const prio = [0, 1, 2, 3].map(i => readNumber(`prio${i}`, 1, 5));
+            if (prio.some(p => p === null)) result.missing.push('notat e lëndëve prioritare');
+            result.priorityPoints = prio.every(p => p !== null) ? prio.reduce((a, b) => a + b, 0) : null;
+            result.priorityAvg = result.priorityPoints !== null ? result.priorityPoints / 4 : null;
+
+            const test = {
+                gjuhe: readNumber('testGjuhe', 0, 100),
+                shoqerore: readNumber('testShoqerore', 0, 100),
+                matematike: readNumber('testMatematike', 0, 100),
+                natyrore: readNumber('testNatyrore', 0, 100)
+            };
+            result.hasTest = Object.values(test).every(v => v !== null);
+            const weights = ADMISSION_RULES.testWeights[group];
+            result.testPoints = result.hasTest
+                ? Object.keys(weights).reduce((sum, area) => sum + weights[area] * test[area] / 100, 0) : null;
+
+            // Kushtet për gjimnaze dhe shkolla të mjekësisë
+            result.strict = ADMISSION_RULES.strictGroups.includes(group);
+            if (result.strict) {
+                result.meetsPriority = result.priorityAvg !== null ? result.priorityAvg >= 4.0 : null;
+                if (result.hasTest) {
+                    const priorityTestPct = group === 'shoqeror'
+                        ? (test.gjuhe + test.shoqerore) / 2
+                        : test.natyrore;
+                    result.meetsTest = priorityTestPct >= 40;
+                } else {
+                    result.meetsTest = null;
+                }
+            }
+
+            const known = (result.successPoints || 0) + (result.priorityPoints || 0);
+            result.total = result.hasTest ? known + result.testPoints : null;
+            result.minTotal = known;
+            result.maxTotal = known + 40;
+            return result;
+        }
+
+        function renderPointsSummary(points, schoolType) {
+            const box = document.getElementById('pointsSummary');
+            const scoreEl = document.getElementById('matchScore');
+            const fmt = v => (v === null || v === undefined) ? '–' : v.toFixed(2);
+
+            if (!points.group) {
+                box.innerHTML = `<div class="points-box"><p><i class="fas fa-info-circle"></i> Shkollat private i përcaktojnë vetë kriteret dhe pagesën. Kontaktoni drejtpërdrejt shkollën.</p></div>`;
+                scoreEl.textContent = 'Shkollë private';
+                return;
+            }
+            if (points.group === 'matematikor') {
+                box.innerHTML = `<div class="points-box">
+                    <p><strong>Gjimnazi Matematik i Specializuar</strong> ka kritere të veçanta (100 pikë): suksesi kl. 6–9 (20 pikë – 5 për çdo klasë me sukses të shkëlqyeshëm, 4 për shumë të mirë), 
+                    nota e matematikës kl. 6–9 (20 pikë), testi në matematikë (20 pikë) dhe provimi pranues në shkollë (40 pikë). Konkurrojnë vetëm nxënës të shkëlqyeshëm nga e gjithë Kosova.</p>
+                </div>`;
+                scoreEl.textContent = 'Provim pranues';
+                return;
+            }
+
+            let conditions = '';
+            if (points.strict) {
+                const st = (ok, yes, no, unknown) => ok === null
+                    ? `<li class="cond-unknown"><i class="fas fa-question-circle"></i> ${unknown}</li>`
+                    : ok ? `<li class="cond-ok"><i class="fas fa-check-circle"></i> ${yes}</li>`
+                         : `<li class="cond-fail"><i class="fas fa-times-circle"></i> ${no}</li>`;
+                conditions = `<ul class="conditions-list">
+                    ${st(points.meetsPriority,
+                        `Mesatarja e lëndëve prioritare (${fmt(points.priorityAvg)}) e plotëson kushtin ≥ 4.00`,
+                        `Mesatarja e lëndëve prioritare (${fmt(points.priorityAvg)}) është nën 4.00 – nuk plotësohet kushti për ${getSchoolTypeName(schoolType)}`,
+                        'Plotësoni notat e lëndëve prioritare për ta kontrolluar kushtin ≥ 4.00')}
+                    ${st(points.meetsTest,
+                        'Keni ≥ 40% në fushën prioritare të testit',
+                        'Keni nën 40% në fushën prioritare të testit – nuk plotësohet kushti',
+                        'Kushti i testit (≥ 40% në fushën prioritare) do të kontrollohet pas testit')}
+                </ul>`;
+            }
+
+            const totalText = points.total !== null
+                ? `${fmt(points.total)} / 100`
+                : `${fmt(points.minTotal)} – ${fmt(points.maxTotal)} / 100 (pa testin)`;
+
+            box.innerHTML = `<div class="points-box">
+                <h3><i class="fas fa-calculator"></i> Pikët e parashikuara sipas kritereve zyrtare</h3>
+                <table class="schools-table points-table">
+                    <tr><td>Suksesi kl. 6–9</td><td><strong>${fmt(points.successPoints)}</strong> / 40</td></tr>
+                    <tr><td>Lëndët prioritare (${ADMISSION_RULES.prioritySubjects[points.group].join(', ')})</td><td><strong>${fmt(points.priorityPoints)}</strong> / 20</td></tr>
+                    <tr><td>Testi i arritshmërisë</td><td><strong>${points.hasTest ? fmt(points.testPoints) : 'nuk është dhënë'}</strong> / 40</td></tr>
+                    <tr class="total-row"><td>Gjithsej</td><td><strong>${totalText}</strong></td></tr>
+                </table>
+                ${conditions}
+                ${points.missing.length ? `<p style="color: var(--accent-orange);"><i class="fas fa-exclamation-triangle"></i> Mungojnë: ${points.missing.join(', ')}.</p>` : ''}
+                <small>Renditja bëhet sipas pikëve brenda kuotës së secilës shkollë. Pikët minimale për pranim ndryshojnë çdo vit sipas numrit të kandidatëve.
+                Peshat e testit mund të ndryshojnë pak nga një DKA në tjetrën – kontrolloni konkursin e komunës suaj.</small>
+            </div>`;
+            scoreEl.textContent = points.total !== null ? `Pikët e parashikuara: ${points.total.toFixed(1)}` : 'Pikët: pa testin';
+        }
+
+        function initializeAdvancedSystemLogic() {
+            let selectedSchoolType = null;
+            let selectedLocation = null;
+
+            const advancedInfoSection = document.getElementById('advancedInfoSection');
+            const advancedResultsSection = document.getElementById('advancedResultsSection');
+            const advancedContinueBtn = document.getElementById('advancedContinueBtn');
+            const advancedRestartBtn = document.getElementById('advancedRestartBtn');
+            const schoolTypeCards = document.querySelectorAll('.school-type-card');
+            const locationBtns = document.querySelectorAll('.location-btn');
+            const advancedMunicipality = document.getElementById('advancedMunicipality');
+            
+            schoolTypeCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    schoolTypeCards.forEach(c => c.classList.remove('selected'));
+                    this.classList.add('selected');
+                    selectedSchoolType = this.getAttribute('data-type');
+                    renderPriorityInputs(selectedSchoolType);
+                });
+            });
+
+            document.getElementById('gymStream').addEventListener('change', () => renderPriorityInputs('gjimnaz'));
+            
+            locationBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    locationBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    selectedLocation = this.getAttribute('data-location');
+                });
+            });
+            
+            advancedContinueBtn.addEventListener('click', function() {
+                const studentName = document.getElementById('advancedStudentName').value.trim();
+                const municipality = advancedMunicipality.value;
+                const statusPref = document.getElementById('advancedSchoolStatus').value;
+                
+                if (!studentName) { alert('Ju lutem shkruani emrin tuaj!'); return; }
+                if (!municipality) { alert('Ju lutem zgjidhni komunën tuaj!'); return; }
+                if (!selectedSchoolType) { alert('Ju lutem zgjidhni tipin e shkollës!'); return; }
+                if (!selectedLocation) { alert('Ju lutem zgjidhni preferencën për vendndodhje!'); return; }
+
+                const points = calculateAdmissionPoints(selectedSchoolType);
+                
+                advancedInfoSection.style.display = 'none';
+                advancedResultsSection.style.display = 'block';
+                
+                const municipalityName = KOSOVO_MUNICIPALITIES.find(m => m.id === municipality)?.name || municipality;
+                const streamName = selectedSchoolType === 'gjimnaz'
+                    ? ` – ${document.getElementById('gymStream').selectedOptions[0].textContent}` : '';
+                
+                document.getElementById('advancedStudentInfoPrint').innerHTML = `
+                    <p><strong><i class="fas fa-user-graduate"></i> Nxënësi:</strong> ${escapeHtml(studentName)}</p>
+                    <p><strong><i class="fas fa-map-marker-alt"></i> Komuna:</strong> ${municipalityName}</p>
+                    <p><strong><i class="fas fa-graduation-cap"></i> Tipi i shkollës:</strong> ${getSchoolTypeName(selectedSchoolType)}${streamName}</p>
+                    <p><strong><i class="fas fa-star"></i> Suksesi mesatar kl. 6–9:</strong> ${points.avgGrade !== null ? points.avgGrade.toFixed(2) : '–'}</p>
+                    <p><strong><i class="fas fa-building"></i> Statusi:</strong> ${statusPref ? (statusPref === 'publike' ? 'Vetëm publike' : 'Vetëm private') : 'Të gjitha'}</p>
+                `;
+
+                renderPointsSummary(points, selectedSchoolType);
+                
+                generateSchoolRecommendations(municipality, selectedSchoolType, selectedLocation, {
+                    statusPref: statusPref,
+                    municipality: municipality,
+                    stream: selectedSchoolType === 'gjimnaz' ? document.getElementById('gymStream').value : null,
+                    points: points
+                });
+                
+                trackClick('advanced_search', { 
+                    municipality: municipality, 
+                    schoolType: selectedSchoolType,
+                    location: selectedLocation
+                });
+                window.scrollTo(0, 0);
+            });
+            
+            advancedRestartBtn.addEventListener('click', function() {
+                advancedInfoSection.style.display = 'block';
+                advancedResultsSection.style.display = 'none';
+                schoolTypeCards.forEach(card => card.classList.remove('selected'));
+                locationBtns.forEach(btn => btn.classList.remove('active'));
+                selectedSchoolType = null;
+                selectedLocation = null;
+                renderPriorityInputs(null);
+            });
+        }
+
+        function escapeHtml(str) {
+            return String(str).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+        }
+
+        function generateSchoolRecommendations(municipality, schoolType, location, options) {
+            const container = document.getElementById('recommendedSchoolsContainer');
+            let recommendedSchools = [];
+            let municipalitiesToSearch = [];
+            
+            if (location === 'komuna') {
+                municipalitiesToSearch = [municipality];
+            } else if (location === 'rajon') {
+                municipalitiesToSearch = getRegionalMunicipalities(municipality);
+            } else {
+                municipalitiesToSearch = Object.keys(KOSOVO_HIGH_SCHOOLS_DATABASE);
+            }
+
+            // Gjimnazi matematik gjendet vetëm në Prishtinë dhe pranon nga e gjithë Kosova
+            if (options.stream === 'matematikor' && !municipalitiesToSearch.includes('prishtine')) {
+                municipalitiesToSearch.push('prishtine');
+            }
+            
+            municipalitiesToSearch.forEach(munId => {
+                const list = KOSOVO_HIGH_SCHOOLS_DATABASE[munId]?.[schoolType] || [];
+                list.forEach(school => {
+                    if (options.statusPref && (school.status || 'publike') !== options.statusPref) return;
+                    // Filtro gjimnazet sipas drejtimit (shkollat me drejtim të panjohur mbeten)
+                    if (options.stream) {
+                        const streams = school.streams || [];
+                        if (options.stream === 'matematikor' && !streams.includes('matematikor')) return;
+                        if (options.stream !== 'matematikor' && streams.length && !streams.includes(options.stream)) return;
+                    }
+                    recommendedSchools.push({
+                        ...school,
+                        municipality: munId,
+                        matchScore: calculateMatchScore({ ...school, municipality: munId }, options)
+                    });
+                });
+            });
+            
+            if (recommendedSchools.length === 0) {
+                const where = municipalityNamesWithType(schoolType);
+                let message = `Nuk u gjet asnjë shkollë e tipit "${getSchoolTypeName(schoolType)}" në komunat e zgjedhura.`;
+                if (where) message += ` Në databazë ky tip shkolle gjendet në: ${where}. Provoni "Në komuna të rajonit" ose "Kudo në Kosovë".`;
+                if (options.statusPref) message += ` Keni zgjedhur vetëm shkolla ${options.statusPref === 'publike' ? 'publike' : 'private'}.`;
+                message += ' Databaza nuk është ende e plotë për të gjitha komunat – kontrolloni edhe konkursin e DKA-së.';
+                container.innerHTML = `
+                    <div class="profile-card" style="border-top-color: var(--accent-red);">
+                        <h3 class="profile-title"><i class="fas fa-exclamation-triangle"></i> Nuk u gjetën shkolla</h3>
+                        <p class="profile-description">${message}</p>
+                    </div>`;
+                return;
+            }
+            
+            recommendedSchools.sort((a, b) => b.matchScore - a.matchScore);
+            recommendedSchools = recommendedSchools.slice(0, 12);
+
+            const p = options.points || {};
+            const failsStrict = p.strict && (p.meetsPriority === false || p.meetsTest === false);
+            
+            let html = '<h3 class="recommendations-title"><i class="fas fa-school"></i> Shkollat e rekomanduara</h3>';
+            html += '<p style="margin-bottom: 20px;">Renditur sipas afërsisë, përshtatjes me profilin nga testi i paraorientimit dhe besueshmërisë së të dhënave.</p>';
+            if (failsStrict) {
+                html += `<div class="consultation-notice" style="border-left-color: var(--accent-red);"><h4><i class="fas fa-exclamation-circle"></i> Kujdes</h4>
+                    <p>Sipas notave që keni shënuar, nuk e plotësoni kushtin minimal për ${getSchoolTypeName(schoolType).toLowerCase()}. 
+                    Shikoni edhe shkollat profesionale (teknike, ekonomike, bujqësore), ku pranimi bëhet vetëm sipas renditjes së pikëve.</p></div>`;
+            }
+            
+            recommendedSchools.forEach((school, index) => {
+                const municipalityName = KOSOVO_MUNICIPALITIES.find(m => m.id === school.municipality)?.name || school.municipality;
+                const statusBadge = school.status === 'private'
+                    ? '<span class="private-badge">Private</span>'
+                    : '<span class="mashti-badge">Publike</span>';
+                const verifiedBadge = school.verified
+                    ? '<span class="verified-badge"><i class="fas fa-check"></i> E verifikuar</span>'
+                    : '<span class="unverified-badge"><i class="fas fa-question"></i> E paverifikuar</span>';
+                const residentWarning = school.residentOnly && school.municipality !== options.municipality
+                    ? `<p class="cond-fail"><i class="fas fa-exclamation-triangle"></i> Sipas konkursit të DKA-së, në këtë shkollë konkurrojnë vetëm nxënësit që e kanë përfunduar arsimin e obligueshëm në komunën e ${municipalityName} (përveç profileve që mungojnë në komunat tjera).</p>`
+                    : '';
+                
+                html += `
+                    <div class="recommended-school-card ${failsStrict || residentWarning ? 'warning' : ''} ${school.verified ? '' : 'unverified'}" 
+                         onclick="trackSchoolClick('${school.id}', '${school.name.replace(/'/g, "\\'").replace(/"/g, '&quot;')}')"
+                         style="cursor: pointer;">
+                        <div class="school-header">
+                            <span class="school-name">${index + 1}. ${school.name} ${statusBadge} ${verifiedBadge}</span>
+                            <span class="match-percent">${Math.round(school.matchScore)}%</span>
+                        </div>
+                        <p><strong><i class="fas fa-map-marker-alt"></i> Komuna:</strong> ${municipalityName}</p>
+                        <p><strong><i class="fas fa-tag"></i> Lloji i shkollës:</strong> ${school.type}</p>
+                        <p><strong><i class="fas fa-book"></i> Profilet / drejtimet:</strong> ${school.programs.join(', ')}</p>
+                        ${school.quota ? `<p><strong><i class="fas fa-users"></i> Kuota e shpallur (${school.quotaYear}):</strong> ${school.quota} nxënës</p>` : ''}
+                        ${school.description ? `<p><strong><i class="fas fa-info-circle"></i> Përshkrimi:</strong> ${school.description}</p>` : ''}
+                        ${residentWarning}
+                        ${school.note ? `<p class="cond-unknown"><i class="fas fa-exclamation-circle"></i> ${school.note}</p>` : ''}
+                        ${school.source ? `<p style="font-size: 0.8rem; color: var(--text-light);"><i class="fas fa-link"></i> Burimi: ${school.source}</p>` : ''}
+                    </div>
+                `;
+            });
+            
+            if (recommendedSchools.length < 3) {
+                html += '<div class="consultation-notice"><h4><i class="fas fa-lightbulb"></i> Rekomandime alternative</h4><ul>';
+                if (schoolType !== 'gjimnaz') html += '<li>Gjimnazi – përgatitje më e gjerë për universitet (kërkon mesataren ≥ 4.00 në lëndët prioritare)</li>';
+                if (location === 'komuna') html += '<li>Kërkoni në komuna fqinje duke zgjedhur "Në komuna të rajonit"</li>';
+                html += '<li>Kontrolloni konkursin e DKA-së në komunën tuaj – mund të ketë profile që ende nuk janë në këtë databazë</li>';
+                html += '</ul></div>';
+            }
+            
+            container.innerHTML = html;
+        }
+
+        function trackSchoolClick(schoolId, schoolName) {
+            trackClick('school_click', { schoolId: schoolId, schoolName: schoolName });
+        }
+
+        // Përshtatja (0–100): nuk është probabilitet pranimi, por renditje orientuese
+        function calculateMatchScore(school, options) {
+            let score = 55;
+            const text = (school.programs || []).join(' ').toLowerCase() + ' ' + (school.type || '').toLowerCase();
+            const has = (...words) => words.some(w => text.includes(w));
+            const profile = basicTestResults.topProfile;
+
+            if (profile === 'shkencor' && has('natyror', 'matemat', 'informatik', 'tik', 'elektr', 'softuer', 'energjet', 'laborant', 'farmaci', 'teknik')) score += 20;
+            if (profile === 'shoqeror' && has('shoqëror', 'ekonom', 'kontabilitet', 'banka', 'juridik', 'administrat', 'marketing', 'infermier')) score += 20;
+            if (profile === 'gjuhësor' && has('gjuhësor', 'turiz', 'mikpritje', 'marketing')) score += 20;
+            if (profile === 'artistik' && has('art', 'grafik', 'dizajn', 'arkitekt', 'media')) score += 20;
+            if (profile === 'muzik' && has('muzik', 'instrumental', 'balet')) score += 20;
+
+            if (school.municipality === options.municipality) score += 15;
+            if (school.verified) score += 10;
+            if (school.residentOnly && school.municipality !== options.municipality) score -= 35;
+
+            return Math.min(100, Math.max(0, score));
+        }
+
+        function getRegionalMunicipalities(municipality) {
+            const regions = {
+                'prishtine': ['prishtine', 'fushe-kosove', 'obiliq', 'gracanice', 'lipjan', 'podujeve', 'drenas'],
+                'fushe-kosove': ['fushe-kosove', 'prishtine', 'obiliq', 'lipjan', 'drenas'],
+                'obiliq': ['obiliq', 'prishtine', 'fushe-kosove', 'vushtrri'],
+                'gracanice': ['gracanice', 'prishtine', 'lipjan', 'fushe-kosove'],
+                'lipjan': ['lipjan', 'prishtine', 'fushe-kosove', 'shtime', 'ferizaj', 'gracanice'],
+                'podujeve': ['podujeve', 'prishtine', 'vushtrri'],
+                'drenas': ['drenas', 'prishtine', 'skenderaj', 'malisheve', 'lipjan', 'fushe-kosove'],
+                'ferizaj': ['ferizaj', 'kacanik', 'shtime', 'han-i-elezit', 'shterpce', 'viti', 'lipjan'],
+                'kacanik': ['kacanik', 'ferizaj', 'han-i-elezit', 'shtime', 'shterpce'],
+                'han-i-elezit': ['han-i-elezit', 'kacanik', 'ferizaj'],
+                'shtime': ['shtime', 'ferizaj', 'lipjan', 'suhareke', 'kacanik'],
+                'shterpce': ['shterpce', 'ferizaj', 'kacanik', 'prizren'],
+                'viti': ['viti', 'gjilan', 'ferizaj', 'kllokot', 'kamenice'],
+                'gjilan': ['gjilan', 'viti', 'kamenice', 'novoberde', 'ranillug', 'partesh', 'kllokot'],
+                'kamenice': ['kamenice', 'gjilan', 'novoberde', 'ranillug'],
+                'novoberde': ['novoberde', 'gjilan', 'kamenice', 'prishtine'],
+                'ranillug': ['ranillug', 'kamenice', 'gjilan'],
+                'partesh': ['partesh', 'gjilan', 'kllokot'],
+                'kllokot': ['kllokot', 'viti', 'gjilan', 'partesh'],
+                'prizren': ['prizren', 'suhareke', 'dragash', 'mamusha', 'rahovec', 'malisheve'],
+                'suhareke': ['suhareke', 'prizren', 'rahovec', 'malisheve', 'shtime'],
+                'dragash': ['dragash', 'prizren'],
+                'mamusha': ['mamusha', 'prizren', 'rahovec', 'suhareke'],
+                'rahovec': ['rahovec', 'gjakove', 'suhareke', 'prizren', 'malisheve'],
+                'malisheve': ['malisheve', 'rahovec', 'suhareke', 'drenas', 'kline'],
+                'gjakove': ['gjakove', 'rahovec', 'decan', 'junik'],
+                'decan': ['decan', 'gjakove', 'peje', 'junik'],
+                'junik': ['junik', 'decan', 'gjakove'],
+                'peje': ['peje', 'istog', 'kline', 'decan'],
+                'istog': ['istog', 'peje', 'kline', 'skenderaj'],
+                'kline': ['kline', 'peje', 'istog', 'malisheve', 'skenderaj'],
+                'mitrovice': ['mitrovice', 'vushtrri', 'skenderaj', 'mitrovice-veri', 'zvecan'],
+                'vushtrri': ['vushtrri', 'mitrovice', 'skenderaj', 'obiliq', 'podujeve'],
+                'skenderaj': ['skenderaj', 'mitrovice', 'vushtrri', 'drenas', 'kline'],
+                'mitrovice-veri': ['mitrovice-veri', 'mitrovice', 'zvecan', 'zubin-potok', 'leposaviq'],
+                'zvecan': ['zvecan', 'mitrovice-veri', 'mitrovice', 'leposaviq', 'zubin-potok'],
+                'zubin-potok': ['zubin-potok', 'zvecan', 'mitrovice-veri', 'mitrovice'],
+                'leposaviq': ['leposaviq', 'zvecan', 'mitrovice-veri']
+            };
+            return regions[municipality] || [municipality, 'prishtine', 'ferizaj', 'prizren', 'gjilan', 'peje', 'mitrovice'];
+        }
+
+        function getSchoolTypeName(type) {
+            const names = {
+                'gjimnaz': 'Gjimnaz Publik',
+                'teknike': 'Shkollë Teknike',
+                'ekonomike': 'Shkollë Ekonomike / Juridike / Turizëm',
+                'mjekesi': 'Shkollë Mjekësie',
+                'bujqesi': 'Shkollë Bujqësore / Veterinare',
+                'art': 'Shkollë e Arteve',
+                'muzik': 'Shkollë e Muzikës',
+                'gjimnaz-privat': 'Gjimnaz Privat',
+                'kolegj-privat': 'Kolegj Privat'
+            };
+            return names[type] || type;
+        }
+
+        // ============================================
+        // TESTI I PARAORIENTIMIT
+        // ============================================
+        function initializeCareerTest() {
+            const questionsContainer = document.getElementById('questionsContainer');
+            const prevButton = document.getElementById('prevBtn');
+            const nextButton = document.getElementById('nextBtn');
+            const resultsSection = document.getElementById('resultsSection');
+            const profilesContainer = document.getElementById('profilesContainer');
+            const recommendationsList = document.getElementById('recommendationsList');
+            const restartButton = document.getElementById('restartBtn');
+            const printButton = document.getElementById('printBtn');
+            const progressBar = document.getElementById('progressBar');
+            const currentQuestionNum = document.getElementById('currentQuestionNum');
+            const studentInfoPrint = document.getElementById('studentInfoPrint');
+            const goToAdvancedBtn = document.getElementById('goToAdvancedBtn');
+            const goToBasicBtn = document.getElementById('goToBasicBtn');
+            
+            // Initialize questions
+            questionsContainer.innerHTML = '';
+            
+            testQuestions.forEach((question, index) => {
+                const questionElement = document.createElement('div');
+                questionElement.className = `question-box ${index === 0 ? 'active' : ''}`;
+                questionElement.id = `question${index}`;
+                
+                let optionsHTML = '';
+                question.options.forEach((option) => {
+                    optionsHTML += `
+                        <div class="option" data-question-index="${index}" data-option-value="${option.value}">
+                            <div class="option-circle"></div>
+                            <div class="option-text">${option.text}</div>
+                        </div>
+                    `;
+                });
+                
+                questionElement.innerHTML = `
+                    <div class="question-number"><i class="fas fa-question-circle"></i> Pyetja ${question.id}/15</div>
+                    <div class="question-text">${question.text}</div>
+                    <div class="options-container">${optionsHTML}</div>
+                `;
+                
+                questionsContainer.appendChild(questionElement);
+            });
+            
+            document.querySelectorAll('.option').forEach(option => {
+                option.addEventListener('click', handleOptionSelection);
+            });
+            
+            function handleOptionSelection(event) {
+                const questionIndex = parseInt(event.currentTarget.getAttribute('data-question-index'));
+                const optionValue = event.currentTarget.getAttribute('data-option-value');
+                
+                const questionOptions = document.querySelectorAll(`.option[data-question-index="${questionIndex}"]`);
+                questionOptions.forEach(option => {
+                    option.classList.remove('selected');
+                });
+                
+                event.currentTarget.classList.add('selected');
+                
+                userAnswers[questionIndex] = optionValue;
+                
+                if (currentQuestionIndex === questionIndex) {
+                    nextButton.disabled = false;
+                }
+                
+                // Regjistro përgjigjen
+                trackClick('answer_question', { question: questionIndex + 1, answer: optionValue });
+            }
+            
+            function changeQuestion(direction) {
+                if (direction === 1 && userAnswers[currentQuestionIndex] === null) {
+                    alert("Ju lutemi zgjidhni një përgjigje!");
+                    return;
+                }
+                
+                document.getElementById(`question${currentQuestionIndex}`).classList.remove('active');
+                currentQuestionIndex += direction;
+                document.getElementById(`question${currentQuestionIndex}`).classList.add('active');
+                
+                prevButton.disabled = currentQuestionIndex === 0;
+                
+                if (currentQuestionIndex === testQuestions.length - 1) {
+                    nextButton.innerHTML = 'Shiko Rezultatet <i class="fas fa-chart-bar"></i>';
+                } else {
+                    nextButton.innerHTML = 'Pyetja tjetër <i class="fas fa-arrow-right"></i>';
+                }
+                
+                if (userAnswers[currentQuestionIndex] !== null) {
+                    nextButton.disabled = false;
+                } else {
+                    nextButton.disabled = true;
+                }
+                
+                updateProgress();
+            }
+            
+            function updateProgress() {
+                const progressPercentage = ((currentQuestionIndex + 1) / testQuestions.length) * 100;
+                progressBar.style.width = `${progressPercentage}%`;
+                currentQuestionNum.textContent = currentQuestionIndex + 1;
+            }
+            
+            function calculateResults() {
+                for (let i = 0; i < testQuestions.length; i++) {
+                    if (userAnswers[i] === null) {
+                        document.getElementById(`question${currentQuestionIndex}`).classList.remove('active');
+                        currentQuestionIndex = i;
+                        document.getElementById(`question${currentQuestionIndex}`).classList.add('active');
+                        updateProgress();
+                        alert(`Ju lutem përgjigjuni pyetjes ${i + 1}!`);
+                        return;
+                    }
+                }
+                
+                // Display student info
+                const firstName = document.getElementById('firstName').value.trim() || 'Nxënës';
+                const schoolName = document.getElementById('schoolName').value.trim() || 'Shkolla 9-vjeçare';
+                const classNumber = document.getElementById('classNumber').value || 'Klasa 9';
+                
+                studentInfoPrint.innerHTML = `
+                    <p><strong>Nxënësi:</strong> ${firstName}</p>
+                    <p><strong>Shkolla:</strong> ${schoolName}</p>
+                    <p><strong>Klasa:</strong> ${classNumber}</p>
+                `;
+                
+                // Calculate scores
+                Object.keys(careerProfiles).forEach(key => {
+                    careerProfiles[key].score = 0;
+                });
+                
+                userAnswers.forEach(answer => {
+                    if (answer && careerProfiles[answer]) {
+                        careerProfiles[answer].score += 1;
+                    }
+                });
+                
+                const sortedProfiles = Object.keys(careerProfiles).sort((a, b) => {
+                    return careerProfiles[b].score - careerProfiles[a].score;
+                });
+                
+                basicTestResults.topProfile = sortedProfiles[0];
+                basicTestResults.secondProfile = sortedProfiles[1];
+                
+                // Display profiles
+                let profilesHTML = '';
+                sortedProfiles.forEach(key => {
+                    const profile = careerProfiles[key];
+                    const percentage = Math.round((profile.score / testQuestions.length) * 100);
+                    
+                    let icon = '';
+                    if (key === 'shkencor') icon = '🔬';
+                    else if (key === 'shoqeror') icon = '👥';
+                    else if (key === 'gjuhësor') icon = '📚';
+                    else if (key === 'artistik') icon = '🎨';
+                    else if (key === 'muzik') icon = '🎵';
+                    
+                    profilesHTML += `
+                        <div class="profile-card" style="border-top-color: ${key === 'muzik' ? '#f1c40f' : key === 'artistik' ? '#e84342' : 'var(--secondary-blue)'};">
+                            <h3 class="profile-title">${icon} ${profile.name}</h3>
+                            <div class="profile-score">${percentage}%</div>
+                            <p class="profile-description">${profile.description}</p>
+                        </div>
+                    `;
+                });
+                
+                profilesContainer.innerHTML = profilesHTML;
+                
+                // Display recommendations
+                let recommendationsHTML = '';
+                careerProfiles[basicTestResults.topProfile].recommendations.forEach(rec => {
+                    recommendationsHTML += `<li><strong>${rec}</strong> <span style="color: var(--accent-green);">(rekomandim kryesor)</span></li>`;
+                });
+                
+                if (basicTestResults.secondProfile) {
+                    recommendationsHTML += `<li style="margin-top: 15px;"><strong>Opsion tjetër:</strong> Profili i dytë më i lartë është ${careerProfiles[basicTestResults.secondProfile].name} - konsultohuni me këshilltarin për këtë alternativë.</li>`;
+                }
+                
+                // Shto rekomandime shtesë
+                recommendationsHTML += '<li style="margin-top: 15px;"><strong>Këshillë:</strong> Për rezultate më të sakta, kryeni edhe testin e aftësive praktike me këshilltarin tuaj.</li>';
+                
+                recommendationsList.innerHTML = recommendationsHTML;
+                
+                // Show results section
+                document.querySelector('.progress-container').style.display = 'none';
+                document.querySelector('.navigation-controls').style.display = 'none';
+                document.querySelector('.personal-info-section').style.display = 'none';
+                document.querySelector('.intro-section').style.display = 'none';
+                questionsContainer.style.display = 'none';
+                resultsSection.style.display = 'block';
+                
+                // Regjistro përfundimin e testit
+                trackClick('test_completed', { 
+                    topProfile: basicTestResults.topProfile,
+                    score: careerProfiles[basicTestResults.topProfile].score
+                });
+                
+                window.scrollTo(0, 0);
+            }
+            
+            function restartTest() {
+                currentQuestionIndex = 0;
+                userAnswers = new Array(testQuestions.length).fill(null);
+                
+                document.querySelectorAll('.option').forEach(option => {
+                    option.classList.remove('selected');
+                });
+                
+                document.querySelectorAll('.question-box').forEach((box, index) => {
+                    box.classList.remove('active');
+                    if (index === 0) {
+                        box.classList.add('active');
+                    }
+                });
+                
+                prevButton.disabled = true;
+                nextButton.disabled = true;
+                nextButton.innerHTML = 'Pyetja tjetër <i class="fas fa-arrow-right"></i>';
+                
+                document.querySelector('.progress-container').style.display = 'block';
+                document.querySelector('.navigation-controls').style.display = 'flex';
+                document.querySelector('.personal-info-section').style.display = 'block';
+                document.querySelector('.intro-section').style.display = 'block';
+                questionsContainer.style.display = 'block';
+                resultsSection.style.display = 'none';
+                
+                updateProgress();
+                
+                trackClick('restart_test');
+            }
+            
+            // Event listeners
+            prevButton.addEventListener('click', function() {
+                if (currentQuestionIndex > 0) changeQuestion(-1);
+            });
+
+            nextButton.addEventListener('click', function() {
+                if (currentQuestionIndex < testQuestions.length - 1) {
+                    changeQuestion(1);
+                } else {
+                    calculateResults();
+                }
+            });
+
+            restartButton.addEventListener('click', restartTest);
+            
+            printButton.addEventListener('click', function() {
+                window.print();
+                trackClick('print_results');
+            });
+            
+            goToAdvancedBtn.addEventListener('click', function() {
+                switchTab('tab2');
+                trackClick('switch_to_advanced');
+            });
+            
+            goToBasicBtn.addEventListener('click', function() {
+                switchTab('tab1');
+                trackClick('switch_to_basic');
+            });
+            
+            // Regjistro fillimin e testit
+            trackClick('start_test');
+            
+            updateProgress();
+        }
+
+        // ============================================
+        // FUNKSIONET E PËRBASHKËTA
+        // ============================================
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            document.getElementById(tabId).classList.add('active');
+            
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+                if (tab.getAttribute('data-tab') === tabId) {
+                    tab.classList.add('active');
+                }
+            });
+            
+            if (tabId === 'tab2') {
+                initializeAdvancedSystem();
+            }
+            
+            trackClick('switch_tab', { tab: tabId });
+            
+            window.scrollTo(0, 0);
+        }
+
+        // Initialize admin tabs
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('admin-tab')) {
+                document.querySelectorAll('.admin-tab').forEach(tab => {
+                    tab.classList.remove('active');
+                });
+                e.target.classList.add('active');
+                
+                const tabId = e.target.getAttribute('data-admin-tab');
+                document.querySelectorAll('.admin-section').forEach(section => {
+                    section.classList.remove('active');
+                });
+                
+                if (tabId === 'schools') {
+                    document.getElementById('adminSchoolsSection').classList.add('active');
+                    loadSchoolsList();
+                } else if (tabId === 'statistics') {
+                    document.getElementById('adminStatisticsSection').classList.add('active');
+                    loadStatistics();
+                } else if (tabId === 'clicks') {
+                    document.getElementById('adminClicksSection').classList.add('active');
+                    loadClicksData();
+                } else if (tabId === 'settings') {
+                    document.getElementById('adminSettingsSection').classList.add('active');
+                }
+            }
+        });
+
+        // Initialize navigation tabs
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                const tabId = this.getAttribute('data-tab');
+                switchTab(tabId);
+            });
+        });
+
+        // Initialize everything
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeCareerTest();
+            
+            // Pre-populate advanced student name
+            const firstNameInput = document.getElementById('firstName');
+            if (firstNameInput) {
+                firstNameInput.addEventListener('change', function() {
+                    const advName = document.getElementById('advancedStudentName');
+                    if (advName) advName.value = this.value;
+                });
+            }
+            
+            // Regjistro vizitën
+            trackClick('page_view');
+        });
+    </script>
+</body>
+</html>
