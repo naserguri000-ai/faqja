@@ -161,6 +161,21 @@ section{padding:clamp(3.5rem,8vw,6rem) 0}
 .cv-group{display:flex;flex-direction:column;gap:1rem;min-width:0}
 .cv-group h3{font-size:1.25rem;color:var(--spruce)}
 .facts a{white-space:nowrap}
+.cv-group.wide{grid-column:1/-1}
+.langs{list-style:none;margin:0;padding:0;display:grid;gap:.5rem}
+.langs li{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding-bottom:.45rem;border-bottom:1px dashed var(--line)}
+.langs b{font:600 .9rem "Bricolage Grotesque",system-ui,sans-serif;color:var(--gentian);font-variant-numeric:tabular-nums}
+.facts.cols{grid-template-columns:repeat(auto-fit,minmax(17rem,1fr));gap:1.1rem 3rem}
+.tr-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:.5rem 1rem}
+.tr-total{font:500 .95rem "Bricolage Grotesque",system-ui,sans-serif;color:var(--muted)}
+.tr-total b{color:var(--spruce);font-size:1.15rem}
+.awards{margin:.5rem 0 0;font-size:.95rem;color:var(--muted)}
+.trainings{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(20rem,1fr));gap:0 3rem;border-top:2px solid var(--spruce)}
+.trainings li{display:grid;grid-template-columns:3.5rem minmax(0,1fr);gap:1rem;padding:.85rem 0;border-bottom:1px solid var(--line)}
+.trainings .yr{font:600 1rem "Bricolage Grotesque",system-ui,sans-serif;color:var(--gentian);font-variant-numeric:tabular-nums;padding-top:.1rem}
+.trainings strong{display:block;font:600 1rem "Bricolage Grotesque",system-ui,sans-serif;line-height:1.35}
+.trainings span:not(.yr){font-size:.92rem;color:var(--muted)}
+@media (max-width:420px){.trainings{grid-template-columns:1fr}}
 
 footer{background:var(--ridge1);color:#DDE7E0;padding:3rem 0 2rem}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:2rem}
@@ -302,29 +317,89 @@ footer small{display:block;margin-top:2rem;opacity:.7;width:100%}
 
     <div class="cv-grid">
       <div class="cv-group">
-        <h3>Pozita aktuale</h3>
+        <h3>Përvoja e punës</h3>
         <ul class="facts">
-          <li><strong>Mësimdhënës i biologjisë</strong>SHFMU “Emin Duraku”, Kaçanik</li>
+          <li><strong>Mësimdhënës i biologjisë, mbi 20 vjet</strong>SHFMU “Emin Duraku”, Kaçanik (DKA Kaçanik)</li>
           <li><strong>Këshilltar për karrierë</strong>Orientimi i nxënësve të klasës së 9-të drejt shkollës së mesme të lartë</li>
+          <li><strong>Trajnime për trajnerë (TOT)</strong>Me MASHT, UNFPA dhe SBASHK, 2019–2020</li>
         </ul>
       </div>
 
       <div class="cv-group">
         <h3>Arsimimi</h3>
         <ul class="facts">
-          <li><strong>Fakulteti i Edukimit</strong>Universiteti i Prishtinës</li>
-          <li><strong>Punimi i diplomës: “Flora dhe Fauna e Kosovës”</strong>Me fokus te Parku Kombëtar “Sharri”</li>
+          <li><strong>Bachelor në Biologji–Kimi, 240 kredi (2014)</strong>Universiteti i Prishtinës, Fakulteti i Edukimit</li>
+          <li><strong>Teknik laborant për biologji (1984)</strong>Shkolla e mesme “Skënderbeu”, Kaçanik</li>
         </ul>
       </div>
 
       <div class="cv-group">
-        <h3>Projekte</h3>
+        <h3>Gjuhë të huaja</h3>
+        <ul class="langs">
+          <li><span>Serbisht</span><b>C1</b></li>
+          <li><span>Gjermanisht</span><b>B2</b></li>
+          <li><span>Anglisht</span><b>B1–B2</b></li>
+          <li><span>Kroatisht</span><b>B1</b></li>
+          <li><span>Maqedonisht</span><b>B1</b></li>
+        </ul>
+      </div>
+
+      <div class="cv-group">
+        <h3>Njohuri kompjuterike</h3>
         <ul class="facts">
+          <li><strong>ECDL, të shtatë modulet</strong>European Computer Driving Licence</li>
+          <li><strong>Word, PowerPoint, Excel</strong>Njohuri shumë të mira</li>
+          <li><strong>Micro:bit dhe mësimi elektronik</strong>Kurse me British Council dhe Micro:bit Educational Foundation</li>
+        </ul>
+      </div>
+
+      <div class="cv-group wide">
+        <h3>Projekte</h3>
+        <ul class="facts cols">
           <li><strong>Platforma e orientimit në karrierë</strong>Platformë online që i ndihmon nxënësit e klasës së 9-të të zgjedhin shkollën e mesme. <a href="https://naserguri000-ai.github.io/platforma-per-perzgjedhje-te-shml-index.html/">Hap platformën</a></li>
           <li><strong>Shkolla Digjitale</strong>Sistem për menaxhimin e orarit, klasave, notave dhe mungesave në SHFMU “Emin Duraku”</li>
           <li><strong>“Mësimi me zgjedhje”, klasa 9</strong>Plan vjetor, dymujor dhe tremujor mbi florën dhe faunën e Kosovës</li>
           <li><strong>Kuize dhe lojëra mësimore</strong>Mbi 14 kuize interaktive për biologjinë e klasave 6 dhe 7, të ndara falas me kolegët</li>
         </ul>
+      </div>
+
+      <div class="cv-group wide">
+        <h3>Punime profesionale</h3>
+        <ul class="facts cols">
+          <li><strong>“Biodiversiteti i Malit Sharr” (punim diplome, 2014)</strong>Vegjetacioni, flora, fauna, rezervatet natyrore dhe gjendja mjedisore e Parkut Kombëtar “Sharri”. Universiteti i Prishtinës, Fakulteti i Edukimit, Qendra në Gjilan; mentor Dr. Sc. Halil Ibrahimi. <a href="Biodiversiteti-i-Malit-Sharr-Naser-Guri.pdf">Lexo punimin (PDF)</a></li>
+          <li><strong>“Biodiversiteti i Kosovës” (2017/2018)</strong>Dy plane të orës mësimore për Biologjinë 6: flora, vegjetacioni dhe pyjet e Kosovës, si dhe fauna e Kosovës, me rezultatet e të nxënit, rrjedhën e orës dhe vlerësimin. <a href="Biodiversiteti-i-Kosoves-Naser-Guri.pdf">Lexo punimin (PDF)</a></li>
+          <li><strong>“Shëndeti, sjelljet dhe emocionet e njeriut” (2017/2018)</strong>Material përmbledhës për Biologjinë 6, i ndërtuar mbi rezultatet e të nxënit: puberteti, higjiena personale, emocionet, stresi te adoleshentët dhe shëndeti riprodhues. <a href="https://drive.google.com/file/d/1HS4BdGiCMgj_H7mIwzPG0Mw6F5sGcluQ/view?usp=drivesdk">Lexo punimin (PDF)</a></li>
+          <li><strong>“Qasje bashkëkohore për një mësimdhënie dhe mësimnxënie efektive”</strong>Metoda dhe ide për orë mësimore më efektive. <a href="https://naserguri1.wordpress.com/qasje-bashkekohore-per-nje-mesidhenie-dhe-mesimnxenie-efektive/">Lexo punimin</a></li>
+        </ul>
+      </div>
+
+      <div class="cv-group wide">
+        <div class="tr-head">
+          <h3>Trajnime profesionale</h3>
+          <span class="tr-total"><b>19</b> trajnime · <b>658</b> orë · 2008–2021</span>
+        </div>
+        <ul class="trainings">
+          <li><span class="yr">2021</span><div><strong>Forcimi i kapaciteteve për udhëheqjen efektive të dialogut social</strong><span>MASHT dhe SBASHK · 32 orë</span></div></li>
+          <li><span class="yr">2020</span><div><strong>Aplikimi i programeve kompjuterike në mësimdhënie (trajnim për trajnerë)</strong><span>MASHT dhe SBASHK · 32 orë</span></div></li>
+          <li><span class="yr">2020</span><div><strong>Edukimi medial dhe roli i tij në zhvillimin shoqëror dhe demokratik</strong><span>MASHT dhe SBASHK · 32 orë</span></div></li>
+          <li><span class="yr">2020</span><div><strong>Udhëheqja dhe planifikimi strategjik në arsimin parauniversitar</strong><span>MASHT dhe SBASHK · 32 orë</span></div></li>
+          <li><span class="yr">2020</span><div><strong>Aplikimi i programeve kompjuterike në mësimdhënie</strong><span>SBASHK · 51 orë</span></div></li>
+          <li><span class="yr">2020</span><div><strong>Micro:bit basics, 12 module</strong><span>British Council, Micro:bit Educational Foundation dhe MASHT · 8 orë</span></div></li>
+          <li><span class="yr">2019</span><div><strong>Mendimi kritik, zgjidhja e problemeve dhe bazat e Micro:bit</strong><span>British Council dhe MASHT · 32 orë</span></div></li>
+          <li><span class="yr">2019</span><div><strong>Shëndeti seksual dhe riprodhues (trajnim për trajnerë, TOT)</strong><span>MASHT dhe UNFPA · 24 orë</span></div></li>
+          <li><span class="yr">2019</span><div><strong>Edukimi seksual gjithëpërfshirës sipas kurrikulës së Kosovës</strong><span>MASHT dhe UNFPA · 20 orë</span></div></li>
+          <li><span class="yr">2017</span><div><strong>Shkencat natyrore në zbatimin e kurrikulës së re</strong><span>MASHT · 40 orë</span></div></li>
+          <li><span class="yr">2017</span><div><strong>Aplikimi i TIK-ut dhe mësimit elektronik në arsim</strong><span>Projekt i BE-së dhe MASHT · 20 orë</span></div></li>
+          <li><span class="yr">2016</span><div><strong>Mësimdhënia dhe të nxënit e shkencave natyrore në klasat 6–9</strong><span>GIZ dhe MASHT · 60 orë</span></div></li>
+          <li><span class="yr">2016</span><div><strong>Vlerësimi për nxënie</strong><span>USAID BEP dhe MASHT · 20 orë</span></div></li>
+          <li><span class="yr">2015</span><div><strong>Vlerësimi përmbledhës dhe hartimi i testit për klasat 1–9</strong><span>GIZ dhe MASHT · 30 orë</span></div></li>
+          <li><span class="yr">2013</span><div><strong>Qasja e fillimit të eksperimentit (QFE 2)</strong><span>GIZ dhe MASHT · 40 orë</span></div></li>
+          <li><span class="yr">2012</span><div><strong>Qasja e fillimit të eksperimentit (QFE 1)</strong><span>GIZ dhe MASHT · 80 orë</span></div></li>
+          <li><span class="yr">2011</span><div><strong>ECDL, të shtatë modulet</strong><span>ECDL Foundation · 90 orë</span></div></li>
+          <li><span class="yr">2010</span><div><strong>Paketa e gjelbër</strong><span>Qendra Rajonale e Mjedisit për Evropën Qendrore dhe Lindore · 8 orë</span></div></li>
+          <li><span class="yr">2008</span><div><strong>Metodologji të reja të mësimdhënies dhe ndihma për fëmijët me vështirësi në mësim dhe vëmendje</strong><span>Qendra për përparimin e edukimit dhe arsimit · 7 orë</span></div></li>
+        </ul>
+        <p class="awards"><strong>Mirënjohje:</strong> Certifikatë vlerësimi (2010) dhe Certifikatë arritjeje me medaljen e bronztë (2011), MASHT dhe Kolegji “Mehmet Akif”.</p>
       </div>
     </div>
   </div>
