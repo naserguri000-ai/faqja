@@ -2,6 +2,13 @@
  "email": "naserguri@outlook.com",
  "materialet": [
   {
+   "skedari": "materialet/logo-emin-duraku.png",
+   "titulli": "logo emin duraku",
+   "klasa": "Të gjitha",
+   "lloji": "kuiz",
+   "pershkrimi": "Logo e SHFMU \"Emin Duraku\" punuar nga Naser Guri autor"
+  },
+  {
    "skedari": "materialet/logo-shfmu-emin-duraku.zip",
    "titulli": "Logo SHFMU Emin Duraku",
    "klasa": "Të gjitha",
