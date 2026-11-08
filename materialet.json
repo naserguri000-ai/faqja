@@ -2,6 +2,13 @@
  "email": "naserguri@outlook.com",
  "materialet": [
   {
+   "skedari": "materialet/logo-shfmu-emin-duraku.zip",
+   "titulli": "Logo SHFMU Emin Duraku",
+   "klasa": "Të gjitha",
+   "lloji": "prez",
+   "pershkrimi": "Logo e shkollës punuar nga Naser Guri"
+  },
+  {
    "skedari": "materialet/index-platforma.html",
    "titulli": "index platforma",
    "klasa": "9",
